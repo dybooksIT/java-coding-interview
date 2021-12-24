@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Racket {
-    
     private String type;
     private int size;
     private int weight;
@@ -35,5 +34,4 @@ public class Racket {
     public void setWeight(int weight) {
         this.weight = weight;
     }
-   
 }

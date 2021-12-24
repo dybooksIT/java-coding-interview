@@ -1,7 +1,6 @@
 package coding.challenge.bad;
 
 public class Rectangle implements Shape {
-
     private final int width;
     private final int height;
 
@@ -16,5 +15,5 @@ public class Rectangle implements Shape {
 
     public int getHeight() {
         return height;
-    }        
+    }
 }

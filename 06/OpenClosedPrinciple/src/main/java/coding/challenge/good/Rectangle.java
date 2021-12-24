@@ -1,7 +1,6 @@
 package coding.challenge.good;
 
 public class Rectangle implements Shape {
-
     private final int width;
     private final int height;
 
@@ -9,7 +8,8 @@ public class Rectangle implements Shape {
         this.width = width;
         this.height = height;
     }
-    
+
+    @Override
     public double area() {
         return width * height;
     }

@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class ElectricCar extends Car {
-
     public ElectricCar(String carType) {
         super(carType);
     }
@@ -25,5 +24,4 @@ public class ElectricCar extends Car {
     public void turnLeft() {
         System.out.println("Turn left the electric car");
     }
-
 }

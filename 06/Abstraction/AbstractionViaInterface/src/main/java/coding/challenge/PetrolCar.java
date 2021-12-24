@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class PetrolCar implements Car {
-
     private final String carType;
 
     public PetrolCar(String carType) {

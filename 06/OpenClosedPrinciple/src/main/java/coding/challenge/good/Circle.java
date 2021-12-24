@@ -1,7 +1,6 @@
 package coding.challenge.good;
 
 public class Circle implements Shape {
-
     private final int radius;
 
     public Circle(int radius) {

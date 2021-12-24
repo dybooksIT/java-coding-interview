@@ -1,7 +1,6 @@
 package coding.challenge.good;
 
 public class RectangleAreaCalculator {
-    
     private final int width;
     private final int height;
 

@@ -1,7 +1,6 @@
 package coding.challenge;
 
 abstract class Car {
-
     private final String carType;
 
     // abstract class can have constructor

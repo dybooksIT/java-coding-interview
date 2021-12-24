@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Cat cat = new Cat();
         
         cat.feed();
@@ -15,5 +13,4 @@ public class Main {
         System.out.println("Mood: " + cat.getMood());
         System.out.println("Hungry: " + cat.getHungry());
     }
-
 }

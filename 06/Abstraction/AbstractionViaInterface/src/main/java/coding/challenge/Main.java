@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Car electricCar = new ElectricCar("BMW");
         Car petrolCar = new PetrolCar("Audi");
 
@@ -17,5 +15,4 @@ public class Main {
         petrolCar.turnRight();
         petrolCar.turnLeft();
     }
-
 }

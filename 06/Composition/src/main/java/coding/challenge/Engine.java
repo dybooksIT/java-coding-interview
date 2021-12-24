@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Engine {
-    
     private String type;
     private int horsepower;
 

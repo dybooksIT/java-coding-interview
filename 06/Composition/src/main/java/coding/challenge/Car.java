@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Car {
-    
     private final String name;
     private final Engine engine;
 

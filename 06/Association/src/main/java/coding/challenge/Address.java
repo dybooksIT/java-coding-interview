@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Address {
-
     private String city;
     private String zip;
 
@@ -25,5 +24,4 @@ public class Address {
     public void setZip(String zip) {
         this.zip = zip;
     }
-
 }

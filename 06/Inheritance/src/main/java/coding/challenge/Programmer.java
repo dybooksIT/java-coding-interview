@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Programmer extends Employee {
-
     private String team;
 
     public Programmer(String name, String team) {

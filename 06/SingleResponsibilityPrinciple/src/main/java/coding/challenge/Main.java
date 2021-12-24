@@ -3,9 +3,7 @@ package coding.challenge;
 import coding.challenge.good.AreaConverter;
 
 public class Main {
-
     public static void main(String[] args) {
-
         System.out.println("\nApproach that doesn't follow SRP:\n");
 
         coding.challenge.bad.RectangleAreaCalculator rac1

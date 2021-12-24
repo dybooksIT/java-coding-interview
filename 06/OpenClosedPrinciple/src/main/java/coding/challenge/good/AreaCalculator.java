@@ -3,7 +3,6 @@ package coding.challenge.good;
 import java.util.List;
 
 public class AreaCalculator {
- 
     private final List<Shape> shapes;
 
     public AreaCalculator(List<Shape> shapes) {

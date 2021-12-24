@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class TennisPlayer {
-    
     private String name;
     private Racket racket;
 
@@ -25,5 +24,4 @@ public class TennisPlayer {
     public void setRacket(Racket racket) {
         this.racket = racket;
     }
-                     
 }

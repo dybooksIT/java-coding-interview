@@ -3,15 +3,13 @@ package coding.challenge.bad;
 import java.util.List;
 
 public class AreaCalculator {
-
     private final List<Shape> shapes;
 
     public AreaCalculator(List<Shape> shapes) {
         this.shapes = shapes;
     }
 
-    // adding more shapes requires us to modify this class as well
-    // this code is not OCP compliant.
+    // 더 많은 도형을 추가하려면 이 클래스를 수정해야 하므로 개방-폐쇄 원칙에 맞지 않습니다.
     public double sum() {
         int sum = 0;
         for (Shape shape : shapes) {
