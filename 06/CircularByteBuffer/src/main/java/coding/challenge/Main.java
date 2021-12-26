@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-
         CircularByteBuffer cbb = new CircularByteBuffer(3);
 
         cbb.put(1);
@@ -16,5 +14,4 @@ public class Main {
         cbb.clear();
         System.out.println("Available after clear: " + cbb.available());
     }
-
 }

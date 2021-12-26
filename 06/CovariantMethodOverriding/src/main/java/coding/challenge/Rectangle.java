@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Rectangle implements Cloneable {
-
     private final int height;
     private final int width;
 
@@ -20,10 +19,8 @@ public class Rectangle implements Cloneable {
 
     @Override
     protected Rectangle clone() throws CloneNotSupportedException {
-
         Rectangle clone = (Rectangle) super.clone();
 
         return clone;
     }
-
 }

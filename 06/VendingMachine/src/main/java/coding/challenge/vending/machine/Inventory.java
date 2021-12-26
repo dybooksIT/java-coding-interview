@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
  
 public final class Inventory<T> {
-
     private Map<T, Integer> inventory = new HashMap<>();
 
     protected int getQuantity(T item) {
@@ -16,8 +15,8 @@ public final class Inventory<T> {
         return getQuantity(item) > 0;
     }
 
-    protected void clear() {}    
-    protected void add(T item) {}
-    protected void put(T item, int quantity) {}
-    protected void deduct(T item) {}
+    protected void clear() { }
+    protected void add(T item) { }
+    protected void put(T item, int quantity) { }
+    protected void deduct(T item) { }
 }

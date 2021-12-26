@@ -3,10 +3,9 @@ package coding.challenge.jukebox;
 import java.util.List;
 
 public class Playlist {
-    
     private Song song;
     
-    private final List<Song> songs; // or Queue
+    private final List<Song> songs; // 또는 큐(Queue)로 구현할 수 있습니다.
 
     public Playlist(List<Song> songs) {
         this.songs = songs;

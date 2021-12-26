@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class SteamCar implements Vehicle {
-
     private String name;
 
     public SteamCar(String name) {

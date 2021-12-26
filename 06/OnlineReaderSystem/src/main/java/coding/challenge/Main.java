@@ -5,9 +5,7 @@ import coding.challenge.reader.OnlineReaderSystem;
 import coding.challenge.reader.Reader;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Reader r = new Reader("Mark Janel", "markjanel@gmail.com");
         Book b = new Book("Olivia Goy", "Carrie", "ISBN:001-OG");
 
@@ -24,5 +22,4 @@ public class Main {
         ors.nextPage();
         ors.previousPage();
     }
-
 }

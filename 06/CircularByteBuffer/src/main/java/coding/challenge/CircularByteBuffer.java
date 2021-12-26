@@ -1,7 +1,6 @@
 package coding.challenge;
  
 public class CircularByteBuffer {
-
     private int capacity;
     private byte[] buffer;
     private int readPointer;
@@ -26,7 +25,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized int get() {
-
         if (available == 0) {
             return -1;
         }
@@ -38,7 +36,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized boolean put(int value) {
-
         if (available == capacity) {
             return false;
         }
@@ -59,7 +56,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized int get(byte[] dest, int offset, int len) {
-
         if (available == 0) {
             return 0;
         }
@@ -90,7 +86,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized int put(byte[] source, int offset, int len) {
-
         if (available == capacity) {
             return 0;
         }
@@ -121,7 +116,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized int skip(int skipBytes) {
-
         if (skipBytes > available) {
             skipBytes = available;
         }
@@ -133,7 +127,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized int peek() {
-
         if (available > 0) {
             return buffer[readPointer];
         }
@@ -142,7 +135,6 @@ public class CircularByteBuffer {
     }
 
     public synchronized void resize() {
-
         byte[] newBuffer = new byte[capacity * 2];
         if (readPointer < writePointer) {
             System.arraycopy(buffer, readPointer, newBuffer, 0, available);

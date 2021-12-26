@@ -1,7 +1,6 @@
 package coding.challenge.bad;
 
 public class PremiumMember extends Member {
-
     public PremiumMember(String name) {
         super(name);
     }

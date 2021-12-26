@@ -4,9 +4,7 @@ import java.sql.BatchUpdateException;
 import java.sql.SQLException;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Parent p = new Parent();
         Child c = new Child();
 
@@ -25,9 +23,7 @@ public class Main {
         }
         
         System.out.println();
-
         p.buzz();
-        
         System.out.println();
 
         try {

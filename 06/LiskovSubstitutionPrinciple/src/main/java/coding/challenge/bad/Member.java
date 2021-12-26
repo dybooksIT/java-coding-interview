@@ -1,7 +1,6 @@
 package coding.challenge.bad;
 
 public abstract class Member {
-
     private final String name;
 
     public Member(String name) {
@@ -9,6 +8,5 @@ public abstract class Member {
     }
 
     public abstract void joinTournament();
-
     public abstract void organizeTournament();
 }

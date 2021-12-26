@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class PetrolCar implements Vehicle {
-
     private String name;
     private int horsePower;
 

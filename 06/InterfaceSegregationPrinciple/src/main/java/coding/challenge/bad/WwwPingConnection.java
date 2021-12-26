@@ -1,7 +1,6 @@
 package coding.challenge.bad;
 
 public class WwwPingConnection implements Connection {
-
     private final String www;
 
     public WwwPingConnection(String www) {
@@ -18,8 +17,7 @@ public class WwwPingConnection implements Connection {
         System.out.println("Connect to " + www);
     }
 
-    // this implementation breaks Interface Segregation Principle
-    // this class doesn't need this method but it is forced to override it
+    // 이 구현은 인터페이스 분리 원칙에 맞지 않습니다. 이 클래스는 socket 메서드가 필요하지 않지만 강제로 재정의해야 합니다.
     @Override
     public void socket() {
     }

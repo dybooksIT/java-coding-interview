@@ -5,19 +5,16 @@ import coding.challenge.inheritance.Parent;
 import coding.challenge.polymorphism.Concrete;
 
 public class Main {
-
     public static void main(String[] args) {
-
-        // Method overriding in Inheritance
+        // 상속의 메서드 오버라이딩
         Parent parent = new Parent();
         Child child = new Child();
 
         parent.execute();
         child.execute();
 
-        // Method inheritance in Runtime Polymorphism
+        // 런타임 다형성의 메서드 상속
         Concrete concrete = new Concrete();
-
         concrete.execute();
     }
 }

@@ -8,16 +8,14 @@ import coding.challenge.card.StandardSuit;
 import coding.challenge.deck.Deck;
 
 public class Main {
-
     public static void main(String[] args) {
+        // 트럼프 카드 한 장을 생성합니다.
+        Card sevenHeart = new StandardCard(StandardSuit.HEARTS, 7);
 
-        // create a single classical card
-        Card sevenHeart = new StandardCard(StandardSuit.HEARTS, 7);              
-
-        // create a complete deck of standard cards      
+        // 표준 트럼프 카드 한 벌을 생성합니다.
         Pack cp = new StandardPack();                   
         Deck deck = new Deck(cp);
-        
+
         System.out.println("Remaining cards: " + deck.remainingCards());
     }
 }

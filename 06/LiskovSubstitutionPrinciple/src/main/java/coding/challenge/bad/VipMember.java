@@ -1,7 +1,6 @@
 package coding.challenge.bad;
 
 public class VipMember extends Member {
-
     public VipMember(String name) {
         super(name);
     }

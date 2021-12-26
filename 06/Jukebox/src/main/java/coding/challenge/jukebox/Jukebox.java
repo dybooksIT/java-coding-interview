@@ -1,8 +1,7 @@
 package coding.challenge.jukebox;
  
 public class Jukebox implements Selector {
-
-    private final CDPlayer cdPlayer;   
+    private final CDPlayer cdPlayer;
 
     public Jukebox(CDPlayer cdPlayer) {
         this.cdPlayer = cdPlayer;        

@@ -1,7 +1,6 @@
 package coding.challenge.good;
 
 public class FreeMember implements TournamentJoiner {
-
     private final String name;
 
     public FreeMember(String name) {

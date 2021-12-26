@@ -1,9 +1,8 @@
 package coding.challenge.filesystem;
 
 import java.time.Instant;
- 
-public abstract class Item {
 
+public abstract class Item {
     protected long created;
     protected long updated;
     protected long accessed;
@@ -22,7 +21,7 @@ public abstract class Item {
         if (parent == null) {
             return false;
         }
-        
+
         return parent.deleteItem(this);
     }
 
@@ -33,10 +32,10 @@ public abstract class Item {
             return parent.getFullPath() + "/" + name;
         }
     }
-    
+
     public String rename(String newName) {
         this.name = newName;
-        
+
         return newName;
     }
 

@@ -1,9 +1,8 @@
 package coding.challenge.reader;
 
 import java.util.Objects;
- 
+
 public class Book {
-    
     private final String author;
     private final String title;
     private final String isbn;
@@ -13,8 +12,10 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
     }
-    
-    public String fetchPage(int pageNr) { return "Some page content ..."; }
+
+    public String fetchPage(int pageNr) {
+        return "Some page content ...";
+    }
 
     public String getAuthor() {
         return author;
@@ -37,25 +38,23 @@ public class Book {
 
     @Override
     public boolean equals(Object obj) {
-        
         if (this == obj) {
             return true;
         }
-        
+
         if (obj == null) {
             return false;
         }
-        
+
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         final Book other = (Book) obj;
         if (!Objects.equals(this.isbn, other.isbn)) {
             return false;
         }
-        
+
         return true;
     }
-            
 }

@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-        
         System.out.println("This is the main design (!not implementation!) of a cinema with the following coordinates:");
         System.out.println("\t - multiple cinema rooms (see CinemaRoom)");
         System.out.println("\t - a room has three types of seats (see Seat and SeatType)");
@@ -15,5 +13,4 @@ public class Main {
         System.out.println("\t - the cinema has an automatic ticketing system (see MovieTicketingMachine)");
         System.out.println("\t - the automatic system release tickets (see Movie Ticket)");
     }
-
 }

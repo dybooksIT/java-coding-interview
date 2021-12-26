@@ -1,7 +1,6 @@
 package coding.challenge.jukebox;
  
 public interface Selector {
-    
     public void nextSongBtn();
     public void prevSongBtn();
     public void addSongToPlaylistBtn(Song song);

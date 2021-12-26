@@ -1,12 +1,10 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         HashTable hashTable = new HashTable();
 
-        // Put some key-value
+        // 키-값 입력
         hashTable.put("ana", "ana".toUpperCase());
         hashTable.put("carina", "carina".toUpperCase());
         hashTable.put("barbu", "barbu".toUpperCase());
@@ -15,18 +13,17 @@ public class Main {
         hashTable.put(5, "FIVE");
         hashTable.put(10, "TEN");
 
-        // The following keys should exists
-        System.out.println("Get(ana): " + hashTable.get("ana"));        
+        // 다음 키가 존재해야 합니다.
+        System.out.println("Get(ana): " + hashTable.get("ana"));
         System.out.println("Get(carina): " + hashTable.get("carina"));
         System.out.println("Get(barbu): " + hashTable.get("barbu"));
         System.out.println("Get(leo): " + hashTable.get("leo"));
         System.out.println("Get(marius): " + hashTable.get("marius"));
         System.out.println("Get(5): " + hashTable.get(5));
         System.out.println("Get(10): " + hashTable.get(10));
-        
-        // The following two keys should not exists
+
+        // 다음 두 키는 존재하지 않아야 합니다.
         System.out.println("Get(anna): " + hashTable.get("anna"));
-        System.out.println("Get(15): " + hashTable.get(15));               
+        System.out.println("Get(15): " + hashTable.get(15));
     }
 }
-

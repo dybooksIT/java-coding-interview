@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Pack<T extends Card> {
-
     private List<T> cards;
 
     protected abstract List<T> build();

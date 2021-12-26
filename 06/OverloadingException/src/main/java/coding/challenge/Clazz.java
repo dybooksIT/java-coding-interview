@@ -3,7 +3,6 @@ package coding.challenge;
 import java.sql.SQLException;
 
 public class Clazz {
-
     public void foo(String foozzy) {
         System.out.println("Executing Clazz#foo() that doesn't throw any exception");
     }

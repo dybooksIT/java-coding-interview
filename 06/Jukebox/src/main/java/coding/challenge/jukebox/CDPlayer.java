@@ -3,7 +3,6 @@ package coding.challenge.jukebox;
 import java.util.Set;
 
 public class CDPlayer {
-        
     private CD cd;
     
     private final Set<CD> cds;  

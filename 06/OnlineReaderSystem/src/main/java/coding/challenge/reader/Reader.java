@@ -1,9 +1,8 @@
 package coding.challenge.reader;
- 
+
 import java.util.Objects;
 
 public class Reader {
-    
     private String name;
     private String email;
 
@@ -26,7 +25,7 @@ public class Reader {
 
     public void setEmail(String email) {
         this.email = email;
-    }   
+    }
 
     @Override
     public int hashCode() {
@@ -38,29 +37,27 @@ public class Reader {
 
     @Override
     public boolean equals(Object obj) {
-        
         if (this == obj) {
             return true;
         }
-        
+
         if (obj == null) {
             return false;
         }
-        
+
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         final Reader other = (Reader) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
-        
+
         if (!Objects.equals(this.email, other.email)) {
             return false;
         }
-        
+
         return true;
     }
-        
 }

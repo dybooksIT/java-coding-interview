@@ -1,7 +1,6 @@
 package coding.challenge.cinema;
 
 public class Seat {
-     
     private final CinemaRoom room;
     private final String number;
     private final SeatType type;
@@ -23,13 +22,21 @@ public class Seat {
 
     protected SeatType getType() {
         return type;
-    }        
+    }
 
     protected boolean isFree() {
         return free;
-    }            
-    
-    protected void assignSeat() { free = false; }
-    protected void releaseSeat() { free = true; }
-    protected int seatPrice() { return this.type.getPrice(); }
+    }
+
+    protected void assignSeat() {
+        free = false;
+    }
+
+    protected void releaseSeat() {
+        free = true;
+    }
+
+    protected int seatPrice() {
+        return this.type.getPrice();
+    }
 }

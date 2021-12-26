@@ -2,9 +2,8 @@ package coding.challenge.reader;
 
 import java.util.HashMap;
 import java.util.Map;
- 
-public class Library {
 
+public class Library {
     private final Map<String, Book> books = new HashMap<>();
 
     protected void addBook(Book book) {

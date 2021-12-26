@@ -1,7 +1,6 @@
 package coding.challenge.reader;
- 
-public class OnlineReaderSystem {
 
+public class OnlineReaderSystem {
     private final Displayer displayer;
     private final Library library;
     private final ReaderManager readerManager;

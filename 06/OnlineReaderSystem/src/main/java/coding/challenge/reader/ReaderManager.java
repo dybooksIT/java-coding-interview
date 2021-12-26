@@ -1,10 +1,9 @@
 package coding.challenge.reader;
- 
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class ReaderManager {
-
     private final Map<String, Reader> readers = new HashMap<>();
 
     protected void addReader(Reader reader) {

@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public final class Pair<L, R> {
 
+public final class Pair<L, R> {
     final L left;
     final R right;
 
@@ -26,7 +25,6 @@ public final class Pair<L, R> {
         }
 
         Pair obj = (Pair) o;
-        return this.left.equals(obj.left)
-                && this.right.equals(obj.right);
+        return this.left.equals(obj.left) && this.right.equals(obj.right);
     }
 }
