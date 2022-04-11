@@ -1,10 +1,9 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {              
         
-        // 6x6 grid
+        // 6×6 격자
         int result1 = RobotGrid.countPaths(6, 6);
         int result2 = RobotGrid.countPathsBottomUp(6, 6);
         
