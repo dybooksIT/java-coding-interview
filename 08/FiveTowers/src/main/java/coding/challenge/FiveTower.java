@@ -3,7 +3,6 @@ package coding.challenge;
 import java.util.Set;
 
 public final class FiveTower {
-
     protected static final int GRID_SIZE = 5; // (5x5)
 
     private FiveTower() {
@@ -11,7 +10,6 @@ public final class FiveTower {
     }
 
     public static void buildTowers(int row, Integer[] columns, Set<Integer[]> solutions) {
-
         if (row < 0) {
             throw new IllegalArgumentException("The row cannot be negative");
         }
@@ -28,13 +26,11 @@ public final class FiveTower {
             solutions.add(columns.clone());
         } else {
             for (int col = 0; col < GRID_SIZE; col++) {
-
                 if (canBuild(columns, row, col)) {
-
-                    // build this tower
+                    // 탑을 세웁니다.
                     columns[row] = col;
 
-                    // go to the next row
+                    // 다음 행으로 넘어갑니다.
                     buildTowers(row + 1, columns, solutions);
                 }
             }
@@ -42,11 +38,10 @@ public final class FiveTower {
     }
 
     private static boolean canBuild(Integer[] columns, int nextRow, int nextColumn) {
-
         for (int currentRow = 0; currentRow < nextRow; currentRow++) {
             int currentColumn = columns[currentRow];
 
-            // cannot build on the same column
+            // 다른 탑과 같은 열에 탑을 세울 수 없습니다.
             if (currentColumn == nextColumn) {
                 return false;
             }
@@ -54,7 +49,7 @@ public final class FiveTower {
             int columnsDistance = Math.abs(currentColumn - nextColumn);
             int rowsDistance = nextRow - currentRow;
 
-            // cannot build on the same diagonal
+            // 다른 탑과 같은 대각선에 탑을 세울 수 없습니다.
             if (columnsDistance == rowsDistance) {
                 return false;
             }
