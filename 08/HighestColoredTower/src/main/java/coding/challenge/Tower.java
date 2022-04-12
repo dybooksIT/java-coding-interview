@@ -5,19 +5,17 @@ import java.util.Comparator;
 import java.util.List;
 
 public final class Tower {
-
     private Tower() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    // plain recursion
+    // 일반 재귀 알고리즘
     public static int build(List<Box> boxes) {
-
         if (boxes == null) {
             return -1;
         }
 
-        // sorting boxes by width (you can do it by height as well)
+        // 폭을 기준으로 상자를 정렬합니다(높이로 정렬해도 좋습니다).
         Collections.sort(boxes, new Comparator<Box>() {
             @Override
             public int compare(Box b1, Box b2) {

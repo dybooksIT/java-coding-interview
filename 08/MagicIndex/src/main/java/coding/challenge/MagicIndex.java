@@ -1,13 +1,11 @@
 package coding.challenge;
  
 public final class MagicIndex {
-
     private MagicIndex() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static int find(int[] arr) {
-
         if (arr == null) {
             return -1;
         }
@@ -16,24 +14,28 @@ public final class MagicIndex {
     }
 
     private static int find(int[] arr, int startIndex, int endIndex) {
-
         if (startIndex > endIndex) {
-            return -1; // return an invalid index
+            return -1; // 유효하지 않은 인덱스를 반환합니다.
         }
 
-        int middleIndex = (startIndex + endIndex) / 2;   // halved the indexes        
-        int value = arr[middleIndex];                    // value of middle index        
-        if (value == middleIndex) {                      // if the value and index are equal then this is a magic index
+        // 인덱스 개수를 반으로 줄입니다.
+        int middleIndex = (startIndex + endIndex) / 2;
+
+        // 중간 인덱스의 값을 확인합니다.
+        int value = arr[middleIndex];
+
+        // 값과 인덱스가 같다면 마법의 인덱스입니다.
+        if (value == middleIndex) {
             return middleIndex;
         }
 
-        // search from middle of the array to the left       
+        // 배열의 왼쪽 영역을 검색합니다.
         int leftIndex = find(arr, startIndex, Math.min(middleIndex - 1, value));
         if (leftIndex >= 0) {
             return leftIndex;
         }
 
-        // search from middle of the array to the right               
+        // 배열의 오른쪽 영역을 검색합니다.
         return find(arr, Math.max(middleIndex + 1, value), endIndex);
     }
 }
