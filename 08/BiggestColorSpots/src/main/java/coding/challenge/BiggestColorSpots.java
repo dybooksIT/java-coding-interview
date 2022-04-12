@@ -1,11 +1,9 @@
 package coding.challenge;
 
-public class BiggestColorSpot {
- 
+public class BiggestColorSpots {
     private int currentColorSpot;
 
     void determineBiggestColorSpot(int cols, int rows, int a[][]) {
-
         if (a == null) {
             throw new IllegalArgumentException("The matrix a cannot be null");
         }
@@ -19,10 +17,8 @@ public class BiggestColorSpot {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-
                 if (a[i][j] > 0) {
                     currentColorSpot = 0;
-
                     computeColorSpot(i, j, cols, rows, a, a[i][j]);
 
                     if (currentColorSpot > biggestColorSpot) {
@@ -32,12 +28,10 @@ public class BiggestColorSpot {
                 }
             }
         }
-
         System.out.println("\nColor: " + color + " Bigest spot: " + biggestColorSpot);
     }
 
     private void computeColorSpot(int i, int j, int cols, int rows, int a[][], int color) {
-
         a[i][j] = -a[i][j];
         currentColorSpot++;
 
