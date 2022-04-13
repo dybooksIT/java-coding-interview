@@ -4,9 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Box b1 = new Box(10, 5, 2);
         Box b2 = new Box(10, 7, 1);
         Box b3 = new Box(10, 3, 1);
@@ -23,5 +21,4 @@ public class Main {
         System.out.println("\nThe highest tower of colored boxes has a high of (plain recursion): " + highest1);
         System.out.println("\nThe highest tower of colored boxes has a high of (Memoization): " + highest2);
     }
-
 }

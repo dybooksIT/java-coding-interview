@@ -1,7 +1,6 @@
 package coding.challenge;
  
 public class Box {
-
     private final int width;
     private final int height;
     private final int color;
@@ -13,13 +12,11 @@ public class Box {
     }
 
     public boolean canBeNext(Box box) {
-
-        if (box == null) {
+       if (box == null) {
             return false;
         }
 
-        return ((box.width > this.width) && (box.height > this.height)
-                && (box.color != this.color));
+        return ((box.width > this.width) && (box.height > this.height) && (box.color != this.color));
     }
 
     public int getWidth() {
@@ -38,5 +35,4 @@ public class Box {
     public String toString() {
         return "Box{" + "width=" + width + ", height=" + height + ", color=" + color + '}';
     }
-
 }
