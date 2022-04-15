@@ -3,16 +3,13 @@ package coding.challenge;
 import java.util.Set;
 
 public final class Words {
-
     private Words() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* Plain recursive */
+    // 일반 재귀 알고리즘
     public static boolean breakItPlainRecursive(Set<String> dictionary, String str) {
-
-        if (dictionary == null || str == null
-                || dictionary.isEmpty() || str.isBlank()) {
+        if (dictionary == null || str == null  || dictionary.isEmpty() || str.isBlank()) {
             return false;
         }
 
@@ -20,26 +17,21 @@ public final class Words {
     }
 
     private static boolean breakItPlainRecursive(Set<String> dictionary, String str, int index) {
-
         if (index == str.length()) {
             return true;
         }
 
         boolean canBreak = false;
         for (int i = index; i < str.length(); i++) {
-            canBreak = canBreak
-                    || dictionary.contains(str.substring(index, i + 1))
-                    && breakItPlainRecursive(dictionary, str, i + 1);
+            canBreak = canBreak || dictionary.contains(str.substring(index, i + 1))  && breakItPlainRecursive(dictionary, str, i + 1);
         }
 
         return canBreak;
     }
 
-    /* Bottom-Up */
+    // 상향식 접근법
     public static boolean breakItBottomUp(Set<String> dictionary, String str) {
-
-        if (dictionary == null || str == null
-                || dictionary.isEmpty() || str.isBlank()) {
+        if (dictionary == null || str == null || dictionary.isEmpty() || str.isBlank()) {
             return false;
         }
 
@@ -57,22 +49,19 @@ public final class Words {
         return table[str.length()];
     }
 
-    // print all the sequences
+    // 모든 시퀀스 출력
     public static void printAllSequences(Set<String> dictionary, String str, String result) {
-
-        // reaching the end of the String results in printing the result (a sequence)
+        // 문자열 끝에 도달하면 결과(시퀀스)가 출력됩니다.
         if (str.length() == 0) {
             System.out.println(result);
             return;
         }
 
         for (int i = 1; i <= str.length(); i++) {
-
-            // consider all prefixes of current String
+            // 현재 문자열의 모든 접두사를 고려합니다.
             String prefix = str.substring(0, i);
 
-            // if the prefix is present in the dictionary, add prefix to the
-            // result and apply recursion to the remaining String
+            // 접두사가 사전에 포함되었으면 결과에 접두사를 추가하고 나머지 문자열에 재귀 알고리즘을 적용합니다.
             if (dictionary.contains(prefix)) {
                 printAllSequences(dictionary, str.substring(i), result + " " + prefix);
             }

@@ -1,15 +1,13 @@
 package coding.challenge;
  
 public final class Subsets {
-
     private Subsets() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* Recursive approach */
+    // 재귀 알고리즘 접근법
     public static void findSumRecursive(int[] arr, int index,
-            int currentSum, int givenSum, int[] subset) {
-
+          int currentSum, int givenSum, int[] subset) {
         if (arr == null || arr.length == 0
                 || index < 0 || currentSum < 0 || givenSum < 0
                 || subset == null || subset.length != arr.length) {
@@ -24,7 +22,6 @@ public final class Subsets {
                 }
             }
         } else if (index != arr.length) {
-
             subset[index] = 1;
             currentSum += arr[index];
 
@@ -37,32 +34,30 @@ public final class Subsets {
         }
     }
 
-    /* Dynamic Programming (Bottom-Up) */
+    // 동적 프로그래밍 접근법(상향식)
     public static boolean findSumDP(int[] arr, int givenSum) {
-
         if (arr == null || arr.length == 0 || givenSum < 0) {
             throw new IllegalArgumentException("The given argument(s) are wrong");
         }
 
         boolean[][] matrix = new boolean[arr.length + 1][givenSum + 1];
 
-        // prepare the first row
+        // 첫 번째 행을 초기화합니다.
         for (int i = 1; i <= givenSum; i++) {
             matrix[0][i] = false;
         }
 
-        // prepare the first column
+        // 첫 번째 열을 초기화합니다.
         for (int i = 0; i <= arr.length; i++) {
             matrix[i][0] = true;
         }
 
         for (int i = 1; i <= arr.length; i++) {
             for (int j = 1; j <= givenSum; j++) {
-
-                // first, copy the data from the above row
+                // 먼저, 이전 행에서 값을 복사합니다.
                 matrix[i][j] = matrix[i - 1][j];
 
-                // if matrix[i][j] == false compute if the value should be F or T
+                // matrix[i][j]가 false면 현재 행의 값이 F인지 T인지 계산합니다.
                 if (matrix[i][j] == false && j >= arr[i - 1]) {
                     matrix[i][j] = matrix[i][j] || matrix[i - 1][j - arr[i - 1]];
                 }
@@ -76,7 +71,6 @@ public final class Subsets {
     }
 
     private static void printOneSubset(boolean[][] matrix, int[] arr, int row, int col) {
-
         int i = row;
         int j = col;
 
@@ -94,12 +88,12 @@ public final class Subsets {
     }
 
     private static void printSubsetMatrix(int[] arr, int givenSum, boolean matrix[][]) {
-
         System.out.println("\nSubset matrix for sum " + givenSum + ": ");
         System.out.print("\t");
         for (int j = 0; j <= givenSum; j++) {
             System.out.print(j + "\t");
         }
+
         System.out.println();
 
         for (int i = 0; i <= arr.length; i++) {
@@ -107,6 +101,7 @@ public final class Subsets {
             for (int j = 0; j <= givenSum; j++) {
                 System.out.print(matrix[i][j] ? "T\t" : "F\t");
             }
+
             System.out.println();
         }
     }

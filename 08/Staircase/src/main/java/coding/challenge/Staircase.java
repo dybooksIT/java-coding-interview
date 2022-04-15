@@ -1,12 +1,11 @@
 package coding.challenge;
  
 public final class Staircase {
-
     private Staircase() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    // 100% recursive
+    // 100% 재귀 알고리즘
     public static int count(int n) {
         if (n == 0) {
             return 1;
@@ -17,9 +16,8 @@ public final class Staircase {
         return count(n - 1) + count(n - 2) + count(n - 3);
     }
 
-    // optimize the recursive algorithm via Memoization
+    // 메모이제이션을 통한 재귀 알고리즘 최적화
     public static int countViaMemoization(int n) {
-
         int[] cache = new int[n + 1];
         return count(n, cache);
     }

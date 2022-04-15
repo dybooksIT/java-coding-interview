@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class KnightTour {
- 
     private final int n;
 
     public KnightTour(int n) {
@@ -13,12 +12,11 @@ public class KnightTour {
         this.n = n;
     }
 
-    // all 8 possible movements for a knight
+    // 나이트가 이동할 수 있는 8가지 이동 경로
     public static final int COL[] = {1, 2, 2, 1, -1, -2, -2, -1, 1};
     public static final int ROW[] = {2, 1, -1, -2, -2, -1, 1, 2, 2};
 
     public void knightTour(int r, int c, int cell, int visited[][]) {
-
         if (r < 0 || c < 0 || cell < 0) {
             throw new IllegalArgumentException("The r, c and cell cannot be negative");
         }
@@ -27,39 +25,38 @@ public class KnightTour {
             throw new IllegalArgumentException("The visited[][] cannot be null");
         }
 
-        // mark current cell as visited
+        // 현재 칸을 방문했다고 표시합니다.
         visited[r][c] = cell;
 
-        // we have a solution
+        // 이미 경로를 찾았습니다.
         if (cell >= n * n) {
             print(visited);
-            // backtrack before returning
+            // 이전 경로로 돌아가며 방문 표시를 취소합니다.
             visited[r][c] = 0;
             return;
         }
 
-        // check for all possible movements (8) and recur for each valid movement
+        // 가능한 모든 이동 방향을 확인하고 각각의 유효한 이동에 관해 반복합니다.
         for (int i = 0; i < (ROW.length - 1); i++) {
-
             int newR = r + ROW[i];
             int newC = c + COL[i];
 
-            // check if the new position is valid un-visited
+            // 새 위치가 유효하며 방문한 적이 없는 칸인지 확인합니다.
             if (isValid(newR, newC) && visited[newR][newC] == 0) {
                 knightTour(newR, newC, cell + 1, visited);
             }
         }
 
-        // backtrack from current cell and remove it from current path
+        // 이전 경로로 돌아가며 방문 표시를 취소합니다.
         visited[r][c] = 0;
     }
 
-    // check if (r, c) is valid chess board coordinates    
+    // (r, c)가 유효한 체스판 좌표인지 확인합니다.
     private boolean isValid(int r, int c) {
         return !(r < 0 || c < 0 || r >= n || c >= n);
     }
 
-    // print the solution as a board
+    // 결과 경로를 체스판 형식으로 출력합니다.
     private void print(int[][] visited) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
@@ -69,5 +66,4 @@ public class KnightTour {
         }
         System.out.println();
     }
-
 }

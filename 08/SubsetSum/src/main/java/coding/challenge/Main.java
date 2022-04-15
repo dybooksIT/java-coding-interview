@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-      
         int[] arr = {5, 1, 6, 10, 7, 11, 2};
         
         int[] subset = new int[arr.length];
@@ -14,5 +12,4 @@ public class Main {
         System.out.println("\n\nDynamic Programming approach:");
         Subsets.findSumDP(arr, 9);
     }
-
 }
