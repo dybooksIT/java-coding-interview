@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {   
-
-    public static void main(String[] args) {   
-        
+    public static void main(String[] args) {
         int q = 124;
         int p = 29;
 
@@ -13,5 +11,4 @@ public class Main {
                 + p + "(" + Integer.toBinaryString(p) + ")" + " = " + result
                 + "(" + Integer.toBinaryString(result) + ")");
     }
-
 }
