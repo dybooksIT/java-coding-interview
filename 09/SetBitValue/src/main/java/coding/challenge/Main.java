@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-
         int number = 423;
         int position = 7;
 
@@ -19,5 +17,4 @@ public class Main {
         System.out.println("Number: " + result0 + "(" + Integer.toBinaryString(result0) + ")");
         System.out.println("Result: " + result1 + "(" + Integer.toBinaryString(result1) + ")");
     }
-
 }

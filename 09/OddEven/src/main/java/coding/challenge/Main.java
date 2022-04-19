@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-        
         System.out.println("2 -> " + Bits.isOdd(2));
         System.out.println("3 -> " + Bits.isOdd(3));
         System.out.println("4 -> " + Bits.isOdd(4));
@@ -16,5 +14,4 @@ public class Main {
         System.out.println("12453 -> " + Bits.isOdd(12453));
         System.out.println("12988 -> " + Bits.isOdd(12988));
     }
-
 }
