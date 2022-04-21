@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         int q = 290932;
         int p = 352345;
 
@@ -14,5 +12,4 @@ public class Main {
 
         System.out.println("\nResult: " + result);
     }
-
 }

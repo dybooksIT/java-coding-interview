@@ -1,31 +1,29 @@
 package coding.challenge;
- 
-public final class Bits {
 
+public final class Bits {
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static int next(int n) {
-
         int copyn = n;
 
         int zeros = 0;
         int ones = 0;
 
-        // count trailing 0s
+        // 0의 개수를 셉니다.
         while ((copyn != 0) && ((copyn & 1) == 0)) {
             zeros++;
             copyn = copyn >> 1;
         }
 
-        // count all 1s until first 0
+        // 조건에 맞는 첫 번째 0을 찾을 때까지 모든 1의 개수를 셉니다.
         while ((copyn & 1) == 1) {
             ones++;
             copyn = copyn >> 1;
         }
 
-        // the 1111...000... is the biggest number without adding more 1
+        // 1111...000...가 동일한 1의 개수로 만들 수 있는 가장 큰 숫자입니다.
         if (zeros + ones == 0 || zeros + ones == 31) {
             return -1;
         }
@@ -40,24 +38,23 @@ public final class Bits {
     }
 
     public static int previous(int n) {
-
         int copyn = n;
 
         int zeros = 0;
         int ones = 0;
 
-        // count trailing 1s
+        // 1의 개수를 셉니다.
         while ((copyn & 1) == 1) {
             ones++;
             copyn >>= 1;
         }
 
-        // the 0000...111... is the smallest number without adding more 1
+        // 0000...111...가 1을 더하지 않은 가장 작은 숫자입니다.
         if (copyn == 0) {
             return -1;
         }
         
-        // count all 0s until first 1
+        // 조건에 맞는 첫 번째 1을 찾을 때까지 모든 0의 개수를 셉니다.
         while ((copyn != 0) && ((copyn & 1) == 0)) {
             zeros++;
             copyn >>= 1;
