@@ -1,13 +1,11 @@
 package coding.challenge;
  
 public final class Bits {
-
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static int sequence(int n) {
-
         if (~n == 0) {
             return Integer.SIZE; // 32
         }

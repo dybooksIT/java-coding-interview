@@ -1,9 +1,7 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-
         int n = 67;
 
         int result = Bits.sequence(n);
@@ -12,5 +10,4 @@ public class Main {
         System.out.println("The longest sequence of 1 in "
                 + Integer.toBinaryString(n) + " is equal to " + result);
     }
-
 }
