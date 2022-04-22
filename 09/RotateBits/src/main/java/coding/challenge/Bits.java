@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public final class Bits {
 
+public final class Bits {
     private static final int MAX_INT_BITS = 32;
 
     private Bits() {
@@ -9,7 +8,6 @@ public final class Bits {
     }
 
     public static int leftRotate(int n, int bits) {
-
         if (n < 0) {
             return -1;
         }
@@ -21,7 +19,6 @@ public final class Bits {
     }
 
     public static int rightRotate(int n, int bits) {
-
         if (n < 0) {
             return -1;
         }

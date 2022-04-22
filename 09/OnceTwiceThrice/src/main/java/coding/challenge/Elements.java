@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public final class Elements {
 
+public final class Elements {
     private static final int INT_SIZE = 32;
 
     private Elements() {
@@ -9,7 +8,6 @@ public final class Elements {
     }
 
     public static int unique1(int arr[]) {
-
         if (arr == null || arr.length < 4) {
             throw new IllegalArgumentException("The given array is not valid");
         }
@@ -20,10 +18,9 @@ public final class Elements {
         int nr;
         int sumBits;
 
-        // Iterate through every bit 
+        // 모든 비트를 순회합니다.
         for (int i = 0; i < INT_SIZE; i++) {
-
-            // compute the sum of set bits at ith position in all array
+            // 배열의 모든 요소에 대해 i번째에 설정된 비트의 합을 계산합니다.
             sumBits = 0;
             nr = (1 << i);
             for (int j = 0; j < n; j++) {
@@ -32,7 +29,7 @@ public final class Elements {
                 }
             }
 
-            // the sum not multiple of 3 are the bits of the unique number
+            // 합이 3의 배수가 아니라면 해당 비트는 고유한 요소의 비트입니다.
             if ((sumBits % 3) == 0) {
                 result = result | nr;
             }
@@ -42,7 +39,6 @@ public final class Elements {
     }
 
     public static int unique2(int arr[]) {
-
         if (arr == null || arr.length < 4) {
             throw new IllegalArgumentException("The given array is not valid");
         }
