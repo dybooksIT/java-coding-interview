@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public final class Strings {
-
     private static final int MAX_CODE = 65535;
 
     private Strings() {
@@ -12,17 +11,15 @@ public final class Strings {
     }
 
     public static boolean isUnique(String str) {
-
         if (str == null || str.isBlank()) {
-            // or throw IllegalArgumentException
+            // 또는 IllegalArgumentException 발생
             return false;
         }
 
         Map<Character, Boolean> chars = new HashMap<>();
 
-        // or use for(char ch: str.toCharArray()) { ... }
+        // for(char ch : str.toCharArray()) { ... }를 사용해도 좋습니다.
         for (int i = 0; i < str.length(); i++) {
-
             if (str.codePointAt(i) <= MAX_CODE) {
                 char ch = str.charAt(i);
                 if (!Character.isWhitespace(ch)) {
