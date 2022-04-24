@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         float n = -404.0324f;
 
         int tobinary = Bits.toBinary(n);
@@ -17,5 +15,4 @@ public class Main {
 
         System.out.println("Float:  " + tofloat);
     }
-
 }

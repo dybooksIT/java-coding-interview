@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public final class Bits {
-
     private static final int MANTISSA = 23;
     private static final int MANTISSA_MINUS_1 = 22;
     private static final int TWO_AT_22 = 4194304;         // 2 ^ 22 = 4194304
@@ -14,10 +13,9 @@ public final class Bits {
     }
 
     public static int toBinary(float n) {
-        
-        int minus = 0;                
+        int minus = 0;
         int fractionPart = 0;
-        int exponent = EXPONENT_BIAS;               
+        int exponent = EXPONENT_BIAS;
 
         if (n < 0) {
             minus = Integer.MIN_VALUE;
@@ -34,9 +32,7 @@ public final class Bits {
         }
 
         while ((integerPart != 1) && (exponent > 0) && (exponent < MAX_EXPONENT)) {
-            
             if (integerPart > 1) {
-            
                 int d = (integerPart & 1) << MANTISSA_MINUS_1;
                 int e = fractionPart >> 1;
 
@@ -45,7 +41,6 @@ public final class Bits {
 
                 exponent++;
             } else {
-                
                 integerPart = (fractionPart & TWO_AT_22) >> MANTISSA_MINUS_1;
                 fractionPart = (fractionPart & TWO_AT_22_MINUS_1) << 1;
 
@@ -58,7 +53,7 @@ public final class Bits {
             }
         }
 
-        int exponentInPlace = exponent << (MANTISSA_MINUS_1 + 1);        
+        int exponentInPlace = exponent << (MANTISSA_MINUS_1 + 1);
 
         int result =  minus + exponentInPlace + fractionPart;
         
@@ -66,23 +61,22 @@ public final class Bits {
     }
 
     public static float toFloat(int value) {
-
         int minus = -1;
         int exponent = 0;
         
-        float fractionPart;        
+        float fractionPart;
 
         if ((value & Integer.MIN_VALUE) == 0) {
             minus = 1;
         }
-        
+
         // 0x7F800000 = 1111111100000000000000000000000
         // 0x7FFFFF   = 0000000011111111111111111111111
         // 0x800000   = 0000000100000000000000000000000
         exponent = ((value & 0x7F800000) >> MANTISSA) - EXPONENT_BIAS;
         fractionPart = (value & 0x7FFFFF) + 0x800000;
         fractionPart = fractionPart / 0x800000;
-        
+
         float result = minus * fractionPart * (float) Math.pow(2, exponent);
 
         return result;
