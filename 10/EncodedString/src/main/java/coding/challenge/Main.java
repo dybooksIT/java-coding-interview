@@ -3,10 +3,8 @@ package coding.challenge;
 import java.util.Arrays;
 
 public class Main {
-
     public static void main(String[] args) {
-
-        char[] str = "x ".toCharArray();                
+        char[] str = " String with spaces ".toCharArray();
 
         System.out.println("Before: " + Arrays.toString(str));        
         
@@ -14,5 +12,4 @@ public class Main {
         
         System.out.println("After: " + Arrays.toString(result));        
     }
-
 }

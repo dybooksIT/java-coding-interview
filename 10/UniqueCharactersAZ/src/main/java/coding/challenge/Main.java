@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         String text1 = "abcdefhzqoc";
         String text2 = "abcdefhzqow";
 
@@ -13,5 +11,4 @@ public class Main {
         System.out.println("Text1 has unique characters? " + resultText1);
         System.out.println("Text2 has unique characters? " + resultText2);
     }
-
 }

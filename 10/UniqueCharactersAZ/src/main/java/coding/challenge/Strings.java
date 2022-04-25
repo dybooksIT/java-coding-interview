@@ -1,7 +1,6 @@
 package coding.challenge;
  
 public final class Strings {
-
     private static final char A_CHAR = 'a';
 
     private Strings() {
@@ -9,15 +8,13 @@ public final class Strings {
     }
 
     public static boolean isUnique(String str) {
-
         if (str == null || str.isBlank()) {
-            // or throw IllegalArgumentException
+            // 또는 IllegalArgumentException 발생
             return false;
         }
 
         int marker = 0;
         for (int i = 0; i < str.length(); i++) {
-
             int s = str.charAt(i) - A_CHAR;
             int mask = 1 << s;
 
@@ -25,7 +22,7 @@ public final class Strings {
                 return false;
             }
 
-            marker = marker | mask;            
+            marker = marker | mask;
         }
 
         return true;
