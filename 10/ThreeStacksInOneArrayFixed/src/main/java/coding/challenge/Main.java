@@ -1,20 +1,17 @@
 package coding.challenge;
- 
+
 import coding.challenge.exception.OverflowException;
 import coding.challenge.exception.UnderflowException;
 
 public class Main {
-
-    public static void main(String[] args)
-            throws OverflowException, UnderflowException {
-
+    public static void main(String[] args) throws OverflowException, UnderflowException {
         ThreeStack ts = new ThreeStack(10);
 
-        // 0 - this is the first stack
-        // 1 - this is the second stack
-        // 2 - this is the third stack
-        
-        // push 2, 12 and 5 in the second stack
+        // 0 - 첫 번째 스택
+        // 1 - 두 번째 스택
+        // 2 - 세 번째 스택
+
+        // 두 번째 스택에서 2, 12, 5를 푸시합니다.
         ts.push(1, 2);
         ts.push(1, 12);
         ts.push(1, 5);
@@ -22,7 +19,7 @@ public class Main {
 
         System.out.println("----------------------------------------");
 
-        // push 91, 21 in the third stack and pop from the second stack
+        // 세 번째 스택에서 91, 21을 푸시하고 두 번째 스택에서 팝합니다.
         ts.push(2, 91);
         ts.push(2, 21);
         int value = ts.pop(1);
@@ -31,7 +28,7 @@ public class Main {
 
         System.out.println("----------------------------------------");
 
-        // push 23, 11 and 3 in the first stack
+        // 첫 번째 스택에서 23, 11, 3을 푸시합니다.
         ts.push(0, 23);
         ts.push(0, 11);
         ts.push(0, 3);
@@ -39,7 +36,7 @@ public class Main {
 
         System.out.println("----------------------------------------");
 
-        // pop one node from each stack
+        // 각 스택에서 노드 하나를 팝합니다.
         int value1 = ts.pop(0);
         int value2 = ts.pop(1);
         int value3 = ts.pop(2);

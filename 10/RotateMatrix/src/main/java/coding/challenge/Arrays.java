@@ -1,14 +1,12 @@
 package coding.challenge;
- 
-public final class Arrays {
 
+public final class Arrays {
     private Arrays() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    // rotate the given matrix in another matrix
+    // 별도의 행렬에서 주어진 행렬을 회전
     public static int[][] rotateInNew(int[][] m) {
-
         if (m == null || m.length == 0) {
             throw new IllegalArgumentException("The given matrix cannot be null or empty");
         }
@@ -29,10 +27,8 @@ public final class Arrays {
         return r;
     }
 
-    // rotate the given matrix in time complexity of O(n2) 
-    // and space complexity of O(1)
+    // 주어진 행렬을 O(n^2)의 시간 복잡도와 O(1)의 공간 복잡도로 회전
     public static boolean rotateWithTranspose(int m[][]) {
-        
         if (m == null || m.length == 0) {
             throw new IllegalArgumentException("The given matrix cannot be null or empty");
         }
@@ -50,13 +46,12 @@ public final class Arrays {
                 m[k][i] = temp;
             }
         }
-        
+
         return true;
     }
 
-    // Transpose of matrix 
+    // 행렬의 전치
     private static void transpose(int m[][]) {
-
         for (int i = 0; i < m.length; i++) {
             for (int j = i; j < m[0].length; j++) {
                 int temp = m[j][i];
@@ -66,11 +61,9 @@ public final class Arrays {
         }
     }
 
-    // rotate ring by ring
-    // rotate the given matrix in time complexity of O(n2) 
-    // and space complexity of O(1)
+    // 고리를 기반으로 고리 회전
+    // 주어진 행렬을 O(n^2)의 시간 복잡도와 O(1)의 공간 복잡도로 회전
     public static boolean rotateRing(int[][] m) {
-
         if (m == null || m.length == 0) {
             throw new IllegalArgumentException("The given matrix cannot be null or empty");
         }
@@ -80,50 +73,46 @@ public final class Arrays {
         }
 
         int len = m.length;
-                
-        // rotate counterclockwise
+
+        // 시계 반대 방향으로 회전합니다.
         for (int i = 0; i < len / 2; i++) {
             for (int j = i; j < len - i - 1; j++) {
-
                 int temp = m[i][j];
 
-                // right -> top 
+                // 오른쪽 → 위쪽
                 m[i][j] = m[j][len - 1 - i];
 
-                // bottom -> right 
+                // 아래쪽 → 오른쪽
                 m[j][len - 1 - i] = m[len - 1 - i][len - 1 - j];
 
-                // left -> bottom 
+                // 왼쪽 → 아래쪽
                 m[len - 1 - i][len - 1 - j] = m[len - 1 - j][i];
 
-                // top -> left
+                // 위쪽 → 왼쪽
                 m[len - 1 - j][i] = temp;
             }
-        }         
-        
-        // rotate clockwise        
+        }
+
+        // 시계 방향으로 회전합니다.
         /*
         for (int i = 0; i < len / 2; i++) {
             for (int j = i; j < len - 1 - i; j++) {
-
                 int temp = m[i][j];
                 
-                // left -> top
+                // 오른쪽 → 위쪽
                 m[i][j] = m[len - 1 - j][i];
 
-                // bottom -> left
+                // 아래쪽 → 왼쪽
                 m[len - 1 - j][i] = m[len - 1 - i][len - 1 - j];
 
-                // right -> bottom
+                // 오른쪽 → 아래쪽
                 m[len - 1 - i][len - 1 - j] = m[j][len - 1 - i];
-                
-                // top -> right
+
+                // 위쪽 → 오른쪽
                 m[j][len - 1 - i] = temp;
             }
-        }                    
-        */
-        
+        } */
+
         return true;
     }
-
 }

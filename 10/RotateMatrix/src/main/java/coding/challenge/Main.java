@@ -1,17 +1,15 @@
 package coding.challenge;
  
 public class Main {
-
     public static void main(String[] args) {
-
         int s = 5;
 
-        // three identical matrix
-        int[][] m1 = new int[s][s]; // used to call rotateInNew()       
-        int[][] m2 = new int[s][s]; // used to call rotateWithTranspose()        
-        int[][] m3 = new int[s][s]; // used to call rotateRing()        
+        // 동일한 행렬 3개
+        int[][] m1 = new int[s][s]; // used to call rotateInNew()
+        int[][] m2 = new int[s][s]; // used to call rotateWithTranspose()
+        int[][] m3 = new int[s][s]; // used to call rotateRing()
 
-        // initialize matrix with number 0, 1, 2, ... ,(s-1)
+        // 숫자 0, 1, 2, ... ,(s - 1)로 행렬을 초기화
         int v = 0;
         for (int i = 0; i < s; i++) {
             for (int j = 0; j < s; j++) {
@@ -39,8 +37,8 @@ public class Main {
             System.out.println();
         }
 
-        System.out.println();        
-        Arrays.rotateWithTranspose(m2);       
+        System.out.println();
+        Arrays.rotateWithTranspose(m2);
         System.out.println("Rotated counterclockwise by 90 degrees via transpose:");
         for (int i = 0; i < s; i++) {
             for (int j = 0; j < s; j++) {
@@ -49,7 +47,7 @@ public class Main {
             System.out.println();
         }
 
-        System.out.println();         
+        System.out.println();
         Arrays.rotateRing(m3);
         System.out.println("Rotated counterclockwise by 90 degrees ring by ring:");
         for (int i = 0; i < s; i++) {

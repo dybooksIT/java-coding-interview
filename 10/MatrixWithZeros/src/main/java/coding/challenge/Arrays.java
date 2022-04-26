@@ -1,13 +1,11 @@
 package coding.challenge;
- 
-public final class Arrays {
 
+public final class Arrays {
     private Arrays() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void alignZeros(int[][] m) {
-
         if (m == null || m.length == 0) {
             throw new IllegalArgumentException("The given matrix cannot be null or empty");
         }
@@ -15,7 +13,7 @@ public final class Arrays {
         boolean firstRowHasZeros = false;
         boolean firstColumnHasZeros = false;
 
-        // Search at least a zero on first row
+        // 첫 번째 행에 0이 하나 이상 있는지 확인합니다.
         for (int j = 0; j < m[0].length; j++) {
             if (m[0][j] == 0) {
                 firstRowHasZeros = true;
@@ -23,7 +21,7 @@ public final class Arrays {
             }
         }
 
-        // Search at least a zero on first column
+        // 첫 번째 열에 0이 하나 이상 있는지 확인합니다.
         for (int i = 0; i < m.length; i++) {
             if (m[i][0] == 0) {
                 firstColumnHasZeros = true;
@@ -31,7 +29,7 @@ public final class Arrays {
             }
         }
 
-        // Search all zeros in the rest of the matrix
+        // 행렬의 나머지 영역에 있는 모든 0을 찾습니다.
         for (int i = 1; i < m.length; i++) {
             for (int j = 1; j < m[0].length; j++) {
                 if (m[i][j] == 0) {
@@ -41,30 +39,29 @@ public final class Arrays {
             }
         }
 
-        // Loop the first column and propagate each found zero on the row
+        // 첫 번째 열을 순회한 후 값이 0인 행을 찾아 해당 행을 모두 0으로 설정합니다.
         for (int i = 1; i < m.length; i++) {
             if (m[i][0] == 0) {
                 setRowOfZero(m, i);
             }
         }
 
-        // Loop the first row and propagate each found zero on the column
+        // 첫 번째 행을 순회한 후 값이 0인 열을 찾아 해당 열을 모두 0으로 설정합니다.
         for (int j = 1; j < m[0].length; j++) {
             if (m[0][j] == 0) {
                 setColumnOfZero(m, j);
             }
         }
 
-        // If the first row has at least one 0 then set the entire row to 0
+        // 첫 번째 행에 0이 하나 이상 있으면 전체 행을 0으로 설정합니다.
         if (firstRowHasZeros) {
             setRowOfZero(m, 0);
         }
 
-        // If the first column has at least one 0 then set the entire column to 0
+        // 첫 번째 열에 0이 하나 이상 있으면 전체 열을 0으로 설정합니다.
         if (firstColumnHasZeros) {
             setColumnOfZero(m, 0);
         }
-
     }
 
     private static void setRowOfZero(int[][] m, int r) {
@@ -78,5 +75,4 @@ public final class Arrays {
             m[i][c] = 0;
         }
     }
-
 }

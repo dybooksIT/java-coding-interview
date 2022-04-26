@@ -1,36 +1,32 @@
 package coding.challenge;
- 
+
 import coding.challenge.exception.OverflowException;
 import coding.challenge.exception.UnderflowException;
 
 public class ThreeStack {
+    private static final int NO_OF_STACKS = 3;    // 고정된 영역의 수
 
-    private static final int NO_OF_STACKS = 3;
-
-    private final int stackCapacity;
-    private final int[] values;
-    private final int[] stacks;
+    private final int stackCapacity;    // 스택 크기
+    private final int[] values;         // 고정된 영역에 있는 노드
+    private final int[] stacks;         // 고정된 영역
 
     public ThreeStack(int stackSize) {
-
         stackCapacity = stackSize;
         values = new int[stackSize * NO_OF_STACKS];
         stacks = new int[NO_OF_STACKS];
     }
 
     public void push(int stackNumber, int value) throws OverflowException {
-
         if (isFull(stackNumber)) {
             throw new OverflowException("Stack Overflow");
         }
 
-        // increment stack pointer and then update the top value
+        // 스택 포인터를 증가한 후 톱 값을 업데이트합니다.
         stacks[stackNumber]++;
         values[fetchTopIndex(stackNumber)] = value;
     }
 
     public int pop(int stackNumber) throws UnderflowException {
-
         if (isEmpty(stackNumber)) {
             throw new UnderflowException("Stack Underflow");
         }
@@ -45,7 +41,6 @@ public class ThreeStack {
     }
 
     public int peek(int stackNumber) throws UnderflowException {
-
         if (isEmpty(stackNumber)) {
             throw new UnderflowException("Stack Underflow");
         }
@@ -62,7 +57,6 @@ public class ThreeStack {
     }
 
     private int fetchTopIndex(int stackNumber) {
-
         int offset = stackNumber * stackCapacity;
         int size = stacks[stackNumber];
 
@@ -71,9 +65,8 @@ public class ThreeStack {
 
     public void printStacks() {
         for (int i = 0; i < NO_OF_STACKS; i++) {
+            System.out.println("\nStack number: " + (i+1));
 
-            System.out.println("\nStack number: " + (i+1));            
-            
             if (!isEmpty(i)) {
                 int topIndex = fetchTopIndex(i);
                 while (values[topIndex] != 0 && topIndex > 0) {

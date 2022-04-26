@@ -1,16 +1,14 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         int r = 5;
         int c = 8;
 
-        // three identical matrix
+        // 동일한 행렬 3개
         int[][] m = new int[r][c];
 
-        // initialize matrix with number 0, 1, 2, ... ,(s-1)
+        // 숫자 0, 1, 2, ... ,(s - 1)로 행렬을 초기화
         int v = 0;
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
@@ -32,7 +30,7 @@ public class Main {
 
         System.out.println();
         Arrays.alignZeros(m);
-        
+
         System.out.println("Result:");
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {

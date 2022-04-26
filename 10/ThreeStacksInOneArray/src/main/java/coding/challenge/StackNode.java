@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public class StackNode {
 
+public class StackNode {
     int value;
     int backLink;
 
@@ -14,5 +13,4 @@ public class StackNode {
     public String toString() {
         return value + "(back link: " + backLink + ")";
     }
-
 }
