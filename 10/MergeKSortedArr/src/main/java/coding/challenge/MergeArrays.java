@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class MergeArrays {
-
     public static int[] merge(int[][] arrs, int k) {
-
         if (arrs == null) {
             throw new IllegalArgumentException("The given arrays cannot be null");
         }
@@ -12,29 +10,28 @@ public class MergeArrays {
             throw new IllegalArgumentException("The number of given arrays cannot be less or equal to 0");
         }
 
-        // compute the total length of the resulting array
+        // 결과 배열의 총 길이를 계산합니다.
         int len = 0;
         for (int i = 0; i < arrs.length; i++) {
             len += arrs[i].length;
         }
 
-        // create the result array
+        // 결과 배열을 생성합니다.
         int[] result = new int[len];
 
-        // create the min heap
+        // 최소 힙을 생성합니다.
         MinHeap[] heap = new MinHeap[k];
 
-        // add in the heap first element from each array
+        // 각 배열의 첫 번째 요소를 힙에 추가합니다.
         for (int i = 0; i < k; i++) {
             heap[i] = new MinHeap(arrs[i][0], i, 0);
         }
 
-        // perform merging
+        // 병합을 수행합니다.
         for (int i = 0; i < result.length; i++) {
-
             heapify(heap, 0, k);
 
-            // add an element in the final result
+            // 최종 결과에 요소를 추가합니다.
             result[i] = heap[0].data;
 
             heap[0].currentIndex++;
@@ -49,9 +46,8 @@ public class MergeArrays {
         return result;
     }
 
-    // removes the minimum element from the heap, O(log n)
+    // 힙에서 O(logn)인 최소 요소를 제거합니다.
     private static void heapify(MinHeap[] heap, int root, int len) {
-
         int smallest = root;
         int leftIndex = left(root);
         int rightIndex = right(root);
@@ -64,7 +60,7 @@ public class MergeArrays {
             smallest = rightIndex;
         }
 
-        // swap smallest with root
+        // 루트 노드로 가장 작은 요소를 교환
         if (smallest != root) {
             swap(heap, smallest, root);
             heapify(heap, smallest, len);
@@ -77,12 +73,12 @@ public class MergeArrays {
         heap[j] = aux;
     }
 
-    // to get index of left child of node at index i 
+    // 인덱스 i에서 노드의 왼쪽 자식 인덱스를 얻습니다.
     private static int left(int i) {
         return (2 * i + 1);
     }
 
-    // to get index of right child of node at index i 
+    // 인덱스 i에서 노드의 오른쪽 자식 인덱스를 얻습니다.
     private static int right(int i) {
         return (2 * i + 2);
     }

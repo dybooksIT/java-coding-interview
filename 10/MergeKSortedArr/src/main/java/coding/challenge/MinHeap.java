@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public class MinHeap {
 
+public class MinHeap {
     int data;
     int heapIndex;
     int currentIndex;
@@ -15,5 +14,5 @@ public class MinHeap {
     @Override
     public String toString() {
         return data+"";
-    }        
+    }
 }

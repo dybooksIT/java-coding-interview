@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Arrays;
 
 public class Main {
-
     public static void main(String[] args) {
-
         int[][] arrs = {
             {1, 2, 32, 46}, 
             {-4, 5, 15, 18, 20}, 
