@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         int[][] matrix = {
             {0, 0, 1, 1, 0, 0, 0}, 
             {0, 0, 1, 1, 1, 1, 1}, 
@@ -16,5 +14,4 @@ public class Main {
         int max = Matrices.ofOneOptimized(matrix);
         System.out.println("\n\nMax: " + max);
     }
-
 }

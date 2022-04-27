@@ -1,14 +1,12 @@
 package coding.challenge;
- 
-public final class Matrices {
 
+public final class Matrices {
     private Matrices() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     /* brute-force */
     public static int ofOne(int[][] matrix) {
-
         if (matrix == null) {
             throw new IllegalArgumentException("The given matrix cannot be null");
         }
@@ -18,10 +16,8 @@ public final class Matrices {
         int cols = matrix[0].length;
               
         for (int k = 1; k <= Math.max(cols, rows); k++) {
-
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
-
                     int temp = 1;
 
                     if ((i + k) > rows || (j + k) > cols) {
@@ -49,7 +45,6 @@ public final class Matrices {
 
     /* optimized (Dynamic Programming) */
     public static int ofOneOptimized(int[][] matrix) {
-
         if (matrix == null) {
             throw new IllegalArgumentException("The given matrix cannot be null");
         }

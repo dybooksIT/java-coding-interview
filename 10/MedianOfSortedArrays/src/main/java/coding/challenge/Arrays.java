@@ -1,13 +1,11 @@
 package coding.challenge;
- 
-public final class Arrays {
 
+public final class Arrays {
     private Arrays() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static float median(int[] q, int[] p) {
-
         if (q == null || p == null) {
             return -1;
         }
@@ -27,41 +25,39 @@ public final class Arrays {
         int pPointer;
 
         while (qPointerMin <= qPointerMax) {
-
             qPointer = (qPointerMin + qPointerMax) / 2;
             pPointer = midLength - qPointer;
 
-            // perform binary search
+            // 이진 검색을 수행합니다.
             if (qPointer < q.length && p[pPointer - 1] > q[qPointer]) {
-                // qPointer must be increased
+                // qPointer를 증가시켜야 합니다.
                 qPointerMin = qPointer + 1;
             } else if (qPointer > 0 && q[qPointer - 1] > p[pPointer]) {
-                // qPointer must be decreased
+                // qPointer를 감소시켜야 합니다.
                 qPointerMax = qPointer - 1;
             } else { // we found the poper qPointer    
-
                 int maxLeft = 0;
 
-                if (qPointer == 0) { // first element on array 'q'?
+                if (qPointer == 0) { // 배열 q의 첫 번째 요소인가?
                     maxLeft = p[pPointer - 1];
-                } else if (pPointer == 0) { // first element of array 'p'?
+                } else if (pPointer == 0) { // 배열 p의 첫 번째 요소인가?
                     maxLeft = q[qPointer - 1];
-                } else { // we are somewhere in the middle -> find max
+                } else { // 중간 어딘가에 위치한 요소라면 → 최댓값을 찾습니다.
                     maxLeft = Integer.max(q[qPointer - 1], p[pPointer - 1]);
                 }
 
-                // if the length of 'q' + 'p' arrays is odd, return max of left
+                // 배열 q와 p의 길이의 합이 홀수이면, 왼쪽 영역의 최댓값을 반환합니다.
                 if ((q.length + p.length) % 2 == 1) {
                     return maxLeft;
                 }
 
                 int minRight = 0;
 
-                if (qPointer == q.length) { // last element on array 'q'?
+                if (qPointer == q.length) { // 배열 q의 마지막 요소인가?
                     minRight = p[pPointer];
-                } else if (pPointer == p.length) { // last element on array 'p'?
+                } else if (pPointer == p.length) { // 배열 p의 마지막 요소인가?
                     minRight = q[qPointer];
-                } else { // we are somewhere in the middle -> find min
+                } else { // 중간 어딘가에 위치한 요소라면 → 최솟값을 찾습니다.
                     minRight = Integer.min(q[qPointer], p[pPointer]);
                 }
 
@@ -71,13 +67,10 @@ public final class Arrays {
         return -1;
     }
 
-    // we force array 'q' to be smaller than 'p'
-    // so that j is always greater than zero
+    // j가 항상 0보다 크도록 배열 q가 p보다 작아야 합니다.
     private static void swap(int[] q, int[] p) {
-
         int[] aux = q;
         q = p;
         p = aux;
     }
-
 }
