@@ -5,7 +5,7 @@ public final class Matrices {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* brute-force */
+    // 브루트 포스 접근법
     public static int ofOne(int[][] matrix) {
         if (matrix == null) {
             throw new IllegalArgumentException("The given matrix cannot be null");
@@ -14,7 +14,7 @@ public final class Matrices {
         int maxSubMatrixSize = 0;
         int rows = matrix.length;
         int cols = matrix[0].length;
-              
+
         for (int k = 1; k <= Math.max(cols, rows); k++) {
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
@@ -43,7 +43,7 @@ public final class Matrices {
         return maxSubMatrixSize;
     }
 
-    /* optimized (Dynamic Programming) */
+    // 최적화(동적 프로그래밍)
     public static int ofOneOptimized(int[][] matrix) {
         if (matrix == null) {
             throw new IllegalArgumentException("The given matrix cannot be null");
@@ -51,34 +51,34 @@ public final class Matrices {
 
         int maxSubMatrixSize = 1;
         int rows = matrix.length;
-        int cols = matrix[0].length;                
+        int cols = matrix[0].length;
 
         int[][] subMatrix = new int[rows][cols];
 
-        // copy the first row
+        // 첫 번째 행을 복사합니다.
         for (int i = 0; i < cols; i++) {
             subMatrix[0][i] = matrix[0][i];
         }
 
-        // copy the first column
+        // 첫 번째 열을 복사합니다.
         for (int i = 0; i < rows; i++) {
             subMatrix[i][0] = matrix[i][0];
         }
 
-        // for rest of the matrix check if matrix[i][j]==1
+        // 행렬의 나머지 영역을 순회하며 matrix[i][j] == 1인지 확인합니다.
         for (int i = 1; i < rows; i++) {
             for (int j = 1; j < cols; j++) {
                 if (matrix[i][j] == 1) {
                     subMatrix[i][j] = Math.min(subMatrix[i - 1][j - 1],
                             Math.min(subMatrix[i][j - 1], subMatrix[i - 1][j])) + 1;
 
-                    // compute the maximum of the current sub-matrix
+                    // 현재 subMatrix의 최댓값을 계산합니다.
                     maxSubMatrixSize = Math.max(maxSubMatrixSize, subMatrix[i][j]);
                 }
             }
         }
 
-        // print the sub-matrix
+        // subMatrix를 출력합니다.
         for (int i = 0; i < subMatrix.length; i++) {
             System.out.println();
             for (int j = 0; j < subMatrix[i].length; j++) {
