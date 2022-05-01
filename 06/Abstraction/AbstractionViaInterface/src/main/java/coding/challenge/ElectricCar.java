@@ -5,7 +5,7 @@ public class ElectricCar implements Car {
 
     public ElectricCar(String carType) {
         this.carType = carType;
-    }        
+    }
 
     @Override
     public void speedUp() {
@@ -30,5 +30,5 @@ public class ElectricCar implements Car {
     @Override
     public String getCarType() {
         return this.carType;
-    }        
+    }
 }
