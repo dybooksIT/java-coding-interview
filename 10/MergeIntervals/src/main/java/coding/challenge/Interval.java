@@ -1,7 +1,6 @@
 package coding.challenge;
- 
-public class Interval {
 
+public class Interval {
     int start, end;
 
     public Interval(int start, int end) {

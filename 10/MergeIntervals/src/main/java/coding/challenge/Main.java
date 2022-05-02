@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         Interval intervals[] = new Interval[7];
 
         // [[12,15], [12,17], [2,4], [16,18], [4,7], [9,11], [1,2]]
@@ -21,5 +19,4 @@ public class Main {
         System.out.print("\nThe merged intervals optimized: ");
         Arrays.mergeIntervalsOptimized(intervals);
     }
-
 }

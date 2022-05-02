@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         int[] bars = {1, 0, 0, 4, 0, 2, 0, 1, 6, 2, 3};
         // int[] bars = {7, 0, 4, 2, 5, 0, 6, 4, 0, 5};  // 25
         // int[] bars = {0, 3, 0, 4, 3, 0, 3, 5, 4, 3, 4, 3}; // 10
@@ -17,5 +15,4 @@ public class Main {
         int water3 = Bars.trapOptimized(bars);
         System.out.println("Result: " + water1 + " | " + water2 + " | " + water3);
     }
-
 }

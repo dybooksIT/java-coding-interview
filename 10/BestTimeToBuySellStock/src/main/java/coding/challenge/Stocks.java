@@ -1,14 +1,12 @@
 package coding.challenge;
- 
-public final class Stocks {
 
+public final class Stocks {
     private Stocks() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* One transaction, O(n) */
+    // 주식 거래 횟수가 1번일 때, 실행 시간 O(n)
     public static int maxProfitOneTransaction(int[] prices) {
-
         if (prices == null || prices.length <= 1) {
             return 0;
         }
@@ -23,9 +21,8 @@ public final class Stocks {
         return result;
     }
 
-    /* Two transactions, O(n) */
+    // 주식 거래 횟수가 2번일 때, 실행 시간 O(n)
     public static int maxProfitTwoTransactions(int[] prices) {
-
         if (prices == null || prices.length <= 1) {
             return 0;
         }
@@ -33,7 +30,7 @@ public final class Stocks {
         int[] left = new int[prices.length];
         int[] right = new int[prices.length];
 
-        // Dynamic Programming from left to right
+        // 왼쪽에서 오른쪽으로 동적 프로그래밍을 수행합니다.
         left[0] = 0;
         int min = prices[0];
         for (int i = 1; i < prices.length; i++) {
@@ -41,7 +38,7 @@ public final class Stocks {
             left[i] = Math.max(left[i - 1], prices[i] - min);
         }
 
-        // Dynamic Programming from right to left
+        // 오른쪽에서 왼쪽으로 동적 프로그래밍을 수행합니다.
         right[prices.length - 1] = 0;
         int max = prices[prices.length - 1];
         for (int i = prices.length - 2; i >= 0; i--) {
@@ -57,9 +54,8 @@ public final class Stocks {
         return result;
     }
 
-    /* Unlimited transactions, O(n) */
+    // 주식 거래 횟수가 무제한일 때, 실행 시간 O(n)
     public static int maxProfitUnlimitedTransactions(int[] prices) {
-
         if (prices == null || prices.length <= 1) {
             return 0;
         }
@@ -75,9 +71,8 @@ public final class Stocks {
         return result;
     }
 
-    /* K transactions, O(kn) */
+    // 주식 거래 횟수가 k번일 때, 실행 시간 O(kn)
     public static int maxProfitKTransactions(int[] prices, int k) {
-
         if (prices == null || prices.length <= 1 || k <= 0) {
             return 0;
         }
