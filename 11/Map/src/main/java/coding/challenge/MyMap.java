@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 public final class MyMap<K, V> {
-
     private final class MyEntry<K, V> {
-
         private final K key;
         private V value;
 
@@ -38,27 +36,12 @@ public final class MyMap<K, V> {
     }
 
     private static final int DEFAULT_CAPACITY = 16;
-
     private int size;
 
     @SuppressWarnings("unchecked")
     private MyEntry<K, V>[] entries = new MyEntry[DEFAULT_CAPACITY];
 
-    public V get(K key) {
-
-        for (int i = 0; i < size; i++) {
-            if (entries[i] != null) {
-                if (entries[i].getKey().equals(key)) {
-                    return entries[i].getValue();
-                }
-            }
-        }
-
-        return null;
-    }
-
     public void put(K key, V value) {
-
         boolean success = true;
 
         for (int i = 0; i < size; i++) {
@@ -75,11 +58,22 @@ public final class MyMap<K, V> {
     }
 
     private void checkCapacity() {
-
         if (size == entries.length) {
             int newSize = entries.length * 2;
             entries = Arrays.copyOf(entries, newSize);
         }
+    }
+
+    public V get(K key) {
+        for (int i = 0; i < size; i++) {
+            if (entries[i] != null) {
+                if (entries[i].getKey().equals(key)) {
+                    return entries[i].getValue();
+                }
+            }
+        }
+
+        return null;
     }
 
     public int size() {
@@ -87,7 +81,6 @@ public final class MyMap<K, V> {
     }
 
     public void remove(K key) {
-
         for (int i = 0; i < size; i++) {
             if (entries[i].getKey().equals(key)) {
                 entries[i] = null;
@@ -100,8 +93,8 @@ public final class MyMap<K, V> {
     }
 
     private void condenseArray(int start) {
-
         int i;
+
         for (i = start; i < size; i++) {
             entries[i] = entries[i + 1];
         }
@@ -110,8 +103,8 @@ public final class MyMap<K, V> {
     }
 
     public Set<K> keySet() {
-
         Set<K> set = new HashSet<>();
+
         for (int i = 0; i < size; i++) {
             set.add(entries[i].getKey());
         }
@@ -120,8 +113,8 @@ public final class MyMap<K, V> {
     }
 
     public Collection<V> values() {
-
         List<V> list = new ArrayList<>();
+
         for (int i = 0; i < size; i++) {
             list.add(entries[i].getValue());
         }
