@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Stack;
 
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -19,7 +17,6 @@ public final class SinglyLinkedList {
     private Node tail;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -32,31 +29,29 @@ public final class SinglyLinkedList {
     }
 
     public boolean isPalindrome() {
-
         Node fastRunner = head;
         Node slowRunner = head;
 
         Stack<Integer> firstHalf = new Stack<>();
 
-        // the first half of the linked list is added into the stack
+        // 연결 리스트의 왼쪽 절반이 스택에 쌓입니다.
         while (fastRunner != null && fastRunner.next != null) {
-
             firstHalf.push(slowRunner.data);
 
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next.next;
         }
 
-        // for odd number of elements we need to skip the middle node
+        // 요소 개수가 홀수라면 중간 노드를 건너 뛰어야 합니다.
         if (fastRunner != null) {
             slowRunner = slowRunner.next;
         }
 
-        // pop from the stack and compare with the node by node of the second half of the linked list
+        // 스택에서 값을 꺼내 연결 리스트의 오른쪽 절반의 노드와 비교합니다.
         while (slowRunner != null) {
             int top = firstHalf.pop();
 
-            // if we find a mismatch then the linked list is not a palindrome
+            // 값이 일치하지 않으면 연결 리스트는 회문이 아닙니다.
             if (top != slowRunner.data) {
                 return false;
             }
@@ -68,12 +63,10 @@ public final class SinglyLinkedList {
     }
 
     public void print() {
-
         System.out.println("\nHead (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

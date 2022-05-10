@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         SinglyLinkedList sll = new SinglyLinkedList();
 
         sll.insertFirst(10);
@@ -20,8 +18,7 @@ public class Main {
 
         sll.generateLoop();
         sll.print();
-        
+
         sll.findLoopStartNode();
     }
-
 }

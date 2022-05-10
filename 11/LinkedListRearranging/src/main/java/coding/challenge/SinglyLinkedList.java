@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -17,7 +15,6 @@ public final class SinglyLinkedList {
     private Node tail;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -30,38 +27,34 @@ public final class SinglyLinkedList {
     }
 
     public void rearrange(int n) {
-
         Node currentNode = head;
         head = currentNode;
         tail = currentNode;
 
         while (currentNode != null) {
-            
             Node nextNode = currentNode.next;
-            
+
             if (currentNode.data < n) {
-                // insert node at the head
+                // 노드를 머리 노드에 삽입합니다.
                 currentNode.next = head;
                 head = currentNode;
             } else {
-                // insert node at the tail
+                // 노드를 꼬리 노드에 삽입합니다.
                 tail.next = currentNode;
                 tail = currentNode;
             }
-            
+
             currentNode = nextNode;
         }
-        
+
         tail.next = null;
     }
 
     public void print() {
-
         System.out.println("Head (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }
@@ -69,5 +62,4 @@ public final class SinglyLinkedList {
         System.out.println();
         System.out.println();
     }
-
 }

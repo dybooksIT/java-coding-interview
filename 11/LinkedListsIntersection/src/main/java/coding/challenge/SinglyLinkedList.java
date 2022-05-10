@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Random;
 
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -16,7 +14,6 @@ public final class SinglyLinkedList {
     }
 
     private final class PairNode {
-
         private final Node head;
         private final Node tail;
 
@@ -30,34 +27,36 @@ public final class SinglyLinkedList {
     private Node tail;
 
     public int intersection() {
-
-        // this is not part of solution
-        // we call it to generate two random-size linked list with an intersection node        
+        // 다음 코드는 풀이법과 관련된 코드는 아니고
+        // 교차점이 있는 임의의 연결 리스트 2개를 생성하려고 호출합니다.
         PairNode pair = generateTwoLinkedListWithInterection();
 
-        Node currentNode1 = pair.head; // this is the head of first list
-        Node currentNode2 = pair.tail; // this is the head of the second list
+        // 첫 번째 리스트의 머리 노드
+        Node currentNode1 = pair.head;
 
-        // we compute the size of both linked lists
+        // 두 번째 리스트의 머리 노드
+        Node currentNode2 = pair.tail;
+
+        // 두 연결 리스트의 길이를 계산합니다.
+        // linkedListSize는 헬퍼 메서드입니다.
         int s1 = linkedListSize(currentNode1);
         int s2 = linkedListSize(currentNode2);
 
-        // the first linked list is longer than the second one
+        // 첫 번째 연결 리스트의 길이가 두 번째 연결 리스트의 길이보다 깁니다.
         if (s1 > s2) {
             for (int i = 0; i < (s1 - s2); i++) {
                 currentNode1 = currentNode1.next;
             }
         } else {
-            // the second linked list is longer than the first one
+            // 두 번째 연결 리스트의 길이가 첫 번째 연결 리스트의 길이보다 깁니다.
             for (int i = 0; i < (s2 - s1); i++) {
                 currentNode2 = currentNode2.next;
             }
         }
 
-        // we iterate both lists until the end or the intersection node
+        // 끝 또는 교차 노드를 만날 때까지 두 리스트를 순회합니다.
         while (currentNode1 != null && currentNode2 != null) {
-
-            // we compare references not values!
+            // 값이 아닌 참조를 비교합니다!
             if (currentNode1 == currentNode2) {
                 return currentNode1.data;
             }
@@ -70,8 +69,7 @@ public final class SinglyLinkedList {
     }
 
     private PairNode generateTwoLinkedListWithInterection() {
-
-        // we choose a random size for the lists between 1 and 10 nodes
+        // 1개에서 10개 노드 사이의 리스트에 대해 임의 크기를 선택합니다.
         int size1 = new Random().nextInt(10) + 1;
         int size2 = new Random().nextInt(10) + 1;
         int size3 = new Random().nextInt(10) + 1;
@@ -81,10 +79,10 @@ public final class SinglyLinkedList {
 
         PairNode commonList = generateLinkedList(size3);
 
-        // set a dummy value to the intersection node 
+        // 교차점에 더미 값 설정
         commonList.head.data = 9999;
 
-        // create intersection
+        // 교차점 생성
         firstList.tail.next = commonList.head;
         secondList.tail.next = commonList.head;
 
@@ -98,12 +96,10 @@ public final class SinglyLinkedList {
     }
 
     private PairNode generateLinkedList(int size) {
-
         head = null;
         tail = null;
 
         for (int i = 1; i <= size; i++) {
-
             Node newNode = new Node();
 
             newNode.data = i;
@@ -131,12 +127,10 @@ public final class SinglyLinkedList {
     }
 
     private void print(Node head, Node tail) {
-
         System.out.println("\nHead (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

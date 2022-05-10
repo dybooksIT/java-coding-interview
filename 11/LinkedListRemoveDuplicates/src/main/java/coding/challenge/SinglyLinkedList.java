@@ -1,12 +1,10 @@
 package coding.challenge;
- 
+
 import java.util.HashSet;
 import java.util.Set;
 
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -21,7 +19,6 @@ public final class SinglyLinkedList {
     private int size;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -35,9 +32,8 @@ public final class SinglyLinkedList {
         size++;
     }
 
-    // O(n) solution (time and space)
+    // 시간 및 공간 복잡도가 O(n)인 풀이법
     public void removeDuplicates1() {
-
         Set<Integer> dataSet = new HashSet<>();
 
         Node currentNode = head;
@@ -60,18 +56,15 @@ public final class SinglyLinkedList {
         }
     }
 
-    // O(n^2) time, O(1) space
+    // 시간 복잡도가 O(n^2), 공간 복잡도가 O(1)
     public void removeDuplicates2() {
-
         Node currentNode = head;
 
         while (currentNode != null) {
-
             Node runnerNode = currentNode;
 
             while (runnerNode.next != null) {
                 if (runnerNode.next.data == currentNode.data) {
-
                     if (runnerNode.next == tail) {
                         tail = runnerNode;
                     }
@@ -88,12 +81,10 @@ public final class SinglyLinkedList {
     }
 
     public void print() {
-
         System.out.println("\nHead (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

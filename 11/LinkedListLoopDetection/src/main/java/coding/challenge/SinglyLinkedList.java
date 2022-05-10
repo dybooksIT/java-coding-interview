@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Random;
 
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -20,7 +18,6 @@ public final class SinglyLinkedList {
     private int size;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -34,15 +31,14 @@ public final class SinglyLinkedList {
         size++;
     }
 
-    // loop example, the loop start at node with value 3
+    // 반복 실행 예: 반복 실행은 값이 3인 노드에서 시작합니다.
     // 0 -> 1 -> 2 -> 3 -> 4 -> 5
     //               /           \
     //              10            6
     //               \           /
-    //                9 <- 8 <- 7        
-    // this is just a helper method for generating a random loop
+    //                9 <- 8 <- 7
+    // 이것은 랜덤 반복 실행을 생성하기 위한 헬퍼일 뿐입니다.
     public void generateLoop() {
-
         if (size < 2) {
             throw new RuntimeException("The linked list size must be at least 2");
         }
@@ -56,50 +52,47 @@ public final class SinglyLinkedList {
 
         System.out.println("The generated loop starts at the node with value: " + currentNode);
 
-        // create a loop        
+        // 반복 실행 생성
         tail.next = currentNode;
     }
 
     public void findLoopStartNode() {
-
         Node slowRunner = head;
         Node fastRunner = head;
 
-        // fastRunner meets slowRunner
+        // 빠른 순회 노드가 느린 순회 노드와 마주칩니다.
         while (fastRunner != null && fastRunner.next != null) {
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next.next;
-            if (slowRunner == fastRunner) { // they met
+            if (slowRunner == fastRunner) { // 두 노드가 만났습니다.
                 System.out.println("\nThe meet point is at the node with value: " + slowRunner);
                 break;
             }
         }
 
-        // if no meeting point was found then there is no loop
+        // 만나는 지점이 없다면 고리가 없는 것입니다.
         if (fastRunner == null || fastRunner.next == null) {
             return;
         }
 
-        // the slowRunner moves to the head of the linked list
-        // the fastRunner remains at the meeting point
-        // they move simultaneously node-by-node and they should meet at the loop start
+        // 느린 순회 노드가 연결 리스트의 머리 노드로 이동합니다.
+        // 빠른 순회 노드는 충돌한 지점에 멈춰 있습니다.
+        // 두 노드는 한 노드씩 동시에 이동하면서 고리의 시작점에서 만납니다.
         slowRunner = head;
         while (slowRunner != fastRunner) {
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next;
         }
 
-        // both pointers points to the start of the loop
+        // 두 포인터 모두 고리의 시작점을 가리킵니다.
         System.out.println("\nLoop start detected at the node with value: " + fastRunner);
     }
 
     public void print() {
-
         System.out.println("\nHead (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         for (int i = 0; i < size; i++) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

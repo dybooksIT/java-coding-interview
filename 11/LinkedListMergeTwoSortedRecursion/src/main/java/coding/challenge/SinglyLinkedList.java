@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -16,7 +14,6 @@ public final class SinglyLinkedList {
     private Node head;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -25,7 +22,6 @@ public final class SinglyLinkedList {
     }
 
     public void merge(SinglyLinkedList sll) {
-        
         if(sll == null) {
             throw new IllegalArgumentException("Cannot merge null linked list");
         }
@@ -34,7 +30,6 @@ public final class SinglyLinkedList {
     }
 
     private Node merge(Node list1, Node list2) {
-
         if (list1 == null) {
             return list2;
         } else if (list2 == null) {
@@ -56,8 +51,8 @@ public final class SinglyLinkedList {
 
     public void print() {
         Node currentNode = head;
-        while (currentNode != null) {
 
+        while (currentNode != null) {
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

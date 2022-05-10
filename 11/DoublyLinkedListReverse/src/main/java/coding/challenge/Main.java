@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         DoublyLinkedList dll = new DoublyLinkedList();
 
         dll.insertFirst(122);
@@ -22,5 +20,4 @@ public class Main {
         System.out.println("\nReversed:");
         dll.print();
     }
-
 }

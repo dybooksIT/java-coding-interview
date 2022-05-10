@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public final class DoublyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
         private Node prev;
@@ -17,7 +15,6 @@ public final class DoublyLinkedList {
     private Node head;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -31,37 +28,33 @@ public final class DoublyLinkedList {
     }
 
     public void reverse() {
-
         Node currentNode = head;
         Node prevNode = null;
 
         while (currentNode != null) {
-
-            // swap next and prev pointers of the current node
+            // 현재 노드의 다음 포인터와 이전 포인터를 바꿉니다.
             Node prev = currentNode.prev;
             currentNode.prev = currentNode.next;
             currentNode.next = prev;
 
-            // update the previous node before moving to the next node
+            // 다음 노드로 이동하기 전에 이전 노드를 업데이트합니다.
             prevNode = currentNode;
 
-            // move to the next node in the doubly linked list            
+            // 이중 연결 리스트의 다음 노드로 이동합니다.
             currentNode = currentNode.prev;
         }
 
-        // update the head to point to the last node
+        // 머리 노드가 마지막 노드를 가리키도록 업데이트합니다.
         if (prevNode != null) {
             head = prevNode;
         }
     }
 
     public void print() {
-
         System.out.println("\nHead (" + head + ") ----------> Last:");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

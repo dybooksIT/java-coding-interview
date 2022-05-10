@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
-    public static void main(String[] args) {        
-
+    public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
 
         sll.insertFirst(11);
@@ -22,11 +20,10 @@ public class Main {
         sll.insertFirst(11);
         sll.insertFirst(90);
 
-        sll.print();    
-        
+        sll.print();
+
         sll.rearrange(7);
-        
+
         sll.print();
     }
-    
 }

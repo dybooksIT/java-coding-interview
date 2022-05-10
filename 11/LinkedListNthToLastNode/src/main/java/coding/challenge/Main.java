@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
-    public static void main(String[] args) {        
-
+    public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
 
         sll.insertFirst(11);
@@ -26,7 +24,5 @@ public class Main {
 
         System.out.println("\nIterative: The " + n + "th to last node has the value: " + resultIterative);
         System.out.println("\nRecursive: The " + n + "th to last node has the value: " + resultRecursive);
-
     }
-
 }

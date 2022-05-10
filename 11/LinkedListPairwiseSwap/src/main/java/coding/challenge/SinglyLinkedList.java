@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -17,7 +15,6 @@ public final class SinglyLinkedList {
     private Node tail;
 
     public void insertFirst(int data) {
-
         Node newNode = new Node();
 
         newNode.data = data;
@@ -30,7 +27,6 @@ public final class SinglyLinkedList {
     }
 
     public void swap() {
-
         if (head == null || head.next == null) {
             return;
         }
@@ -38,50 +34,47 @@ public final class SinglyLinkedList {
         Node currentNode = head;
         Node prevPair = null;
 
-        // consider two nodes at a time and swap their links
+        // 한 번에 2개의 노드를 고려하여 링크를 교환합니다.
         while (currentNode != null && currentNode.next != null) {
+            Node node1 = currentNode;           // 첫 번째 노드
+            Node node2 = currentNode.next;      // 두 번째 노드
+            Node node3 = currentNode.next.next; // 세 번째 노드
 
-            Node node1 = currentNode;           // first node
-            Node node2 = currentNode.next;      // second node                    
-            Node node3 = currentNode.next.next; // third node            
-
-            // swap the first node (node1) with the second node (node2)
+            // 첫 번째 노드 node1과 두 번째 노드 node2를 교체합니다.
             Node auxNode = node1;
             node1 = node2;
             node2 = auxNode;
 
-            // repair the links broken by swapping
+            // 링크를 교체하여 복구합니다.
             node1.next = node2;
             node2.next = node3;
 
-            // if we are at the first swap we set the head
+            // 첫 번째 교체라면 머리 노드를 설정합니다.
             if (prevPair == null) {
                 head = node1;
             } else {
-                // we link the previous pair to this pair
+                // 이전 쌍을 현재 쌍에 연결합니다.
                 prevPair.next = node1;
             }
 
-            // there are no more nodes, therefore set the tail
+            // 더 이상 노드가 없으므로 꼬리 노드를 설정합니다.
             if (currentNode.next == null) {
                 tail = currentNode;
             }
 
-            // prepare the prevNode of the current pair
+            // 현재 쌍의 이전 노드 prevPair를 준비합니다.
             prevPair = node2;
 
-            // advance to the next pair
+            // 다음 쌍으로 진행합니다.
             currentNode = node3;
         }
     }
 
     public void print() {
-
         System.out.println("\nHead (" + head + ") ----------> Last (" + tail + "):");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }

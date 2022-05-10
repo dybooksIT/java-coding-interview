@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public final class SinglyLinkedList {
-
     private final class Node {
-
         private int data;
         private Node next;
 
@@ -14,30 +12,27 @@ public final class SinglyLinkedList {
     }
 
     private Node head;
-    
-    public void insertFirst(int data) {
 
+    public void insertFirst(int data) {
         Node newNode = new Node();
 
         newNode.data = data;
         newNode.next = head;
-        head = newNode;       
+        head = newNode;
     }
 
     public void sum(SinglyLinkedList sll) {
-
         SinglyLinkedList sllResult = new SinglyLinkedList();
 
         Node node = sum(head, sll.head, 0);
         sllResult.head = node;
-        
+
         sllResult.reverseLinkedList(sllResult.head);
 
         sllResult.print();
     }
 
     private Node sum(Node node1, Node node2, int carry) {
-
         if (node1 == null && node2 == null && carry == 0) {
             return null;
         }
@@ -48,7 +43,7 @@ public final class SinglyLinkedList {
         if (node1 != null) {
             value += node1.data;
         }
-        
+
         if (node2 != null) {
             value += node2.data;
         }
@@ -82,12 +77,10 @@ public final class SinglyLinkedList {
     }
 
     public void print() {
-
         System.out.println("\nResult:");
 
         Node currentNode = head;
         while (currentNode != null) {
-
             System.out.print(currentNode);
             currentNode = currentNode.next;
         }
