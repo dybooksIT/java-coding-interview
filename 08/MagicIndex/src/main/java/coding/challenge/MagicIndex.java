@@ -24,15 +24,15 @@ public final class MagicIndex {
         // 중간 인덱스의 값을 확인합니다.
         int value = arr[middleIndex];
 
-        // 값과 인덱스가 같다면 마법의 인덱스입니다.
-        if (value == middleIndex) {
-            return middleIndex;
-        }
-
         // 배열의 왼쪽 영역을 검색합니다.
         int leftIndex = find(arr, startIndex, Math.min(middleIndex - 1, value));
         if (leftIndex >= 0) {
             return leftIndex;
+        }
+
+        // 값과 인덱스가 같다면 마법의 인덱스입니다.
+        if (value == middleIndex) {
+            return middleIndex;
         }
 
         // 배열의 오른쪽 영역을 검색합니다.
