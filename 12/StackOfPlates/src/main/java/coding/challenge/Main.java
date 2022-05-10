@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         MyStack stack = new MyStack();
 
         stack.push(25);
@@ -16,14 +14,13 @@ public class Main {
         stack.push(12);
 
         stack.printStacks();
-        
+
         System.out.println("\n\nPop from stack 1: " + stack.popAt(1));
-        
+
         stack.printStacks();
-        
+
         System.out.println("\n\nPop from stack 0: " + stack.popAt(0));
-        
+
         stack.printStacks();
     }
-
 }

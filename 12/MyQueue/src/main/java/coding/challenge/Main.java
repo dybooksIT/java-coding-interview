@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         MyQueue<Integer> stack = new MyQueue();
 
         stack.enqueue(25);
@@ -36,5 +34,4 @@ public class Main {
         System.out.println("Size: " + stack.size());
         System.out.println("Is empty? " + stack.isEmpty());
     }
-
 }

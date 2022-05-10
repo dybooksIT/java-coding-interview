@@ -5,98 +5,109 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 public final class MyQueue<E> {
-
     private static final int DEFAULT_CAPACITY = 10;
 
-    private int front;    // elements are removed or peeked from the front
-    private int rear;     // elements are added in the rear
-    private int count;    // size of the queue
-    private int capacity; // capacity of the queue (this is doubled when is exceeded)
+    // 큐의 맨 앞 요소를 제거하고 반환하거나 제거하지 않고 반환할 때 사용합니다.
+    private int front;
 
-    private E[] queue;    // the array that sits behind the queue
+    // 큐의 맨 뒤에 요소를 추가할 때 사용합니다.
+    private int rear;
 
-    // constructor to initialize the queue
+    // 큐의 크기(큐의 요소 개수)
+    private int count;
+
+    // 큐의 용량(용량을 초과하면 2배가 됩니다).
+    private int capacity;
+
+    // 큐를 위한 배열
+    private E[] queue;
+
+    // 큐를 초기화하는 생성자
     MyQueue() {
-        // we use Java Reflection since Java doesn't allow us to instantiate a generic array
+        // 자바의 일반 배열은 인스턴스화할 수 없기 때문에
+        // 자바 리플렉션(Reflection)을 사용합니다.
         queue = (E[]) Array.newInstance(
                 Object[].class.getComponentType(), DEFAULT_CAPACITY);
 
-        count = 0; // initially, the size of the queue is 0
-        front = 0; // the index of the first element is 0
-        rear = -1; // initially, there is no element in the queue
+        // 큐를 초기화했을 때의 크기(스택의 요소 개수)는 0입니다.
+        count = 0;
 
-        capacity = DEFAULT_CAPACITY; // initially, the capacity is of 10 elements
+        // 첫 번째 요소의 인덱스는 0입니다.
+        front = 0;
+
+        // 큐를 초기화했을 때는 요소가 없습니다.
+        rear = -1;
+
+        // 큐를 초기화했을 때의 용량은 10(요소 10개 저장 가능)입니다.
+        capacity = DEFAULT_CAPACITY;
     }
 
-    // add an element 'e' in the queue
+    // 요소 'e'를 큐에 추가합니다.
     public void enqueue(E e) {
-
-        // if the queue is full, we double its capacity
+        // 큐가 가득 찼다면 용량을 2배로 늘립니다.
         if (isFull()) {
             ensureCapacity();
         }
 
-        // adding the element in the rear of the queue
-        rear = (rear + 1) % capacity;       
+        // 큐의 맨 뒤(rear)에 요소를 추가합니다.
+        rear = (rear + 1) % capacity;
         queue[rear] = e;
-        
-        // update the size of the queue
+
+        // 큐의 크기를 업데이트합니다.
         count++;
     }
 
-    // remove and return the front element from the queue
+    // 큐에서 맨 앞에 있는 요소(front)를 제거하고 반환합니다.
     public E dequeue() {
-
-        // if the queue is empty we just throw a meaningful exception
+        // 큐가 비어 있으면 의미가 있는 예외를 던집니다.
         if (isEmpty()) {
             throw new EmptyStackException();
         }
 
-        // extract the element from the front
-        E e = queue[front];    
-        queue[front] = null;        
-        
-        // set the new front
-        front = (front + 1) % capacity;      
-        
-        // decrease the size of the queue
+        // 큐의 맨 앞에서 요소를 추출합니다.
+        E e = queue[front];
+        queue[front] = null;
+
+        // 새로운 맨 앞 요소(front)를 지정합니다.
+        front = (front + 1) % capacity;
+
+        // 큐의 크기를 줄입니다.
         count--;
-       
+
         return e;
     }
 
-    // return but not remove the front element in the queue
+    // 큐의 맨 앞 요소(front)를 제거하지 않고 반환합니다.
     public E peek() {
-        
-        // if the queue is empty we just throw a meaningful exception
+        // 큐가 비어 있으면 의미가 있는 예외를 던집니다.
         if (isEmpty()) {
             throw new EmptyStackException();
         }
-        
-            return queue[front];        
+
+        return queue[front];
     }
 
-    // size of the queue
+    // 큐의 크기(큐의 요소 개수)를 반환합니다.
     public int size() {
         return count;
     }
 
-    // check if the queue is empty or not
+    // 큐가 비어 있는지를 확인합니다.
     public boolean isEmpty() {
         return size() == 0;
     }
 
-    // check if the queue is full or not
+    // 큐가 가득 찼는지를 확인합니다.
     public boolean isFull() {
         return size() == capacity;
     }
 
-    // used internally for doubling the queue capacity
-    private void ensureCapacity() {       
+    // 큐의 용량을 2배로 늘리기 위해 클래스 내부에서 사용하는 메서드입니다.
+    private void ensureCapacity() {
         int newSize = queue.length * 2;
         queue = Arrays.copyOf(queue, newSize);
-        
-        // setting the new capacity
+
+        // 용량을 newSize에 저장된 값으로 설정합니다.
         capacity = newSize;
     }
 }
