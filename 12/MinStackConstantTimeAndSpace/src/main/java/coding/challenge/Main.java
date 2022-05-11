@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         MyStack stack = new MyStack();
 
         stack.push(5);
@@ -30,11 +28,10 @@ public class Main {
 
         stack.pop();
         stack.pop();
-        stack.pop();        
+        stack.pop();
         System.out.println("Min (after three pop): " + stack.min());
-        
-        stack.pop();     
+
+        stack.pop();
         System.out.println("Min (after two pop): " + stack.min());
     }
-
 }

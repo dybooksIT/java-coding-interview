@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         MyStackViaQueue<Integer> stack = new MyStackViaQueue();
 
         stack.push(25);

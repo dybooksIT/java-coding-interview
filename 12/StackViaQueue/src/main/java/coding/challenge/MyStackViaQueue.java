@@ -1,11 +1,10 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.EmptyStackException;
 import java.util.Queue;
 
 public class MyStackViaQueue<E> {
-
     private final Queue<E> queue1;
     private final Queue<E> queue2;
     private E peek;
@@ -17,7 +16,6 @@ public class MyStackViaQueue<E> {
     }
 
     public void push(E e) {
-
         if (!queue1.isEmpty()) {
             if (peek != null) {
                 queue1.add(peek);
@@ -35,7 +33,6 @@ public class MyStackViaQueue<E> {
     }
 
     public E pop() {
-
         if (size() == 0) {
             throw new EmptyStackException();
         }
@@ -62,7 +59,6 @@ public class MyStackViaQueue<E> {
     }
 
     public E peek() {
-
         if (size() == 0) {
             throw new EmptyStackException();
         }
@@ -83,7 +79,6 @@ public class MyStackViaQueue<E> {
     }
 
     private E switchQueue(Queue from, Queue to) {
-
         while (from.size() > 1) {
             to.add(from.poll());
         }

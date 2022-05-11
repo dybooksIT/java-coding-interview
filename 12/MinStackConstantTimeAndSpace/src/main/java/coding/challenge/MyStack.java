@@ -1,16 +1,14 @@
 package coding.challenge;
- 
+
 import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class MyStack {
-
     private int min;
     private final Stack<Integer> stack = new Stack<>();
 
     public void push(int value) {
-
-        // we don't allow values that overflow int/2 range
+        // int / 2 범위를 초과하는 값은 허용하지 않습니다.
         int r = Math.addExact(value, value);
 
         if (stack.empty()) {
@@ -24,10 +22,8 @@ public class MyStack {
         }
     }
 
-    // pop() doesn't return the value since this 
-    // may be a wrong value (a value that was not pushed by the client)!
+    // pop은 잘못된 값(클라이언트가 푸시하지 않은 값)일 수 있기 때문에 값을 반환하지 않습니다.
     public void pop() {
-
         if (stack.empty()) {
             throw new EmptyStackException();
         }

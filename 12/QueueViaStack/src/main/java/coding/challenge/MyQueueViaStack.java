@@ -1,9 +1,8 @@
 package coding.challenge;
- 
+
 import java.util.Stack;
 
 public class MyQueueViaStack<E> {
-
     private final Stack<E> stackEnqueue;
     private final Stack<E> stackDequeue;
 
