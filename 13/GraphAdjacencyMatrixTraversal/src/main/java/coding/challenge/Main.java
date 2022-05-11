@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         /*
                 E
                 | \
@@ -11,8 +9,8 @@ public class Main {
             D---B---C
              \     /
               \   /
-                A        
-         */
+                A
+        */
         Graph<String> graph = new Graph();
         graph.add("A");
         graph.add("B");
@@ -21,11 +19,11 @@ public class Main {
         graph.add("E");
 
         int adjacencyMatrix[][] = {
-            {0, 0, 1, 1, 0}, // Node A
-            {0, 0, 1, 1, 1}, // Node B
-            {1, 1, 0, 0, 1}, // Node C
-            {1, 1, 0, 0, 0}, // Node D
-            {0, 1, 1, 0, 0}, // Node E
+            {0, 0, 1, 1, 0}, // 노드 A
+            {0, 0, 1, 1, 1}, // 노드 B
+            {1, 1, 0, 0, 1}, // 노드 C
+            {1, 1, 0, 0, 0}, // 노드 D
+            {0, 1, 1, 0, 0}, // 노드 E
         };
 
         System.out.println("\n\nTraversal via BFS starting from 'A':");

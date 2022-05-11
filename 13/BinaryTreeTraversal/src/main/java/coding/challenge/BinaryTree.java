@@ -11,12 +11,10 @@ import java.util.List;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private int nodeCount;
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -42,9 +40,8 @@ public class BinaryTree<T> {
         LEVEL
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(Breadth-first Search, BFS) 알고리즘을 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -61,9 +58,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -89,16 +85,15 @@ public class BinaryTree<T> {
         }
     }
 
-    // print tree via Depth-First Search (DFS) and Breadth-First Search (BFS) 
+    // 깊이 우선 탐색(DFS)와 너비 우선 탐색(CFS)를 이용한 트리 출력
     public void print(TraversalOrder to) {
-
         if (size() == 0) {
             System.out.println("empty");
             return;
         }
 
         switch (to) {
-            // DFS
+            // 깊이 우선 탐색(DFS)
             case IN:
                 printInOrder(root);
                 break;
@@ -108,7 +103,7 @@ public class BinaryTree<T> {
             case POST:
                 printPostOrder(root);
                 break;
-            // BFS
+            // 너비 우선 탐색(BFS)
             case LEVEL:
                 printLevelOrder(root);
                 break;
@@ -142,34 +137,30 @@ public class BinaryTree<T> {
     }
 
     private void printLevelOrder(Node node) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
-            // Step 1: Pop the first node from the queue as the current node
+            // 1단계: 큐에서 첫 번째 노드를 현재 노드로 팝합니다.
             Node current = queue.poll();
 
-            // Step 2: Visit the current node
+            // 2단계: 현재 노드를 방문합니다.
             System.out.print(" " + current.element);
 
-            // Step 3: If the current node has a left node then enqueue that left node
+            // 3단계: 현재 노드에 왼쪽 노드가 있는 경우 해당 왼쪽 노드를 큐에 추가합니다.
             if (current.left != null) {
                 queue.add(current.left);
             }
 
-            // Step 4: If the current node has a right node then enqueue that right node
+            // 4단계: 현재 노드에 오른쪽 노드가 있는 경우 해당 오른쪽 노드를 큐에 추가합니다.
             if (current.right != null) {
                 queue.add(current.right);
             }
         }
     }
 
-    // tree Depth-First Search (DFS) and Breadth-First Search (BFS) traversal returning a list
+    // 트리의 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS)의 순회로 List를 반환합니다.
     public List<T> asList(TraversalOrder to) {
-
         if (size() == 0) {
             return Collections.emptyList();
         }
@@ -177,7 +168,7 @@ public class BinaryTree<T> {
         List<T> treeList = new ArrayList<>(size());
 
         switch (to) {
-            // DFS
+            // 깊이 우선 탐색(DFS)
             case IN:
                 traverseInOrderAsList(root, treeList);
                 break;
@@ -187,7 +178,7 @@ public class BinaryTree<T> {
             case POST:
                 traversePostOrderAsList(root, treeList);
                 break;
-            // BFS    
+            // 너비 우선 탐색(BFS)
             case LEVEL:
                 traverseLevelOrderAsList(root, treeList);
                 break;
@@ -223,15 +214,11 @@ public class BinaryTree<T> {
     }
 
     private void traverseLevelOrderAsList(Node node, List<T> treeList) {
-
         Queue<Node> queue = new LinkedList<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
-
             treeList.add(current.element);
 
             if (current.left != null) {
@@ -244,22 +231,21 @@ public class BinaryTree<T> {
         }
     }
 
-    // tree Depth-First Search (DFS) and Breadth-First Search (BFS) traversal via a Java Iterator
+    // 자바 Iterator를 이용한 트리의 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS) 순회
     public Iterator<T> iterator(TraversalOrder to) {
-
         if (size() == 0) {
             return Collections.emptyIterator();
         }
 
         switch (to) {
-            // DFS
+            // 깊이 우선 탐색(DFS)
             case IN:
                 return traverseInOrderAsIterator(root);
             case PRE:
                 return traversePreOrderAsIterator(root);
             case POST:
                 return traversePostOrderAsIterator(root);
-            // BFS    
+            // 너비 우선 탐색(BFS)
             case LEVEL:
                 return traverseLevelOrderAsIterator(root);
             default:
@@ -268,9 +254,7 @@ public class BinaryTree<T> {
     }
 
     private Iterator<T> traverseInOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Deque<Node> stack = new ArrayDeque<>();
 
         stack.push(node);
@@ -289,7 +273,6 @@ public class BinaryTree<T> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -317,15 +300,12 @@ public class BinaryTree<T> {
     }
 
     private Iterator<T> traversePreOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Deque<Node> stack = new ArrayDeque<>();
 
         stack.push(node);
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -337,7 +317,6 @@ public class BinaryTree<T> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -363,7 +342,6 @@ public class BinaryTree<T> {
     }
 
     private Iterator<T> traversePostOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
 
         final Deque<Node> stacka = new ArrayDeque<>();
@@ -385,7 +363,6 @@ public class BinaryTree<T> {
         }
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -413,15 +390,12 @@ public class BinaryTree<T> {
     }
 
     private Iterator<T> traverseLevelOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Queue<Node> queue = new ArrayDeque<>();
 
         queue.offer(node);
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -433,7 +407,6 @@ public class BinaryTree<T> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -459,7 +432,6 @@ public class BinaryTree<T> {
     }
 
     public T root() {
-
         if (root == null) {
             return null;
         }

@@ -1,11 +1,9 @@
 package coding.challenge;
 
 class AVLTree {
-
     private Node root;
 
     private class Node {
-
         private int element;
         private int height;
 
@@ -18,14 +16,12 @@ class AVLTree {
         }
     }
 
-    /* insert a node into the tree */
+    // 트리에 노드를 삽입
     public void insert(int element) {
-
         root = insert(root, element);
     }
 
     private Node insert(Node node, int element) {
-
         if (node == null) {
             return (new Node(element));
         }
@@ -63,13 +59,12 @@ class AVLTree {
         return node;
     }
 
-    /* delete an element from the tree */
+    // 트리의 요소 삭제
     public void delete(int element) {
         delete(root, element);
     }
 
     private Node delete(Node root, int element) {
-
         if (root == null) {
             return root;
         }
@@ -130,7 +125,7 @@ class AVLTree {
         return root;
     }
 
-    /* pretty print the tree */
+    // 잘 정돈된 트리 출력
     public void print() {
         System.out.println("\nPre-Order Traversal:");
         print(root, "", false);
@@ -154,7 +149,7 @@ class AVLTree {
         }
     }
 
-    /* HELPER METHODS */
+    // 헬퍼 메서드
     private Node rightRotate(Node q) {
         Node p = q.left;
         Node aux = p.right;
@@ -182,20 +177,18 @@ class AVLTree {
     }
 
     private int getBalanceFactor(Node node) {
-        
         if (node == null) {
             return 0;
         }
-        
+
         return height(node.left) - height(node.right);
     }
-    
+
     private int height(Node node) {
-        
         if (node == null) {
             return 0;
         }
-        
+
         return node.height;
     }
 
@@ -211,5 +204,5 @@ class AVLTree {
     
     private int max(int e1, int e2) {
         return (e1 > e2) ? e1 : e2;
-    }      
+    }
 }

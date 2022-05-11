@@ -1,19 +1,17 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
-    /*
-                E
-                | \
-                |  \
-            D---B---C
-             \     /
-              \   /
-                A        
-    */
-    Graph<String> graph = new Graph();
+        /*
+                    E
+                    | \
+                    |  \
+                D---B---C
+                 \     /
+                  \   /
+                    A
+        */
+        Graph<String> graph = new Graph();
 
         graph.addEdge("A", "C");
         graph.addEdge("A", "D");
@@ -28,13 +26,13 @@ public class Main {
         graph.addEdge("E", "C");
         graph.addEdge("E", "B");
 
-        System.out.println("\n\nTraversal via BFS starting from 'A':");        
-        graph.bfs("A");                  
+        System.out.println("\n\nTraversal via BFS starting from 'A':");
+        graph.bfs("A");
 
-        System.out.println("\n\nTraversal via iterative DFS starting from 'A':");        
+        System.out.println("\n\nTraversal via iterative DFS starting from 'A':");
         graph.dfsStack("A");
-        
-        System.out.println("\n\nTraversal via recursive DFS starting from 'A':");                
+
+        System.out.println("\n\nTraversal via recursive DFS starting from 'A':");
         graph.dfsRecursion("A");
     }
 }

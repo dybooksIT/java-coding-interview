@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MaxHeap<T extends Comparable<T>> {
-
     private static final int DEFAULT_CAPACITY = 5;
 
     private int capacity;
@@ -13,15 +12,14 @@ public class MaxHeap<T extends Comparable<T>> {
     private T[] heap;
 
     public MaxHeap() {
-
         capacity = DEFAULT_CAPACITY;
         this.heap = (T[]) Array.newInstance(
-                Comparable[].class.getComponentType(), DEFAULT_CAPACITY);
+            Comparable[].class.getComponentType(), DEFAULT_CAPACITY
+        );
     }
 
-    // Adding is done in O(log n) time
+    // 요소 추가는 O(log n) 시간에 완료됩니다.
     public void add(T element) {
-
         ensureCapacity();
 
         heap[size] = element;
@@ -31,16 +29,14 @@ public class MaxHeap<T extends Comparable<T>> {
     }
 
     private void ensureCapacity() {
-
         if (size == capacity) {
             heap = Arrays.copyOf(heap, capacity * 2);
             capacity = capacity * 2;
         }
     }
 
-    // Peeking is done in O(1) time
+    // 요소 피크(Peeking)는 O(1) 시간에 완료됩니다.
     public T peek() {
-
         if (size == 0) {
             throw new NoSuchElementException();
         }
@@ -48,9 +44,8 @@ public class MaxHeap<T extends Comparable<T>> {
         return heap[0];
     }
 
-    // Polling is done in O(log n) time
+    // 요소 폴(Polling)은 O(log n) 시간에 완료됩니다.
     public T poll() {
-
         if (size == 0) {
             throw new NoSuchElementException();
         }
@@ -71,37 +66,38 @@ public class MaxHeap<T extends Comparable<T>> {
         System.out.print("ROOT NODE: " + heap[0] + "\n");
         for (int i = 0; i < size; i++) {
             System.out.print("NODE: " + heap[i]);
+
             if (hasLeftChild(i)) {
                 System.out.print(" LEFT NODE: " + heap[getLeftChildIndex(i)]);
             }
+
             if (hasRightChild(i)) {
                 System.out.print(" RIGHT NODE: " + heap[getRightChildIndex(i)]);
             }
+
             System.out.println();
         }
+
         System.out.println();
     }
 
-    // fix the heap after polling an element
+    // 요소를 폴한 후 힙 수정
     private void heapifyDown() {
-        
-        // Step 1: Start from the root of the heap as the current node
+        // 1단계: 힙의 루트를 현재 노드로 설정하여 시작합니다.
         int index = 0;
 
         while (hasLeftChild(index)) {
-            
-            // Step 2: Determine the largest node between the children of the current node
+            // 2단계: 현재 노드의 자식 중 가장 큰 노드를 찾습니다.
             int largestChildIndex = getLeftChildIndex(index);
             if (hasRightChild(index) && rightChild(index).compareTo(leftChild(index)) > 0) {
                 largestChildIndex = getRightChildIndex(index);
             }
 
-            // Step 3: If the current node is less than its largest children 
-            //         then swap these two nodes and continue
+            // 3단계: 현재 노드가 가장 큰 자식보다 작으면 두 노드를 교환하고 2단계부터 반복합니다.
             if (heap[index].compareTo(heap[largestChildIndex]) < 0) {
                 swap(index, largestChildIndex);
             } else {
-            // Step 3: there is nothing else to do, so stop
+                // 3단계: 그렇지 않으면 더 작업할 내용이 없으므로 알고리즘을 중단합니다.
                 break;
             }
 
@@ -109,14 +105,13 @@ public class MaxHeap<T extends Comparable<T>> {
         }
     }
 
-    // fix the heap after adding a new element
+    // 새로운 요소를 추가한 후 힙을 수정
     private void heapifyUp() {
-        
-        // Step 1: Start from the end of the heap as the current node
+        // 1단계: 힙의 끝을 현재 노드로 설정하여 시작합니다.
         int index = size - 1;
 
-        // Step 2: While the current node has parent and the parent is less than the 
-        //         current node swap these nodes
+        // 2단계: 2.	현재 노드에 부모가 있고 부모가 현재 노드보다 작다면 노드를 교환하고,
+        // 부모가 현재 노드보다 클 때까지 반복합니다.
         while (hasParent(index) && parent(index).compareTo(heap[index]) < 0) {
             swap(getParentIndex(index), index);
             index = getParentIndex(index);

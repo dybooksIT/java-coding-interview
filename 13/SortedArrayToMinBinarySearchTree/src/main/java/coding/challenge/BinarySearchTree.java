@@ -1,15 +1,13 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-
     private int nodeCount;
     private Node root = null;
 
     private class Node {
-
         private final T element;
 
         private Node left;
@@ -36,7 +34,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void minimalBst(T m[]) {
-
         if (m == null) {
             throw new IllegalArgumentException("The given array cannot be null");
         }
@@ -45,7 +42,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node minimalBst(T m[], int start, int end) {
-
         if (end < start) {
             return null;
         }
@@ -66,7 +62,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public T root() {
-
         if (root == null) {
             return null;
         }
@@ -79,7 +74,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private int height(Node node) {
-
         if (node == null) {
             return 0;
         }
@@ -88,7 +82,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void print(TraversalOrder to) {
-
         if (size() == 0) {
             System.out.println("empty");
             return;
@@ -137,13 +130,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private void printLevelOrder(Node node) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
 
             System.out.print(" " + current.element);

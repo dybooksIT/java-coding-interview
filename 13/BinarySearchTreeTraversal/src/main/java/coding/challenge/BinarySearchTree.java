@@ -10,12 +10,10 @@ import java.util.List;
 import java.util.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> {
-
     private int nodeCount;
     private Node root = null;
 
     private class Node {
-
         private T element;
         private Node left;
         private Node right;
@@ -35,7 +33,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -51,7 +48,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node insert(Node current, T element) {
-
         if (current == null) {
             return new Node(null, null, element);
         }
@@ -66,12 +62,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean contains(T element) {
-
         return contains(root, element);
     }
 
     private boolean contains(Node current, T element) {
-
         if (current == null || element == null) {
             return false;
         }
@@ -81,12 +75,11 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         return element.compareTo(current.element) < 0
-                ? contains(current.left, element)
-                : contains(current.right, element);
+          ? contains(current.left, element)
+          : contains(current.right, element);
     }
 
     public boolean delete(T element) {
-
         if (contains(element)) {
             root = delete(root, element);
             nodeCount--;
@@ -98,7 +91,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node delete(Node node, T element) {
-
         if (node == null) {
             return null;
         }
@@ -110,7 +102,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         if (element.compareTo(node.element) == 0) {
-
             if (node.right == null) {
                 Node left = node.left;
 
@@ -127,14 +118,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
                 node.element = leftmost.element;
                 node.right = delete(node.right, node.element);
             }
-
         }
 
         return node;
     }
 
     public T min() {
-
         if (root == null) {
             return null;
         }
@@ -143,7 +132,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public T root() {
-
         if (root == null) {
             return null;
         }
@@ -152,7 +140,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public T max() {
-
         if (root == null) {
             return null;
         }
@@ -161,7 +148,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node findLeftmostNode(Node node) {
-
         while (node.left != null) {
             node = node.left;
         }
@@ -170,7 +156,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node findRightmostNode(Node node) {
-
         while (node.right != null) {
             node = node.right;
         }
@@ -187,7 +172,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private int height(Node node) {
-
         if (node == null) {
             return 0;
         }
@@ -196,7 +180,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public void print(TraversalOrder to) {
-
         if (size() == 0) {
             System.out.println("empty");
             return;
@@ -245,13 +228,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private void printLevelOrder(Node node) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
 
             System.out.print(" " + current.element);
@@ -267,7 +247,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public List<T> asList(TraversalOrder to) {
-
         if (size() == 0) {
             return Collections.emptyList();
         }
@@ -319,15 +298,11 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private void traverseLevelOrderAsList(Node node, List<T> treeList) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
-
             treeList.add(current.element);
 
             if (current.left != null) {
@@ -341,7 +316,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public Iterator<T> iterator(TraversalOrder to) {
-
         if (size() == 0) {
             return Collections.emptyIterator();
         }
@@ -361,9 +335,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Iterator<T> traverseInOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Deque<Node> stack = new ArrayDeque<>();
 
         stack.push(node);
@@ -382,7 +354,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -410,15 +381,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Iterator<T> traversePreOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Deque<Node> stack = new ArrayDeque<>();
 
         stack.push(node);
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -430,7 +398,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -456,7 +423,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Iterator<T> traversePostOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
 
         final Deque<Node> stacka = new ArrayDeque<>();
@@ -478,7 +444,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -490,7 +455,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }
@@ -506,15 +470,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Iterator<T> traverseLevelOrderAsIterator(Node node) {
-
         final int expectedNodeCount = size();
-
         final Queue<Node> queue = new ArrayDeque<>();
 
         queue.offer(node);
 
         return new Iterator<T>() {
-
             @Override
             public boolean hasNext() {
                 if (expectedNodeCount != nodeCount) {
@@ -526,7 +487,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
             @Override
             public T next() {
-
                 if (expectedNodeCount != nodeCount) {
                     throw new ConcurrentModificationException();
                 }

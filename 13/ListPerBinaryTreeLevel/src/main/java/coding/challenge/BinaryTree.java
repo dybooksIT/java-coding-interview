@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -31,9 +29,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)를 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -49,9 +46,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 노드 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -76,15 +72,14 @@ public class BinaryTree<T> {
     }
 
     public List<List<T>> fetchAllLevels() {
-
         if (root == null) {
             return Collections.emptyList();
         }
 
-        // each list holds a level
+        // 각 리스트는 하나의 레벨을 나타냅니다.
         List<List<T>> allLevels = new ArrayList<>();
 
-        // first level (containing only the root)
+        // 첫 번째 레벨은 루트만 포함합니다.
         Queue<Node> currentLevelOfNodes = new ArrayDeque<>();
         List<T> currentLevelOfElements = new ArrayList<>();
 
@@ -92,20 +87,18 @@ public class BinaryTree<T> {
         currentLevelOfElements.add(root.element);
 
         while (!currentLevelOfNodes.isEmpty()) {
-
-            // store the current level as the previous level
+            // 현재 레벨을 이전 레벨로 저장합니다.
             Queue<Node> previousLevelOfNodes = currentLevelOfNodes;
 
-            // add level to the final list
+            // 최종 리스트에 레벨을 추가합니다.
             allLevels.add(currentLevelOfElements);
 
-            // go to the next level as the current level
+            // 다음 레벨을 현재 레벨로 설정합니다.
             currentLevelOfNodes = new ArrayDeque<>();
             currentLevelOfElements = new ArrayList<>();
 
-            // traverse all nodes on current level
+            // 현재 레벨의 모든 노드를 순회합니다.
             for (Node parent : previousLevelOfNodes) {
-
                 if (parent.left != null) {
                     currentLevelOfNodes.add(parent.left);
                     currentLevelOfElements.add(parent.left.element);

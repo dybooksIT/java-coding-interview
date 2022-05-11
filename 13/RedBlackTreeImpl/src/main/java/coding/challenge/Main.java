@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         RedBlackTree rbt = new RedBlackTree();
         rbt.insert(5);
         rbt.insert(15);
@@ -17,7 +15,7 @@ public class Main {
 
         System.out.println("\nDelete 5 and 35 ...");
         rbt.delete(5);
-        rbt.delete(35);        
+        rbt.delete(35);
 
         rbt.print();
     }

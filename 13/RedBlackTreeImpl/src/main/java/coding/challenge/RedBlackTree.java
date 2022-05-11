@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class RedBlackTree {
-
     private static final int RED = 0;
     private static final int BLACK = 1;
 
@@ -9,8 +8,7 @@ public class RedBlackTree {
     private Node root = nil;
 
     private class Node {
-
-        int element = -999; // dummy element
+        int element = -999; // 더미 요소
         int color = BLACK;
 
         Node parent = nil;
@@ -22,13 +20,12 @@ public class RedBlackTree {
         }
     }
 
-    /* insert a node into the tree */
+    // 트리에 노드 삽입
     public void insert(int element) {
         insert(new Node(element));
     }
 
     private void insert(Node node) {
-
         Node tmp = root;
 
         if (root == nil) {
@@ -61,13 +58,12 @@ public class RedBlackTree {
         }
     }
 
-    /* delete a node from tree */
+    // 트리의 노드 삭제
     public boolean delete(int element) {
         return delete(new Node(element));
     }
 
     private boolean delete(Node toDelete) {
-
         if ((toDelete = contains(toDelete, root)) == null) {
             return false;
         }
@@ -106,7 +102,7 @@ public class RedBlackTree {
         return true;
     }
 
-    /* Check if the tree contains a certain element */
+    // 트리에 특정 요소가 포함되었는지 확인
     public boolean contains(int element) {
         Node result = contains(new Node(element), root);
 
@@ -114,7 +110,6 @@ public class RedBlackTree {
     }
 
     private Node contains(Node toFind, Node node) {
-
         if (root == nil) {
             return null;
         }
@@ -134,30 +129,25 @@ public class RedBlackTree {
         return null;
     }
 
-    /* print the tree content */
+    // 트리의 내용을 출력
     public void print() {
-        
         System.out.println("In-Order Traversal:");
         print(root);
     }
 
     private void print(Node node) {
-
         if (node == nil) {
             return;
         }
-        
+
         print(node.left);
         System.out.print(((node.color == RED) ? "Color: Red " : "Color: Black ")
-                + "Element: " + node.element + "\n");
+          + "Element: " + node.element + "\n");
         print(node.right);
     }
 
-    /*
-    HELPER METHODS
-     */
+    // 헬퍼 메서드
     private void rotateLeft(Node node) {
-
         if (node.parent != nil) {
             if (node == node.parent.left) {
                 node.parent.left = node.right;
@@ -175,7 +165,7 @@ public class RedBlackTree {
             node.right = node.right.left;
             node.parent.left = node;
         } else {
-            // rotate the root
+            // 루트 노드를 회전시킵니다.
             Node right = root.right;
             root.right = right.left;
             right.left.parent = root;
@@ -187,7 +177,6 @@ public class RedBlackTree {
     }
 
     private void rotateRight(Node node) {
-
         if (node.parent != nil) {
             if (node == node.parent.left) {
                 node.parent.left = node.left;
@@ -205,7 +194,7 @@ public class RedBlackTree {
             node.left = node.left.right;
             node.parent.right = node;
         } else {
-            // rotate the root
+            // 루트 노드를 회전시킵니다.
             Node left = root.left;
             root.left = root.left.right;
             left.right.parent = root;
@@ -217,9 +206,7 @@ public class RedBlackTree {
     }
 
     private void fixAfterInsert(Node node) {
-
         while (node.parent.color == RED) {
-
             Node ancestor;
             if (node.parent == node.parent.parent.left) {
                 ancestor = node.parent.parent.right;
@@ -232,14 +219,17 @@ public class RedBlackTree {
 
                     continue;
                 }
+
                 if (node == node.parent.right) {
-                    // double rotation is needed
+                    // 이중 회전이 필요합니다.
                     node = node.parent;
                     rotateLeft(node);
                 }
+
                 node.parent.color = BLACK;
                 node.parent.parent.color = RED;
-                // single rotation is needed 
+
+                // 단일 회전이 필요합니다.
                 rotateRight(node.parent.parent);
             } else {
                 ancestor = node.parent.parent.left;
@@ -252,8 +242,9 @@ public class RedBlackTree {
 
                     continue;
                 }
+
                 if (node == node.parent.left) {
-                    // double rotation is needed
+                    // 이중 회전이 필요합니다.
                     node = node.parent;
                     rotateRight(node);
                 }
@@ -261,7 +252,7 @@ public class RedBlackTree {
                 node.parent.color = BLACK;
                 node.parent.parent.color = RED;
 
-                // single rotation is needed
+                // 단일 회전이 필요합니다.
                 rotateLeft(node.parent.parent);
             }
         }
@@ -273,12 +264,14 @@ public class RedBlackTree {
         while (p != root && p.color == BLACK) {
             if (p == p.parent.left) {
                 Node ppr = p.parent.right;
+
                 if (ppr.color == RED) {
                     ppr.color = BLACK;
                     p.parent.color = RED;
                     rotateLeft(p.parent);
                     ppr = p.parent.right;
                 }
+
                 if (ppr.left.color == BLACK && ppr.right.color == BLACK) {
                     ppr.color = RED;
                     p = p.parent;
@@ -289,6 +282,7 @@ public class RedBlackTree {
                     rotateRight(ppr);
                     ppr = p.parent.right;
                 }
+
                 if (ppr.right.color == RED) {
                     ppr.color = p.parent.color;
                     p.parent.color = BLACK;
@@ -304,6 +298,7 @@ public class RedBlackTree {
                     rotateRight(p.parent);
                     ppl = p.parent.left;
                 }
+
                 if (ppl.right.color == BLACK && ppl.left.color == BLACK) {
                     ppl.color = RED;
                     p = p.parent;
@@ -314,6 +309,7 @@ public class RedBlackTree {
                     rotateLeft(ppl);
                     ppl = p.parent.left;
                 }
+
                 if (ppl.left.color == RED) {
                     ppl.color = p.parent.color;
                     p.parent.color = BLACK;
@@ -328,7 +324,6 @@ public class RedBlackTree {
     }
 
     private void replace(Node p, Node q) {
-
         if (p.parent == nil) {
             root = q;
         } else if (p == p.parent.left) {

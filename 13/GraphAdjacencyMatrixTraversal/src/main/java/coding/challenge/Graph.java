@@ -9,8 +9,7 @@ import java.util.Set;
 import java.util.Stack;
 
 public class Graph<T> {
-
-    // the vertices list
+    // 정점 리스트
     private final List<T> elements;
 
     public Graph() {
@@ -18,7 +17,6 @@ public class Graph<T> {
     }
 
     public boolean add(T element) {
-
         if (element == null) {
             return false;
         }
@@ -28,31 +26,29 @@ public class Graph<T> {
         return true;
     }
 
-    // Breadth-first Search (BFS)
+    // 너비 우선 탐색(BFS)
     public void bfs(int[][] adjacencyMatrix, T startElement) {
-
         Queue<T> queue = new ArrayDeque<>();
         Set<T> visited = new HashSet<>();
 
-        // Step 1: Mark the start node (current node) as visited (add it 
-        //         in the collection of visited nodes) and add it into the BFS queue
+        // 1단계: 시작 노드(현재 노드)를 방문한 노드로 저장하여
+        // 방문했다고 표시하고 너비 우선 탐색 큐에 추가합니다.
         visited.add(startElement);
         queue.add(startElement);
 
         while (!queue.isEmpty()) {
-            
-            // Step 2: Pop the current node from the queue
+            // 2단계: 큐에서 현재 노드를 팝합니다.
             T element = queue.poll();
 
-            // Step 3: Visit the current node
+            // 3단계: 현재 노드를 방문합니다.
             System.out.print(element + " ");
 
-            // Step 4: Get the adjacent nodes of the current node 
+            // 4단계: 현재 노드의 인접 노드를 가져옵니다.
             List<T> adjacents = findAdjacents(adjacencyMatrix, element);
             if (adjacents != null) {
-                // Step 5: Loop the adjacent nodes and for each non-null and unvisited node:
-                //      a. Mark as visited (add it in the collection of visited nodes)
-                //      b. Add it the queue
+                // 5단계: 인접한 노드를 순회합니다. null이 아니고 방문한 적이 없는 노드에 대해 다음을 수행합니다.
+                // a. 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
+                // b. 노드를 큐에 추가합니다.
                 for (T t : adjacents) {
                     if (t != null && !visited.contains(t)) {
                         visited.add(t);
@@ -63,32 +59,28 @@ public class Graph<T> {
         }
     }
 
-    // iterative Depth-first Search (DFS) using Java Stack
+    // 자바의 Stack을 이용해 반복 기반 깊이 우선 탐색(DFS)
     public void dfsStack(int[][] adjacencyMatrix, T startElement) {
-
         Stack<T> stack = new Stack<>();
         Set<T> visited = new HashSet<>();
 
-        // Step 1: Start from the current node (the given node)
-        //         and push the current node into Stack
+        // 1단계: 현재 노드(주어진 노드)에서 시작하여 현재 노드를 Stack에 푸시합니다.
         stack.add(startElement);
 
-        // Step 2: While Stack not empty
+        // 2단계: Stack이 빌 때까지 다음을 수행합니다.
         while (!stack.isEmpty()) {
-
-            // Step 2(a): Pop the current node from the Stack
+            // 2(a)단계: Stack에서 현재 노드를 팝합니다.
             T element = stack.pop();
-                        
+
             if (!visited.contains(element)) {
-                // Step 2(b): Visit current node
+                // 2(b)단계: 현재 노드를 방문합니다.
                 System.out.print(element + " ");
-                
-                // Step 2(c): Mark the current node as visited (add it in the 
-                //            collection of visited nodes)
+
+                // 2(c)단계: 현재 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
                 visited.add(element);
             }
 
-            // Step 2(d): Push unvisited adjacent vertices
+            // 2(d)단계: 방문한 적이 없는 인접 정점을 Stack에 푸시합니다.
             List<T> adjacents = findAdjacents(adjacencyMatrix, element);
             if (adjacents != null) {
                 for (T t : adjacents) {
@@ -100,24 +92,20 @@ public class Graph<T> {
         }
     }
 
-    // Recursive Depth-first Search (DFS)
+    // 재귀 기반 깊이 우선 탐색(RDFS)
     public void dfsRecursion(int[][] adjacencyMatrix, T startElement) {
-
         Set<T> visited = new HashSet<>();
         dfsRecursion(adjacencyMatrix, startElement, visited);
     }
 
     private void dfsRecursion(int[][] adjacencyMatrix, T currentElement, Set<T> visited) {
-
-        // Step 1: Start from the current node (the given node) 
-        //         and mark the current node as visited (add it in the 
-        //         collection of visited nodes)
+        // 1단계: 현재 노드(주어진 노드)에서 시작하여, 현재 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
         visited.add(currentElement);
 
-        // Step 2: Visit current node
+        // 2단계: 현재 노드를 방문합니다.
         System.out.print(currentElement + " ");
 
-        // Step 3: Traverse unvisited adjacent vertices via recursion
+        // 3단계: 재귀로 방문한 적이 없는 인접 정점을 순회합니다.
         List<T> adjacents = findAdjacents(adjacencyMatrix, currentElement);
         if (adjacents != null) {
             for (T t : adjacents) {
@@ -129,7 +117,6 @@ public class Graph<T> {
     }
 
     private List<T> findAdjacents(int[][] adjacencyMatrix, T element) {
-
         int tIndex = -1;
 
         List<T> adjacents = new ArrayList<>();
@@ -150,5 +137,4 @@ public class Graph<T> {
 
         return adjacents;
     }
-
 }
