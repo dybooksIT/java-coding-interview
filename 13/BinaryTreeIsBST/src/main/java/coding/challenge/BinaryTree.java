@@ -1,15 +1,13 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree<T extends Comparable<T>> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -28,9 +26,8 @@ public class BinaryTree<T extends Comparable<T>> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)를 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -46,9 +43,8 @@ public class BinaryTree<T extends Comparable<T>> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -71,32 +67,30 @@ public class BinaryTree<T extends Comparable<T>> {
             }
         }
     }
-    
+
     public boolean isBinarySearchTree() {
         return isBinarySearchTree(root, null, null);
     }
 
     private boolean isBinarySearchTree(Node node, T minElement, T maxElement) {
-        
         if (node == null) {
             return true;
         }
 
         if ((minElement != null && node.element.compareTo(minElement) <= 0)
-                || (maxElement != null && node.element.compareTo(maxElement) > 0)) {
+          || (maxElement != null && node.element.compareTo(maxElement) > 0)) {
             return false;
         }
 
         if (!isBinarySearchTree(node.left, minElement, node.element)
-                || !isBinarySearchTree(node.right, node.element, maxElement)) {
+          || !isBinarySearchTree(node.right, node.element, maxElement)) {
             return false;
         }
-        
+
         return true;
     }
 
     public void print() {
-
         if (root == null) {
             return;
         }
@@ -105,15 +99,11 @@ public class BinaryTree<T extends Comparable<T>> {
     }
 
     private void printLevelOrder(Node node) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
-
             System.out.print(" " + current.element);
 
             if (current.left != null) {
@@ -125,5 +115,4 @@ public class BinaryTree<T extends Comparable<T>> {
             }
         }
     }
-
 }

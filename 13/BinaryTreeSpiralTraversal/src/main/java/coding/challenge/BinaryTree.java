@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -7,11 +7,9 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -30,9 +28,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)을 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -48,9 +45,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -74,9 +70,8 @@ public class BinaryTree<T> {
         }
     }
 
-    /* START: Recursive approach in O(n^2) */
+    // 시작: O(n^2) 시간 복잡도의 재귀 기반 풀이법
     public void spiralOrderTraversalRecursive() {
-        
         if (root == null) {
             return;
         }
@@ -84,15 +79,15 @@ public class BinaryTree<T> {
         int level = 1;
         boolean flip = false;
 
-        // as long as printLevel() returns true there are more levels to print
+        // printLevel의 실행 결과가 true를 반환하면
+        // 출력할 레벨이 더 남아 있다는 의미입니다.
         while (printLevel(root, level++, flip = !flip)) {
-            // there is nothing to do
+            // 빈 블록입니다.
         };
     }
 
-    // print all nodes of a given level 
+    // 주어진 레벨의 모든 노드를 출력합니다.
     private boolean printLevel(Node root, int level, boolean flip) {
-        
         if (root == null) {
             return false;
         }
@@ -103,24 +98,23 @@ public class BinaryTree<T> {
         }
 
         if (flip) {
-            // process left child before right child
+            // 왼쪽 자식 노드를 오른쪽 자식 노드보다 먼저 처리합니다.
             boolean left = printLevel(root.left, level - 1, flip);
             boolean right = printLevel(root.right, level - 1, flip);
 
             return left || right;
         } else {
-            // process right child before left child
+            // 오른쪽 자식 노드를 왼쪽 자식 노드보다 먼저 처리합니다.
             boolean right = printLevel(root.right, level - 1, flip);
             boolean left = printLevel(root.left, level - 1, flip);
 
             return right || left;
         }
     }
-    /* END: Recursive approach in O(n^2) */
+    // 종료: O(n^2) 시간 복잡도의 재귀 기반 풀이법
 
-    /* START: Two stacks approach in O(n) and O(n) extra space */
+    // 시작: 시간 복잡도와 공간 복잡도가 O(n)이면서 2개 스택을 사용하는 반복 기반 풀이법
     public void spiralOrderTraversalTwoStacks() {
-        
         if (root == null) {
             return;
         }
@@ -129,25 +123,21 @@ public class BinaryTree<T> {
     }
 
     private void printSpiralTwoStacks(Node node) {
-        
         if (node == null) {
             return;
         }
 
-        // create two stacks to store alternate levels         
-        Stack<Node> rl = new Stack<>(); // right to left         
-        Stack<Node> lr = new Stack<>(); // left to right 
+        // 레벨을 저장할 2개의 스택 생성
+        Stack<Node> rl = new Stack<>(); // 오른쪽에서 왼쪽
+        Stack<Node> lr = new Stack<>(); // 왼쪽에서 오른쪽
 
-        // Push first level to first stack 'rl' 
+        // 첫 번째 레벨을 첫 번째 스택 'rl'에 푸시
         rl.push(node);
 
-        // print while any of the stacks has nodes 
+        // 스택에 노드가 더 없을 때까지 출력
         while (!rl.empty() || !lr.empty()) {
-
-            // print nodes of the current level from 'rl' 
-            // and push nodes of next level to 'lr'
+            // 'rl'에 있는 현재 레벨의 노드를 출력하고 다음 레벨의 노드를 'lr'에 푸시
             while (!rl.empty()) {
-
                 Node temp = rl.peek();
                 rl.pop();
 
@@ -162,8 +152,7 @@ public class BinaryTree<T> {
                 }
             }
 
-            // print nodes of the current level from 'lr' 
-            // and push nodes of next level to 'rl'
+            // 'lr'에 있는 현재 레벨의 노드를 출력하고 다음 레벨의 노드를 'rl'에 푸시
             while (!lr.empty()) {
                 Node temp = lr.peek();
                 lr.pop();
@@ -179,11 +168,10 @@ public class BinaryTree<T> {
             }
         }
     }
-    /* END: Two stacks approach in O(n) and O(n) extra space */
+    // 종료: 시간 복잡도와 공간 복잡도가 O(n)이면서 2개 스택을 사용하는 반복 기반 풀이법
 
-    /* START: Deque approach in O(n) and O(n) extra space */
+    // 시작: 시간 복잡도와 공간 복잡도가 O(n)이면서 Deque를 사용하는 풀이법
     public void spiralOrderTraversalDeque() {
-        
         if (root == null) {
             return;
         }
@@ -192,37 +180,33 @@ public class BinaryTree<T> {
     }
 
     private void printSpiralDeque(Node root) {
-
         if (root == null) {
             return;
         }
 
-        // create an empty double ended queue 
+        // 빈 이중 종료 큐를 생성합니다.
         Deque<Node> deque = new ArrayDeque<>();
 
-        // enqueue the root node
+        // 루트 노드 삽입
         deque.addFirst(root);
 
-        // odd or even level flag
+        // 홀수 또는 짝수 레벨인지 확인
         boolean oddEvenFlag = false;
 
         while (!deque.isEmpty()) {
-
-            // number of nodes in the current level
+            // 현재 레벨의 노드 수는 Deque의 크기로 지정됩니다.
             int nodesNo = deque.size();
 
-            // print left to right
+            // 왼쪽에서 오른쪽 노드를 출력합니다.
             if (oddEvenFlag) {
-
-                // process each node of the current level 
-                // and enqueue their non-empty left and right child
+                // 현재 레벨의 각 노드를 처리하고
+                // 비어 있지 않은 왼쪽 및 오른쪽 자식 노드를 큐에 넣습니다.
                 while (nodesNo > 0) {
-
                     Node currentNode = deque.pollFirst();
-
                     System.out.print(currentNode.element + " ");
 
-                    // push left child to the end followed by the right child
+                    // 왼쪽 자식 노드를 끝까지 이동시킨 후
+                    // 오른쪽 자식 노드를 끝까지 이동시킵니다.
                     if (currentNode.left != null) {
                         deque.addLast(currentNode.left);
                     }
@@ -233,17 +217,17 @@ public class BinaryTree<T> {
 
                     nodesNo--;
                 }
-            } else { // print right to left
-
-                // process each node of the current level 
-                // and enqueue their non-empty right and left child
+            // 오른쪽에서 왼쪽 노드를 출력합니다.
+            } else {
+                // 현재 레벨의 각 노드를 처리하고
+                // 비어 있지 않은 오른쪽 및 왼쪽 자식 노드를 큐에 넣습니다.
                 while (nodesNo > 0) {
-                    // if 'oddEvenFlag' is false we pop from the back
+                    // 'oddEvenFlag'가 false면 뒤에서 팝합니다.
                     Node currentNode = deque.pollLast();
 
                     System.out.print(currentNode.element + " ");
 
-                    // push the right child to front followed by left child
+                    // 오른쪽 자식 노드를 끝까지 이동시킨 후 왼쪽 자식 노드를 끝까지 이동시킵니다.
                     if (currentNode.right != null) {
                         deque.addFirst(currentNode.right);
                     }
@@ -256,9 +240,9 @@ public class BinaryTree<T> {
                 }
             }
 
-            // flip the 'oddEvenFlag' for next level
-            oddEvenFlag = !oddEvenFlag;    
+            // 다음 레벨을 위해 'oddEvenFlag'를 뒤집습니다.
+            oddEvenFlag = !oddEvenFlag;
         }
-        /* END: Deque approach in O(n) and O(n) extra space */
+        // 시작: 시간 복잡도와 공간 복잡도가 O(n)이면서 Deque를 사용하는 풀이법
     }
 }

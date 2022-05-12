@@ -1,21 +1,17 @@
 package coding.challenge;
-
 public class Main {
-
     public static void main(String[] args) {
-
-    /*        
-             ------1------
-            /             \
-           47             45
-         /    \         /    \
-        11     31     44      52
-       /  \   /  \   /  \    /  \ 
-      12   9 5   45 2   `1  7    9
-    */
-
+        /*
+                 ------1------
+                /             \
+               47             45
+             /    \         /    \
+            11     31     44      52
+           /  \   /  \   /  \    /  \
+          12   9 5   45 2   `1  7    9
+        */
         BinaryTree<Integer> bt = new BinaryTree<>();
-        
+
         bt.insert(1);
         bt.insert(47);
         bt.insert(45);
@@ -31,12 +27,12 @@ public class Main {
         bt.insert(1);
         bt.insert(7);
         bt.insert(9);
-          
+
         System.out.println("Recursive approach:");
         bt.printDiagonalRecursive();
-        
+
         System.out.println();
-        
+
         System.out.println("Iterative approach:");
         bt.printDiagonalIterative();
     }

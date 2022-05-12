@@ -1,14 +1,12 @@
 package coding.challenge;
- 
+
 import java.time.Duration;
 import java.time.LocalTime;
 
 public class BinarySearchTree<Temporal> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -31,7 +29,6 @@ public class BinarySearchTree<Temporal> {
     }
 
     public void insert(LocalTime element, int time) {
-
         if (element == null) {
             throw new IllegalArgumentException("Cannot pass null arguments");
         }
@@ -40,7 +37,6 @@ public class BinarySearchTree<Temporal> {
     }
 
     private Node insert(Node current, LocalTime element, int time) {
-
         if (current == null) {
             return new Node(element, time);
         }
@@ -50,7 +46,7 @@ public class BinarySearchTree<Temporal> {
 
         if (t1 <= 0 && t2 >= 0) {
             System.out.println("Cannot reserve the runway at "
-                    + element + " for " + time + " minutes !");
+              + element + " for " + time + " minutes !");
 
             return current;
         }

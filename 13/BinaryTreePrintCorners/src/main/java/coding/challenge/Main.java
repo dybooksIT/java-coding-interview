@@ -1,21 +1,19 @@
 package coding.challenge;
- 
+
 public class Main {
 
     public static void main(String[] args) {
-
-    /*        
-             --40--
-            /      \
-           47       45
-         /    \    /  \
-        11     3  44   23
-       /  \   / 
-      2    4 1   
-    */
-
+        /*
+                 --40--
+                /      \
+               47       45
+             /    \    /  \
+            11     3  44   23
+           /  \   /
+          2    4 1
+        */
         BinaryTree<Integer> bt = new BinaryTree<>();
-        
+
         bt.insert(40);
         bt.insert(47);
         bt.insert(45);
@@ -25,8 +23,8 @@ public class Main {
         bt.insert(23);
         bt.insert(2);
         bt.insert(4);
-        bt.insert(1);        
-                          
-        bt.printCorners();                        
+        bt.insert(1);
+
+        bt.printCorners();
     }
 }

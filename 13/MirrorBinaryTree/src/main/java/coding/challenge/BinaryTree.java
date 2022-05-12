@@ -1,15 +1,13 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -35,9 +33,8 @@ public class BinaryTree<T> {
         LEVEL
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)을 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -53,9 +50,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -79,9 +75,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // mirror tree in another tree
+    // 좌우 반전 트리 생성하기
     public BinaryTree mirrorTreeInTree() {
-
         Node mirroredRoot = mirrorTreeInTree(root);
         BinaryTree<T> mirroredBt = new BinaryTree();
 
@@ -90,9 +85,8 @@ public class BinaryTree<T> {
         return mirroredBt;
     }
 
-    // mirror tree in another tree
+    // 좌우 반전 트리 생성하기
     private Node mirrorTreeInTree(Node root) {
-
         if (root == null) {
             return null;
         }
@@ -104,21 +98,19 @@ public class BinaryTree<T> {
         return node;
     }
 
-    // mirror tree in place
+    // 주어진 트리 반전하기
     public void mirrorTreeInPlace() {
-
         mirrorTreeInPlace(root);
     }
 
-    // mirror tree in place
+    // 주어진 트리 반전하기
     private void mirrorTreeInPlace(Node node) {
-
         if (node == null) {
             return;
         }
 
         Node auxNode;
- 
+
         mirrorTreeInPlace(node.left);
         mirrorTreeInPlace(node.right);
 
@@ -127,16 +119,15 @@ public class BinaryTree<T> {
         node.right = auxNode;
     }
 
-// print tree via Depth-First Search (DFS) and Breadth-First Search (BFS) 
+    // 깊이 우선 탐색(DFS) 및 너비 우선 탐색(BFS)을 이용한 트리 출력
     public void print(TraversalOrder to) {
-
         if (root == null) {
             System.out.println("empty");
             return;
         }
 
         switch (to) {
-            // DFS
+            // 깊이 우선 탐색(DFS)
             case IN:
                 printInOrder(root);
                 break;
@@ -146,7 +137,7 @@ public class BinaryTree<T> {
             case POST:
                 printPostOrder(root);
                 break;
-            // BFS
+            // 너비 우선 탐색(BFS)
             case LEVEL:
                 printLevelOrder(root);
                 break;
@@ -180,15 +171,11 @@ public class BinaryTree<T> {
     }
 
     private void printLevelOrder(Node node) {
-
         Queue<Node> queue = new ArrayDeque<>();
-
         queue.add(node);
 
         while (!queue.isEmpty()) {
-
             Node current = queue.poll();
-
             System.out.print(" " + current.element);
 
             if (current.left != null) {
@@ -200,5 +187,4 @@ public class BinaryTree<T> {
             }
         }
     }
-
 }

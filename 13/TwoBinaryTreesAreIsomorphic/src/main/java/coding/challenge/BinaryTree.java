@@ -1,12 +1,10 @@
 package coding.challenge;
- 
-public class BinaryTree {
 
+public class BinaryTree {
     private Node rootOne = null;
     private Node rootTwo = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -25,19 +23,18 @@ public class BinaryTree {
         }
     }
 
-    // shape here your binary trees
+    // 여기에서 이진 트리를 형성합니다.
     private void shapeTwoIsomorphicTrees() {
-
-        /*  Tree One       Tree Two
+        /*     T1              T2
                 A                A
              /     \          /     \
             B       C        C       B
-           / \     /        /       / \ 
+           / \     /        /       / \
           D   E   G        G       E   D
-             /   /          \     /        
-            F   H            H   F      
+             /   /          \     /
+            F   H            H   F
          */
-        // binary tree one
+        // 이진 트리 1(T1)
         rootOne = new Node("A");
         Node nOne1 = new Node("B");
         Node nOne2 = new Node("C");
@@ -74,33 +71,31 @@ public class BinaryTree {
     }
 
     public boolean isIsomorphic() {
-
         shapeTwoIsomorphicTrees();
 
         return isIsomorphic(rootOne, rootTwo);
     }
 
     private boolean isIsomorphic(Node treeOne, Node treeTwo) {
-
-        // if T1 and T2 are null, then they are isomorphic, return true
+        // 1단계: T1과 T2가 null이면 동형이므로 true를 반환합니다.
         if (treeOne == null && treeTwo == null) {
             return true;
         }
 
-        // if T1 or T2 is null, then they are not isomorphic, return false
+        // 2단계: T1 또는 T2가 null이면 동형이 아니므로 false를 반환합니다.
         if ((treeOne == null || treeTwo == null)) {
             return false;
         }
-        
-        // if T1 data is not equal with T2 data then they are not isomorphic, return false
+
+        // 3단계: T1.data가 T2.data와 다르면 동형이 아니므로 false를 반환합니다.
         if (!treeOne.element.equals(treeTwo.element)) {
             return false;
         }
-         
-        return (isIsomorphic(treeOne.left, treeTwo.right)
-                && isIsomorphic(treeOne.right, treeTwo.left)
-                || isIsomorphic(treeOne.left, treeTwo.left)
-                && isIsomorphic(treeOne.right, treeTwo.right));
-    }
 
+        // 4~7단계(본문의 4~7번 내용 참고)
+        return (isIsomorphic(treeOne.left, treeTwo.right)
+          && isIsomorphic(treeOne.right, treeTwo.left)
+          || isIsomorphic(treeOne.left, treeTwo.left)
+          && isIsomorphic(treeOne.right, treeTwo.right));
+    }
 }

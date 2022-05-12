@@ -1,15 +1,13 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -28,9 +26,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)을 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -46,9 +43,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -73,7 +69,6 @@ public class BinaryTree<T> {
     }
 
     public void printCorners() {
-
         if (root == null) {
             return;
         }
@@ -83,26 +78,24 @@ public class BinaryTree<T> {
 
         int level = 0;
         while (!queue.isEmpty()) {
-
-            // get the size of the current level
+            // 현재 레벨의 크기를 가져옵니다.
             int size = queue.size();
             int position = size;
 
             System.out.print("Level: " + level + ": ");
             level++;
 
-            // process all nodes present in current level
+            // 현재 레벨에 있는 모든 노드를 처리합니다.
             while (position > 0) {
-
                 Node node = queue.poll();
                 position--;
 
-                // if corner node found, print it
+                // 양 끝 노드를 발견하면 출력합니다.
                 if (position == (size - 1) || position == 0) {
                     System.out.print(node.element + " ");
                 }
 
-                // enqueue left and right child of current node
+                // 현재 노드의 왼쪽과 오른쪽 자식을 큐에 삽입합니다.
                 if (node.left != null) {
                     queue.add(node.left);
                 }
@@ -112,7 +105,7 @@ public class BinaryTree<T> {
                 }
             }
 
-            // level done            
+            // 레벨 순회를 마칩니다.
             System.out.println();
         }
     }

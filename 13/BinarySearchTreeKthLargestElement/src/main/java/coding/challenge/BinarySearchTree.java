@@ -1,11 +1,9 @@
 package coding.challenge;
- 
-public class BinarySearchTree<T extends Comparable<T>> {
 
+public class BinarySearchTree<T extends Comparable<T>> {
     private Node root = null;
 
     private class Node {
-
         private final T element;
         private Node left;
         private Node right;
@@ -18,7 +16,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -33,7 +30,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     private Node insert(Node current, T element) {
-
         if (current == null) {
             return new Node(null, null, element);
         }
@@ -48,12 +44,10 @@ public class BinarySearchTree<T extends Comparable<T>> {
     }
 
     public boolean contains(T element) {
-
         return contains(root, element);
     }
 
     private boolean contains(Node current, T element) {
-
         if (current == null || element == null) {
             return false;
         }
@@ -63,18 +57,16 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         return element.compareTo(current.element) < 0
-                ? contains(current.left, element)
-                : contains(current.right, element);
+          ? contains(current.left, element)
+          : contains(current.right, element);
     }
 
     public void kthLargest(int k) {
-
         kthLargest(root, k);
     }
 
     private int c;
     private void kthLargest(Node root, int k) {
-
         if (root == null || c >= k) {
             return;
         }
@@ -82,7 +74,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
         kthLargest(root.right, k);
         c++;
 
-        // we found the kth largest value
+        // k번째로 큰 값을 발견했습니다.
         if (c == k) {
             System.out.println(root.element);
         }

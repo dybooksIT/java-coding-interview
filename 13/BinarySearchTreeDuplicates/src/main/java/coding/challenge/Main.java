@@ -1,17 +1,15 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
-    /*                        
-              40(2)           D          40(1)
-            /      \          E         /     \
-          30(2)    45(4)      L       30(2)   45(2) 
-         /    \      \        E       /
-       17(2) 33(1)   56(1)    T     17(1)   
-                              E
-    */
+        /*
+                  40(2)           D          40(1)
+                /      \          E         /     \
+              30(2)    45(4)      L       30(2)   45(2)
+             /    \      \        E       /
+           17(2) 33(1)   56(1)    T     17(1)
+                                  E
+        */
         BinarySearchTree<Integer> bt = new BinarySearchTree<>();
 
         bt.insert(40);
@@ -60,5 +58,4 @@ public class Main {
         bt.print(BinarySearchTree.TraversalOrder.POST);
 
     }
-
 }

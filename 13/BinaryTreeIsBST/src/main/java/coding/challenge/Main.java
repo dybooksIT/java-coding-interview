@@ -1,18 +1,16 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
-    /* This tree is BST       
-              40
-            /    \
-          35      45
-         /  \    /  \  
-        30   37 44   48   
-       /
-      20   
-    */
+        /* 이진 탐색 트리(BST)의 모양
+                  40
+                /    \
+              35      45
+             /  \    /  \
+            30   37 44   48
+           /
+          20
+        */
         BinaryTree<Integer> bt = new BinaryTree<>();
 
         bt.insert(40);
@@ -22,11 +20,11 @@ public class Main {
         bt.insert(37);
         bt.insert(44);
         bt.insert(48);
-        bt.insert(20);               
+        bt.insert(20);
 
         System.out.println("\n\nTraversal LEVEL: ");
         bt.print();
 
-        System.out.println("\n\nIs this binary tree BST: " + bt.isBinarySearchTree());       
+        System.out.println("\n\nIs this binary tree BST: " + bt.isBinarySearchTree());
     }
 }

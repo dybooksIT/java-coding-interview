@@ -1,14 +1,12 @@
 package coding.challenge;
- 
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -27,9 +25,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)를 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -45,9 +42,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -72,7 +68,6 @@ public class BinaryTree<T> {
     }
 
     public T commonAncestor(T e1, T e2) {
-
         Node n1 = findNode(e1, root);
         Node n2 = findNode(e2, root);
 
@@ -100,7 +95,6 @@ public class BinaryTree<T> {
     }
 
     private Node commonAncestor(Node root, Node n1, Node n2) {
-
         if (root == null) {
             return null;
         }
@@ -119,7 +113,7 @@ public class BinaryTree<T> {
             return right;
         }
 
-        // n1 and n2 are not in the same sub-tree
+        // n1과 n2가 서로 다른 하위 트리에 있습니다.
         if (left != null && right != null) {
             return root;
         } else if (root == n1 || root == n2) {

@@ -1,11 +1,9 @@
 package coding.challenge;
- 
-public class BinarySearchTree {
 
+public class BinarySearchTree {
     private Node root = null;
 
     private class Node {
-
         private final int element;
         private Node left;
         private Node right;
@@ -20,7 +18,6 @@ public class BinarySearchTree {
     }
 
     public void buildTreeSample() {
-
         root = new Node(70);
         Node n2 = new Node(50);
         Node n3 = new Node(75);
@@ -68,8 +65,7 @@ public class BinarySearchTree {
     }
 
     public void inOrderSuccessor() {
-
-        // this is n12 (node with element 59)
+        // n12 노드를 선택합니다(요소 59가 있는 노드).
         Node node = root.left.right.right.left.right;
 
         System.out.println("\n\nIn-Order:");
@@ -79,37 +75,30 @@ public class BinarySearchTree {
     }
 
     private Node inOrderSuccessor(Node node) {
-
         if (node == null) {
             return null;
         }
 
-        // case (a): 'node' has the right sub-tree:
-        //              - return the leftmost node of the right sub-tree
+        // (a)의 경우: 'node'에 오른쪽 하위 트리가 있고,
+        // 오른쪽 하위 트리의 가장 왼쪽 노드를 반환합니다.
         if (node.right != null) {
             return findLeftmostNode(node.right);
         }
 
-        // case (b):   'node' has no right sub-tree        
-        // case (b.1): 'node' is the left child of its parent:
-        //               - return its parent
-        //
-        // case (b.2): 'node' is the right child of its parent:
-        //               - 'node' traverse upwards until 'node' is the left child of its parent
-        //               - then return this parent
-        //
-        // case (c):   'node' is the last node in traversal:
-        //               - return the root's parent (e.g., null)
+        // (b)의 경우 : 'node'에 오른쪽 하위 트리가 없습니다.
+        // (b.1)의 경우: 'node'는 부모 노드의 왼쪽 자식 노드이며, 부모 노드를 반환합니다.
+        // (b.2)의 경우: 'node'는 부모 노드의 오른쪽 자식 노드입니다.
+        // 'node'가 부모노드의 왼쪽 자식 노드가 될 때까지 'node'는 위쪽으로 이동한 다음 부모 노드를 반환합니다.
+        // (c)의 경우: 'node'는 순회했을 때의 마지막 노드입니다. 루트의 부모 노드를 반환합니다(예: null).
         while (node.parent != null && node.parent.right == node) {
             node = node.parent;
         }
-        
+
         return node.parent;
     }
 
     public void preOrderSuccessor() {
-
-        // this is n12 (node with element 59)
+        // n12 노드를 선택합니다(요소 59가 있는 노드).
         Node node = root.left.right.right.left.right;
 
         System.out.println("\n\nPre-Order:");
@@ -119,27 +108,25 @@ public class BinarySearchTree {
     }
 
     private Node preOrderSuccessor(Node node) {
-
         if (node == null) {
             return null;
         }
 
-        // case (a): 'node' has a child:
-        //             - return that child (left if exists, otherwise right)
+        // (a)의 경우: 'node'에 자식 노드가 있음:
+        // 해당 자식 노드를 반환합니다(자식 노드가 존재하면 왼쪽, 그렇지 않으면 오른쪽).
         if (node.left != null) {
             return node.left;
         } else if (node.right != null) {
             return node.right;
         }
 
-        // case (b): 'node' has no child:
-        //             - 'node' traverse upwards until reaching a parent that has a right child
-        //               (which is not 'node'), then return this right child
+        // (b)의 경우: 'node'에 자식 노드가 없음:
+        // 'node'는 오른쪽 자식('node'가 아님) 노드가 있는 부모 노드에 도달할 때까지
+        // 위쪽으로 이동한 다음 오른쪽 자식 노드를 반환합니다.
         while (node.parent != null && (node.parent.right == null || node.parent.right == node)) {
             node = node.parent;
         }
-        // case (c): 'node' is the last node in traversal:
-        //              - return the root's parent (e.g., null)
+        // (c)의 경우: 'node'는 순회했을 때의 마지막 노드입니다. 루트의 부모 노드를 반환합니다(예: null).
         if (node.parent == null) {
             return null;
         }
@@ -148,8 +135,7 @@ public class BinarySearchTree {
     }
 
     public void postOrderSuccessor() {
-
-        // this is n12 (node with element 59)
+        // n12 노드를 선택합니다(요소 59가 있는 노드).
         Node node = root.left.right.right.left.right;
 
         System.out.println("\n\nPost-Order:");
@@ -159,30 +145,25 @@ public class BinarySearchTree {
     }
 
     private Node postOrderSuccessor(Node node) {
-
-        // case (a): 'node' is the last node in traversal:
-        //              - return the root's parent (e.g., null)
+        // (a)의 경우: 'node'는 순회했을 때의 마지막 노드입니다.
+        // 루트의 부모 노드를 반환합니다(예: null).
         if (node == null || node.parent == null) {
             return null;
         }
 
-        // case (b):   'node' is the left child of its parent:
-        //               - return the parent
-        //
-        // case (c):   'node' is the right child of its parent:
-        // case (c.1):  parent has no right child:
-        //                - return the parent
+        // (b)의 경우: 'node'는 부모 노드의 왼쪽 자식 노드입니다. 부모 노드를 반환합니다.
+        // (c)의 경우: 'node'는 부모 노드의 오른쪽 자식 노드입니다.
+        // (c.1)의 경우: 부모 노드에 올바른 자식 노드가 없으면 부모 노드를 반환합니다.
         if (node.parent.right == node || node.parent.right == null) {
             return node.parent;
         }
 
-        // case (c.2): parent has the right child:
-        //               - return the leftmost bottom node of parent's right sub-tree
+        // (c.2)의 경우: 부모 노드가 오른쪽 자식 노드를 가지면
+        // 부모 노드의 오른쪽 하위 트리의 가장 왼쪽 맨 아래 노드를 반환합니다.
         return findLeftmostNode(node.parent.right);
     }
 
     private Node findLeftmostNode(Node node) {
-
         while (node.left != null) {
             node = node.left;
         }
