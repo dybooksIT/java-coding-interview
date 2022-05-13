@@ -1,16 +1,14 @@
 package coding.challenge;
- 
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -29,19 +27,18 @@ public class BinaryTree<T> {
         }
     }
 
-    /*        
+    /*
               40
             /    \
           47      45
-         /  \    /  
-        11   3  44 
+         /  \    /
+        11   3  44
        /  \   \
       7    5   9
      /
-    2         
-     */
+    2
+    */
     private void buildTree() {
-
         root = new Node(40);
         root.left = new Node(47);
         root.right = new Node(45);
@@ -53,49 +50,47 @@ public class BinaryTree<T> {
         root.left.right.right = new Node(9);
         root.left.left.left.left = new Node(2);
     }
-    
+
     public void leafDistance(int dist) {
-        
-        // build a tree
+        // 트리 만들기
         buildTree();
 
-        // list to store root to leaf path
+        // 루트를 단말 노드 경로에 저장하는 리스트
         List<Node> pathToLeaf = new ArrayList<>();
 
-        // create an empty set to store distinct nodes at given distance from leaf nodes
+        // 단말 노드를 기준으로 주어진 거리에 있는 고유 노드를 저장하기 위해 빈 집합을 생성합니다.
         Set<Node> nodesAtDist = new HashSet<>();
 
-        // find all nodes at the given distance from leaf nodes
+        // 단말 노드를 기준으로 주어진 거리에 있는 모든 노드를 찾습니다.
         leafDistance(root, pathToLeaf, nodesAtDist, dist);
 
-        // print the result
+        // 결과를 출력합니다.
         for (Node nd : nodesAtDist) {
             System.out.print(nd.element + " ");
         }
     }
 
     private void leafDistance(Node node, List<Node> pathToLeaf,
-            Set<Node> nodesAtDist, int dist) {
-
+      Set<Node> nodesAtDist, int dist) {
         if (node == null) {
             return;
         }
 
-        // for each leaf node, store the node at distance 'dist'
+        // 각 단말 노드에 대해 거리 'dist'만큼 떨어져 있는 노드를 저장합니다.
         if (isLeaf(node) && pathToLeaf.size() >= dist) {
             nodesAtDist.add(pathToLeaf.get(pathToLeaf.size() - dist));
 
             return;
         }
 
-        // add the current node into the current path        
+        // 현재 경로에 현재 노드를 추가합니다.
         pathToLeaf.add(node);
 
-        // go  to left and right subtree via recursion
+        // 재귀로 왼쪽 및 오른쪽 하위 트리로 이동합니다.
         leafDistance(node.left, pathToLeaf, nodesAtDist, dist);
         leafDistance(node.right, pathToLeaf, nodesAtDist, dist);
 
-        // remove the current node from the current path       
+        // 현재 경로에서 현재 노드를 제거합니다.
         pathToLeaf.remove(node);
     }
 

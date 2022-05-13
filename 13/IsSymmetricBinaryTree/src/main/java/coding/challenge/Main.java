@@ -1,16 +1,14 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
-        /*                          
-              40    
-            /    \   
+        /*
+              40
+            /    \
           47      47
-         /  \    /  \ 
+         /  \    /  \
         11   3  3   11
-         */
+        */
         BinaryTree<Integer> bt = new BinaryTree<>();
 
         bt.insert(40);

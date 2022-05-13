@@ -1,14 +1,12 @@
 package coding.challenge;
- 
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -27,9 +25,8 @@ public class BinaryTree<T> {
         }
     }
 
-    // insert a node into the tree via Breadth-First Search (BFS)
+    // 너비 우선 탐색(BFS)를 이용해 트리에 노드 삽입
     public boolean insert(T element) {
-
         if (element == null) {
             return false;
         }
@@ -45,9 +42,8 @@ public class BinaryTree<T> {
         return true;
     }
 
-    // insert via Breadth-first Search (BFS) algorithm
+    // 너비 우선 탐색(BFS) 알고리즘을 이용해 삽입
     private void insert(Node node, T element) {
-
         Queue<Node> queue = new LinkedList<>();
         queue.add(node);
 
@@ -71,9 +67,8 @@ public class BinaryTree<T> {
         }
     }
 
-    /* Recursive approach */
+    // 재귀 기반 풀이법
     public boolean isSymmetricRecursive() {
-
         if (root == null) {
             return true;
         }
@@ -82,27 +77,25 @@ public class BinaryTree<T> {
     }
 
     private boolean isSymmetricRecursive(Node leftNode, Node rightNode) {
-
         boolean result = false;
 
-        // empty trees are symmetric
+        // 빈 트리는 서로 대칭입니다.
         if (leftNode == null && rightNode == null) {
             result = true;
         }
         
-        // conditions 1, 2, and 3 from the book
+        // 조건 1, 2, 3
         if (leftNode != null && rightNode != null) {
             result = (leftNode.element.equals(rightNode.element))
-                    && isSymmetricRecursive(leftNode.left, rightNode.right)
-                    && isSymmetricRecursive(leftNode.right, rightNode.left);
+              && isSymmetricRecursive(leftNode.left, rightNode.right)
+              && isSymmetricRecursive(leftNode.right, rightNode.left);
         }
 
         return result;
     }
 
-    /* Iterative approach */
-    public boolean isSymmetricIterative() {        
-
+    // 반복 기반 풀이법
+    public boolean isSymmetricIterative() {
         if (root == null) {
             return true;
         }
@@ -118,12 +111,10 @@ public class BinaryTree<T> {
             Node right = queue.poll();
 
             if (left == null && right == null) {
-
                 result = true;
             } else if (left == null || right == null || left.element != right.element) {
-               
                 result = false;
-                break;                
+                break;
             } else {
                 queue.offer(left.left);
                 queue.offer(right.right);

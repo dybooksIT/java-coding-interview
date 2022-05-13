@@ -1,10 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MinHeap {
-
     private static final int DEFAULT_CAPACITY = 5;
 
     private int capacity;
@@ -12,25 +11,23 @@ public class MinHeap {
     private int[] heap;
 
     public MinHeap() {
-
         capacity = DEFAULT_CAPACITY;
         this.heap = new int[DEFAULT_CAPACITY];
     }
-    
-    public int minimumCost(int[] ropeLength) {
 
+    public int minimumCost(int[] ropeLength) {
         if (ropeLength == null) {
             return -1;
         }
 
-        // add the lengths of the ropes to the heap
-        for (int i = 0; i < ropeLength.length; i++) {           
+        // 밧줄의 길이를 힙에 삽입합니다.
+        for (int i = 0; i < ropeLength.length; i++) {
             add(ropeLength[i]);
         }
 
         int totalLength = 0;
 
-        while (size() > 1) {         
+        while (size() > 1) {
             int l1 = poll();
             int l2 = poll();
 
@@ -42,9 +39,8 @@ public class MinHeap {
         return totalLength;
     }
 
-    // adding is done in O(log n) time
+    // 힙에 밧줄의 길이를 추가하는 것은 O(log n) 시간에 완료됩니다.
     public void add(int element) {
-
         ensureCapacity();
 
         heap[size] = element;
@@ -54,16 +50,14 @@ public class MinHeap {
     }
 
     private void ensureCapacity() {
-
         if (size == capacity) {
             heap = Arrays.copyOf(heap, capacity * 2);
             capacity = capacity * 2;
         }
     }
 
-    // polling is done in O(log n) time
+    // 루트의 폴링은 O(log n) 시간에 완료됩니다.
     public int poll() {
-
         if (size == 0) {
             throw new NoSuchElementException();
         }
@@ -95,13 +89,11 @@ public class MinHeap {
         System.out.println();
     }
 
-    // fix the heap after polling an element
+    // 요소를 폴링한 후 힙을 수정합니다.
     private void heapifyDown() {
-
         int index = 0;
 
         while (hasLeftChild(index)) {
-
             int largestChildIndex = getLeftChildIndex(index);
             if (hasRightChild(index) && rightChild(index) < leftChild(index)) {
                 largestChildIndex = getRightChildIndex(index);
@@ -117,9 +109,8 @@ public class MinHeap {
         }
     }
 
-    // fix the heap after adding a new element
+    // 새로운 요소를 추가한 후 힙을 수정합니다.
     private void heapifyUp() {
-
         int index = size - 1;
 
         while (hasParent(index) && parent(index) > heap[index]) {

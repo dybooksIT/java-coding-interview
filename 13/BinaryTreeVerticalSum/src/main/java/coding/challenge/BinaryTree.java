@@ -1,15 +1,13 @@
 package coding.challenge;
- 
+
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.BiFunction;
 
 public class BinaryTree<T> {
-
     private Node root = null;
 
     private class Node {
-
         private Node left;
         private Node right;
 
@@ -28,19 +26,18 @@ public class BinaryTree<T> {
         }
     }
 
-    /*        
+    /*
              21
            /    \
           14     45
-         /  \     \  
-        7    3    44 
+         /  \     \
+        7    3    44
        /  \      /  \
       5    2    9    6
                /
-             11  
-     */
+             11
+    */
     private void buildTree() {
-
         root = new Node(21);
         root.left = new Node(14);
         root.right = new Node(45);
@@ -55,48 +52,45 @@ public class BinaryTree<T> {
     }
 
     public void verticalSum() {
-
-        // helper method to build the tree
+        // 트리를 생성하는 헬퍼 메서드
         buildTree();
 
-        // key: the horizontal distance of the current node from root node
-        // value: sum of all nodes present at same horizontal distance
+        // 키: 루트에서 현재 노드까지의 수평 거리
+        // 값: 동일한 수평 거리에 존재하는 모든 노드의 합
         Map<Integer, Integer> map = new TreeMap<>();
 
-        // Pre-Order traversal of the tree and fill the map
+        // 트리 탐색을 사전에 실행하고 map을 채웁니다.
         verticalSum(root, map, 0);
 
-        // print the result
+        // 결과를 출력합니다.
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             System.out.print(entry.getValue() + " ");
         }
     }
 
-    // 'dist' represents the horizontal distance from the root
+    // 'dist'는 루트부터의 수평 거리를 나타냅니다.
     private void verticalSum(Node root, Map<Integer, Integer> map, int dist) {
-
         if (root == null) {
             return;
         }
-        
+
         if (!map.containsKey(dist)) {
             map.put(dist, 0);
         }
 
-        map.put(dist, map.get(dist) + root.element);        
-        
-        // or in functional-style
+        map.put(dist, map.get(dist) + root.element);
+
+        // 함수형 스타일로 구현하려면
         /*
         BiFunction<Integer, Integer, Integer> distFunction
-                = (distOld, distNew) -> distOld + distNew;
+          = (distOld, distNew) -> distOld + distNew;
         map.merge(dist, root.element, distFunction);
         */
 
-        // decrease horizontal distance by 1 and go to left
+        // 수평 거리를 1 감소시키고 왼쪽으로 이동합니다.
         verticalSum(root.left, map, dist - 1);
 
-        // increase horizontal distance by 1 and go to right
+        // 수평 거리를 1 증가시키고 오른쪽으로 이동합니다.
         verticalSum(root.right, map, dist + 1);
     }
-
 }
