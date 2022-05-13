@@ -1,9 +1,7 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
         DoublyLinkedList dll = new DoublyLinkedList();
 
         dll.insertFirst(2);
@@ -26,5 +24,4 @@ public class Main {
         System.out.println("\nSorted list:");
         dll.print();
     }
-
 }

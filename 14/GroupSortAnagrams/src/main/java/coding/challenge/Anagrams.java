@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -8,52 +8,47 @@ import java.util.List;
 import java.util.Map;
 
 public class Anagrams implements Comparator<String> {
-
     // this can be increased for supporting more characters
     private final static int RANGE_a_z = 26;
 
-    /* Group anagrams via Comparator */
+    // Comparator를 이용한 그룹 애너그램
     @Override
     public int compare(String wordl, String word2) {
         return sortWordChars(wordl).compareTo(sortWordChars(word2));
     }
 
-    /* Group anagrams via hashing (O(nm log m) */
+    // 해싱으로 에너그램 그룹화(O(nm log m))
     public void printAnagrams(String words[]) {
-
         Map<String, List<String>> result = new HashMap<>();
 
         for (int i = 0; i < words.length; i++) {
-
-            // sort the chars of each string
+            // 각 문자열의 문자를 정렬합니다.
             String word = words[i];
             String sortedWord = sortWordChars(word);
 
             if (result.containsKey(sortedWord)) {
                 result.get(sortedWord).add(word);
             } else {
-                // start a new group of anagrams
+                // 새로운 에너그램 그룹을 생성합니다.
                 List<String> anagrams = new ArrayList<>();
                 anagrams.add(word);
                 result.put(sortedWord, anagrams);
             }
         }
 
-        // print the result
+        // 결과를 출력합니다.
         System.out.println(result.values());
     }
 
-    /* Group anagrams via hashing (O(nm) */
+    // 해싱으로 에너그램 그룹화(O(nm))
     public void printAnagramsOptimized(String[] words) {
-
         Map<String, List<String>> result = new HashMap<>();
 
         for (int i = 0; i < words.length; i++) {
-
             String word = words[i];
             char[] wordToChar = new char[RANGE_a_z];
 
-            // count up the number of occurrences (frequency) of each letter in 'word'
+            // 'word' 안 각 문자의 등장 횟수(빈도)를 계산합니다.
             for (int j = 0; j < word.length(); j++) {
                 wordToChar[word.charAt(j) - 'a']++;
             }
@@ -72,12 +67,11 @@ public class Anagrams implements Comparator<String> {
         System.out.println(result.values());
     }
 
-    // helper method for sorting the chars of a word
+    // 단어의 문자를 정렬하는 헬퍼 메서드
     private static String sortWordChars(String word) {
-
         char[] wordToChar = word.toCharArray();
         Arrays.sort(wordToChar);
-        
+
         return String.valueOf(wordToChar);
     }
 }

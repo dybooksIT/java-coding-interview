@@ -1,13 +1,11 @@
 package coding.challenge;
 
 public final class UnknownSizeList {
-
     private UnknownSizeList() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static int search(SizelessList sl, int element) {
-
         if (sl == null) {
             throw new IllegalArgumentException("The given list cannot be null");
         }
@@ -25,13 +23,12 @@ public final class UnknownSizeList {
     }
 
     private static int binarySearch(SizelessList sl, int element, int left, int right) {
-
         int mid;
 
         while (left <= right) {
-
             mid = (left + right) / 2;
             int middle = sl.peekAt(mid);
+
             if (middle > element || middle == -1) {
                 right = mid - 1;
             } else if (middle < element) {

@@ -4,17 +4,15 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Comparator<Melon> byType = Comparator.comparing(Melon::getType);
 
-        // initialize an array integers        
+        // 배열 integers 초기화
         int[] integers = {4, 2, 5, 1, 6, 7, 3};
 
-        // initialize an array of Melons
+        // Melons의 배열 초기화
         Melon[] melons = {new Melon("Watermelon", 3300), new Melon("Cantaloupe", 4500),
-            new Melon("Cantaloupe", 2500), new Melon("Canary", 4300), new Melon("Crenshaw", 6300)};
+          new Melon("Cantaloupe", 2500), new Melon("Canary", 4300), new Melon("Crenshaw", 6300)};
 
         System.out.println("\n\nSort via Quick sort:");
         System.out.println("------------------------");

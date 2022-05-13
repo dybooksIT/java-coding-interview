@@ -1,13 +1,11 @@
 package coding.challenge;
 
 public final class RadixSort {
-
     private RadixSort() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void sort(int[] arr, int radix) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -34,8 +32,7 @@ public final class RadixSort {
     }
 
     private static void countSortByDigit(
-            int[] arr, int radix, int exp, int min) {
-
+      int[] arr, int radix, int exp, int min) {
         int[] buckets = new int[radix];
         for (int i = 0; i < radix; i++) {
             buckets[i] = 0;

@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.util.Arrays;
 
 public class Main {
-
     public static void main(String[] args) {
-
         String[] words = {
             "calipers", "caret", "slat", "cater", "thickset", "spiracle", "trace",
             "last", "salt", "bowel", "crate", "loop", "polo", "thickest",

@@ -1,13 +1,11 @@
 package coding.challenge;
 
 public final class MergeSort {
-
     private MergeSort() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void sort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -24,7 +22,6 @@ public final class MergeSort {
     }
 
     private static int[] leftHalf(int[] arr) {
-
         int size = arr.length / 2;
         int[] left = new int[size];
         System.arraycopy(arr, 0, left, 0, size);
@@ -33,7 +30,6 @@ public final class MergeSort {
     }
 
     private static int[] rightHalf(int[] arr) {
-
         int size1 = arr.length / 2;
         int size2 = arr.length - size1;
         int[] right = new int[size2];
@@ -45,7 +41,6 @@ public final class MergeSort {
     }
 
     private static void merge(int[] result, int[] left, int[] right) {
-
         int t1 = 0;
         int t2 = 0;
 

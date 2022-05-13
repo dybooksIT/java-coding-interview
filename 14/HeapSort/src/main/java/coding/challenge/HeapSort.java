@@ -3,14 +3,12 @@ package coding.challenge;
 import java.util.Comparator;
 
 public final class HeapSort {
-
     private HeapSort() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* Heap sort for primitives (e.g., integers) */
+    // 기본 요소를 위한 힙 정렬(예: 정수)
     public static void sort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -35,7 +33,6 @@ public final class HeapSort {
     }
 
     private static void heapify(int[] arr, int n, int i) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -56,9 +53,8 @@ public final class HeapSort {
         }
     }
 
-    /* Heap sort with Comparator */
+    // Comparator를 이용한 힙 정렬
     public static <T> void sortWithComparator(T[] arr, Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -83,7 +79,6 @@ public final class HeapSort {
     }
 
     private static <T> void heapify(T[] arr, int n, int i, Comparator<? super T> c) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -115,5 +110,4 @@ public final class HeapSort {
         arr[x] = arr[y];
         arr[y] = temp;
     }
-
 }
