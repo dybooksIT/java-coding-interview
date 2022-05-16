@@ -33,6 +33,7 @@ public final class SinglyLinkedList {
     }
 
     // 시간 및 공간 복잡도가 O(n)인 풀이법
+    // 'size'는 연결 리스트의 크기(요소 개수)입니다.
     public void removeDuplicates1() {
         Set<Integer> dataSet = new HashSet<>();
 

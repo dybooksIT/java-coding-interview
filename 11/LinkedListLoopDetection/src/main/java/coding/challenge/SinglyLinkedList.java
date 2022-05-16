@@ -60,7 +60,7 @@ public final class SinglyLinkedList {
         Node slowRunner = head;
         Node fastRunner = head;
 
-        // 빠른 순회 노드가 느린 순회 노드와 마주칩니다.
+        // 빠른 러너가 느린 러너와 마주칩니다.
         while (fastRunner != null && fastRunner.next != null) {
             slowRunner = slowRunner.next;
             fastRunner = fastRunner.next.next;
@@ -75,8 +75,8 @@ public final class SinglyLinkedList {
             return;
         }
 
-        // 느린 순회 노드가 연결 리스트의 머리 노드로 이동합니다.
-        // 빠른 순회 노드는 충돌한 지점에 멈춰 있습니다.
+        // 느린 러너가 연결 리스트의 머리 노드로 이동합니다.
+        // 빠른 러너는 충돌한 지점에 멈춰 있습니다.
         // 두 노드는 한 노드씩 동시에 이동하면서 고리의 시작점에서 만납니다.
         slowRunner = head;
         while (slowRunner != fastRunner) {
