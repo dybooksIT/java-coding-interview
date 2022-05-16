@@ -1,11 +1,9 @@
 package coding.challenge;
- 
+
 import java.awt.Point;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Point r1lt = new Point(1, 8);
         Point r1rb = new Point(5, 6);
 

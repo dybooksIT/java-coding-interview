@@ -1,13 +1,11 @@
 package coding.challenge;
- 
-public final class Clock {
 
+public final class Clock {
     private Clock() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static float findAngle(int hour, int min) {
-
         if (hour <= 0 || hour > 12) {
             throw new IllegalArgumentException("Hour must be between 1-12");
         }

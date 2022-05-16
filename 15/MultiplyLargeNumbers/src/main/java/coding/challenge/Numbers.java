@@ -1,13 +1,11 @@
 package coding.challenge;
 
 public final class Numbers {
-
     private Numbers() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static String multiply(String a, String b) {
-
         if (a == null || b == null) {
             throw new IllegalArgumentException("a and b cannot be null");
         }
@@ -19,58 +17,56 @@ public final class Numbers {
             return "0";
         }
 
-        // the result of multiplication is stored in reverse order 
+        // 곱셈의 결과는 반대 순서로 저장됩니다.
         int c[] = new int[lenA + lenB];
 
-        // indexes to find positions in result
+        // 결과에서 위치를 찾는 인덱스
         int idx1 = 0;
         int idx2 = 0;
 
-        // loop 'a' right to left
+        // 'a'의 오른쪽에서 왼쪽으로 순회합니다.
         for (int i = lenA - 1; i >= 0; i--) {
-
             int carry = 0;
             int n1 = a.charAt(i) - '0';
 
-            // used to shift position to left after every multiplication of a digit in 'b' 
+            // 'b'에서 숫자를 곱할 때마다 위치를 왼쪽으로 이동할 때 사용합니다.
             idx2 = 0;
 
-            // loop 'b' from right to left
+            // 'b'의 오른쪽에서 왼쪽으로 순회합니다.
             for (int j = lenB - 1; j >= 0; j--) {
-
-                // current digit of second number 
+                // 두 번째 숫자의 현재 자릿수
                 int n2 = b.charAt(j) - '0';
 
-                // multiply with current digit of first number 
+                // 첫 번째 숫자의 현재 자릿수와 곱합니다.
                 int sum = n1 * n2 + c[idx1 + idx2] + carry;
 
-                // carry of the next iteration
+                // 다음 계산으로 넘어갈 자리 올림 수
                 carry = sum / 10;
-                
+
                 c[idx1 + idx2] = sum % 10;
                 idx2++;
             }
 
-            // store carry 
+            // 자리 올림 수를 저장합니다.
             if (carry > 0) {
                 c[idx1 + idx2] += carry;
             }
 
-            // shift position to left after every multiplication of a digit in 'a' 
+            // 'a'의 숫자를 곱할 때마다 위치를 왼쪽으로 이동합니다.
             idx1++;
         }
 
-        // ignore '0's from the right 
+        // 오른쪽에 있는 '0'을 무시합니다.
         int i = c.length - 1;
         while (i >= 0 && c[i] == 0) {
             i--;
         }
 
-        // If all were '0's - means either both or one of 'a' or 'b' were '0' 
+        // 모두 '0'인 경우 'a' 또는 'b'중 하나 또는 둘 모두가 '0'입니다.
         if (i == -1) {
             return "0";
         }
-        
+
         String result = "";
         while (i >= 0) {
             result += (c[i--]);

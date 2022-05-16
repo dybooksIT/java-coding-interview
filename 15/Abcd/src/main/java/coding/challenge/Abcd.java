@@ -1,14 +1,12 @@
 package coding.challenge;
- 
-public final class Abcd {
 
+public final class Abcd {
     private Abcd() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void find() {
         for (int i = 1000; i < 2499; i++) {
-
             int p = i;
             int q = i * 4;
 

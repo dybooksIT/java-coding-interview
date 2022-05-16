@@ -7,14 +7,12 @@ import java.util.List;
 import java.util.Queue;
 
 public final class Numbers {
-
     private Numbers() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* approach via list */
+    // 리스트 기반 풀이
     public static int kth1(int k) {
-
         if (k <= 0) {
             return 0;
         }
@@ -44,9 +42,8 @@ public final class Numbers {
         return list.get(k - 1);
     }
 
-    /* approach via three queues */
+    // 큐 3개를 이용한 풀이
     public static int kth2(int k) {
-
         if (k <= 0) {
             return 0;
         }
@@ -57,7 +54,7 @@ public final class Numbers {
         Queue<Integer> queue5 = new ArrayDeque<>();
         Queue<Integer> queue7 = new ArrayDeque<>();
 
-        // sample of the array:
+        // 배열의 예
         // 1, 3, 5, 7, 3 * 3, 3 * 5, 3 *7, 5 * 5, 3 * 3 * 3, 5 * 7, 3 * 3 * 5, 7 * 7 ...
         for (int i = 1; i < k; i++) {
             queue3.add(minElem * 3);

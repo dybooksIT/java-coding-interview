@@ -1,13 +1,11 @@
 package coding.challenge;
- 
-public final class Elevators {
 
+public final class Elevators {
     private Elevators() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static int time(int k, int floors[]) {
-
         if (floors == null || floors.length == 0 || k <= 0) {
             return -1;
         }
@@ -23,7 +21,7 @@ public final class Elevators {
             }
         }
 
-        // iterate the groups and update the time needed for each group 
+        // 각 그룹을 순회하면서 그룹에 필요한 시간을 누적합니다.
         int time = 0;
         for (int i = 0; i < floors.length; i += k) {
             time += (2 * floors[i]);

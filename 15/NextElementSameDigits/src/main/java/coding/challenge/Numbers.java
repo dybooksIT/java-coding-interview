@@ -1,13 +1,11 @@
 package coding.challenge;
- 
-public final class Numbers {
 
+public final class Numbers {
     private Numbers() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void findNextGreater(int arr[]) {
-
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("The given array cannot be null or empty");
         }
@@ -33,7 +31,7 @@ public final class Numbers {
         // number with same set of digits as the given one.
         if (min == -1) {
             System.out.println("There is no greater number with "
-                    + "same set of digits as the given one.");
+              + "same set of digits as the given one.");
         } else {
             // Steps 2 and 3: Swap 'min' with 'len-1'
             swap(arr, min, len - 1);

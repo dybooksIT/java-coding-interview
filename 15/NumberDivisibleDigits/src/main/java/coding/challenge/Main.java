@@ -1,9 +1,7 @@
 package coding.challenge;
- 
+
 public class Main {
-
     public static void main(String[] args) {
-
         System.out.println("1: " + Numbers.isDivisible(1));
         System.out.println("6242: " + Numbers.isDivisible(6242));
         System.out.println("123: " + Numbers.isDivisible(123));
@@ -14,4 +12,3 @@ public class Main {
         System.out.println("1010: " + Numbers.isDivisible(1010));
     }
 }
-
