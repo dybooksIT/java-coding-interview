@@ -1,12 +1,10 @@
 package coding.challenge;
- 
+
 import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Main {
-
     public static void main(String[] args) {
-
         Queue<Integer> queue = new ArrayDeque<>();
         queue.add(7);
         queue.add(1);

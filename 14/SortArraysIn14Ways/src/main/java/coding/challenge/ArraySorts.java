@@ -6,19 +6,18 @@ import java.util.Comparator;
 import java.util.List;
 
 public final class ArraySorts {
-
     private ArraySorts() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* Bubble sort */
+    // 버블 정렬
     public static void bubbleSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
 
         int n = arr.length;
+
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -30,9 +29,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Pancake sort */
+    // 팬케이크(Pancake) 정렬
     public static void pancakeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -55,7 +53,6 @@ public final class ArraySorts {
     }
 
     private static void flip(int[] arr, int left, int right) {
-
         while (left <= right) {
             int temp = arr[left];
             arr[left] = arr[right];
@@ -66,9 +63,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Exchange sort */
+    // 교환(Exchange) 정렬
     public static void exchangeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -85,14 +81,14 @@ public final class ArraySorts {
         }
     }
 
-    /* Bubble sort with Comparator */
+    // Comparator를 이용하는 버블 정렬
     public static <T> void bubbleSortWithComparator(T arr[], Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
 
         int n = arr.length;
+
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (c.compare(arr[j], arr[j + 1]) > 0) {
@@ -104,9 +100,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Bubble sort optimized */
+    // 최적화한 버블 정렬
     public static void bubleSortOptimized(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -116,6 +111,7 @@ public final class ArraySorts {
         }
 
         int n = arr.length;
+
         while (n != 0) {
             int swap = 0;
             for (int i = 1; i < n; i++) {
@@ -131,9 +127,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Bubble sort optimized with Comparator */
+    // Comparator를 이용한 최적화한 버블 정렬
     public static <T> void bubleSortOptimizedWithComparator(T[] arr, Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -143,6 +138,7 @@ public final class ArraySorts {
         }
 
         int n = arr.length;
+
         while (n != 0) {
             int swap = 0;
             for (int i = 1; i < n; i++) {
@@ -158,18 +154,18 @@ public final class ArraySorts {
         }
     }
 
-    /* Selection sort */
+    // 선택(Selection) 정렬
     public static void selectionSort(int[] arr) {
-
         if (arr.length == 0) {
             throw new IllegalArgumentException("Array length cannot be 0");
         }
 
         int first;
         int count = 1;
-        for (int i = arr.length - 1; i > 0; i--, count++) {
 
+        for (int i = arr.length - 1; i > 0; i--, count++) {
             first = 0;
+
             for (int j = 1; j <= i; j++) {
 
                 if (arr[j] > arr[first]) {
@@ -181,20 +177,21 @@ public final class ArraySorts {
         }
     }
 
-    /* Shell sort */
+    // 셸(Shell) 정렬
     public static void shellSort(int[] arr) {
-
         if (arr.length == 0) {
             throw new IllegalArgumentException("Array length cannot be 0");
         }
 
         int q = 1;
+
         while (q <= arr.length / 3) {
             q = (q * 3) + 1;
         }
 
         int in, out;
         int temp;
+
         while (q > 0) {
             for (out = q; out < arr.length; out++) {
                 temp = arr[out];
@@ -210,9 +207,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Insertion sort */
+    // 삽입(Insertion) 정렬
     public static void insertionSort(int arr[]) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -235,9 +231,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Insertion sort with Comparator */
+    // Comparator를 이용한 삽입 정렬
     public static <T> void insertionSortWithComparator(T arr[], Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -247,6 +242,7 @@ public final class ArraySorts {
         }
 
         int n = arr.length;
+
         for (int i = 1; i < n; ++i) {
             T key = arr[i];
             int j = i - 1;
@@ -260,9 +256,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Counting sort */
+    // 계수(Counting) 정렬
     public static void countingSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -273,6 +268,7 @@ public final class ArraySorts {
 
         int min = arr[0];
         int max = arr[0];
+
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
@@ -288,6 +284,7 @@ public final class ArraySorts {
         }
 
         int sortedIndex = 0;
+
         for (int i = 0; i < counts.length; i++) {
             while (counts[i] > 0) {
                 arr[sortedIndex++] = i + min;
@@ -296,9 +293,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Merge sort */
+    // 병합(Merge) 정렬
     public static void mergeSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -315,7 +311,6 @@ public final class ArraySorts {
     }
 
     private static int[] leftHalf(int[] arr) {
-
         int size = arr.length / 2;
         int[] left = new int[size];
         System.arraycopy(arr, 0, left, 0, size);
@@ -324,10 +319,10 @@ public final class ArraySorts {
     }
 
     private static int[] rightHalf(int[] arr) {
-
         int size1 = arr.length / 2;
         int size2 = arr.length - size1;
         int[] right = new int[size2];
+
         for (int i = 0; i < size2; i++) {
             right[i] = arr[i + size1];
         }
@@ -336,7 +331,6 @@ public final class ArraySorts {
     }
 
     private static void merge(int[] result, int[] left, int[] right) {
-
         int t1 = 0;
         int t2 = 0;
 
@@ -351,9 +345,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Heap sort */
+    // 힙(Heap) 정렬
     public static void heapSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -364,6 +357,7 @@ public final class ArraySorts {
 
         int n = arr.length;
         buildHeap(arr, n);
+
         while (n > 1) {
             swap(arr, 0, n - 1);
             n--;
@@ -378,7 +372,6 @@ public final class ArraySorts {
     }
 
     private static void heapify(int[] arr, int n, int i) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -399,9 +392,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Heap sort with Comparator */
+    // Comparator를 이용한 힙 정렬
     public static <T> void heapSortWithComparator(T[] arr, Comparator<? super T> c) {
-
         if (arr == null || c == null) {
             throw new IllegalArgumentException("Array/Comparator cannot be null");
         }
@@ -412,6 +404,7 @@ public final class ArraySorts {
 
         int n = arr.length;
         buildHeap(arr, n, c);
+
         while (n > 1) {
             swap(arr, 0, n - 1);
             n--;
@@ -426,7 +419,6 @@ public final class ArraySorts {
     }
 
     private static <T> void heapify(T[] arr, int n, int i, Comparator<? super T> c) {
-
         int left = i * 2 + 1;
         int right = i * 2 + 2;
         int greater;
@@ -447,16 +439,16 @@ public final class ArraySorts {
         }
     }
 
-    /* Bucket sort - Scatter-Sort-Gather approach */
+    // 분산-정렬-수집 기법(Scatter-Sort-Gather approach) 기반의 버킷 정렬
     public static void bucketSortSSG(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
-    
+
         int[] hashes = hash(arr);
 
         List<Integer>[] buckets = new List[hashes[1]];
+
         for (int i = 0; i < hashes[1]; i++) {
             buckets[i] = new ArrayList();
         }
@@ -470,6 +462,7 @@ public final class ArraySorts {
         }
 
         int p = 0;
+
         for (List<Integer> bucket : buckets) {
             for (int j : bucket) {
                 arr[p++] = j;
@@ -478,8 +471,8 @@ public final class ArraySorts {
     }
 
     private static int[] hash(int[] arr) {
-
         int m = arr[0];
+
         for (int i = 1; i < arr.length; i++) {
             if (m < arr[i]) {
                 m = arr[i];
@@ -493,14 +486,14 @@ public final class ArraySorts {
         return (int) ((double) num / hashes[0] * (hashes[1] - 1));
     }
 
-    /* Bucket sort - Scatter-Gather approach */
+    // 분산-수집 기법(Scatter-Gather approach) 기반의 버킷 정렬
     public static void bucketSortSG(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
 
         int max = arr[0];
+
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
                 max = arr[i];
@@ -525,19 +518,18 @@ public final class ArraySorts {
         }
     }
 
-    /* Cocktail sort */
+    // 칵테일(Cocktail) 정렬
     public static void cocktailSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
 
         boolean isSwapped;
+
         do {
             isSwapped = false;
             for (int i = 0; i <= arr.length - 2; i++) {
                 if (arr[i] > arr[i + 1]) {
-
                     int temp = arr[i];
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
@@ -549,6 +541,7 @@ public final class ArraySorts {
             }
 
             isSwapped = false;
+
             for (int i = arr.length - 2; i >= 0; i--) {
                 if (arr[i] > arr[i + 1]) {
                     int temp = arr[i];
@@ -562,17 +555,16 @@ public final class ArraySorts {
         } while (isSwapped);
     }
 
-    /* Cycle sort */
+    // 사이클(Cycle) 정렬
     public static void cycleSort(int[] arr) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
 
         for (int cycle = 0; cycle < arr.length - 1; cycle++) {
             int value = arr[cycle];
-
             int position = cycle;
+
             for (int i = cycle + 1; i < arr.length; i++) {
                 if (arr[i] < value) {
                     position++;
@@ -610,9 +602,8 @@ public final class ArraySorts {
         }
     }
 
-    /* Quick sort */
+    // 퀵(Quick) 정렬
     public static void quickSort(int[] arr, int left, int right) {
-
         if (left < right) {
             int m = partition(arr, left, right);
 
@@ -622,9 +613,9 @@ public final class ArraySorts {
     }
 
     private static int partition(int[] arr, int left, int right) {
-
         int pivot = arr[right];
         int m = left;
+
         for (int i = m; i < right; i++) {
             if (arr[i] <= pivot) {
                 swap(arr, i, m++);
@@ -636,10 +627,9 @@ public final class ArraySorts {
         return m;
     }
 
-    /* Quick sort with Comparator */
+    // Comparator를 이용한 퀵 정렬
     public static <T> void quickSortWithComparator(
-            T[] arr, int left, int right, Comparator<? super T> c) {
-
+      T[] arr, int left, int right, Comparator<? super T> c) {
         if (left < right) {
             int m = partitionWithComparator(arr, left, right, c);
 
@@ -649,10 +639,10 @@ public final class ArraySorts {
     }
 
     private static <T> int partitionWithComparator(
-            T[] arr, int left, int right, Comparator<? super T> c) {
-
+      T[] arr, int left, int right, Comparator<? super T> c) {
         T pivot = arr[right];
         int m = left;
+
         for (int i = m; i < right; i++) {
             if (c.compare(arr[i], pivot) <= 0) {
                 swap(arr, i, m++);
@@ -664,9 +654,8 @@ public final class ArraySorts {
         return m;
     }
 
-    /* Radix sort */
+    // 기수(Radix) 정렬
     public static void radixSort(int[] arr, int radix) {
-
         if (arr == null) {
             throw new IllegalArgumentException("Array cannot be null");
         }
@@ -677,6 +666,7 @@ public final class ArraySorts {
 
         int min = arr[0];
         int max = arr[0];
+
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < min) {
                 min = arr[i];
@@ -686,21 +676,22 @@ public final class ArraySorts {
         }
 
         int exp = 1;
+
         while ((max - min) / exp >= 1) {
             countSortByDigit(arr, radix, exp, min);
             exp *= radix;
         }
     }
 
-    private static void countSortByDigit(
-            int[] arr, int radix, int exp, int min) {
-
+    private static void countSortByDigit(int[] arr, int radix, int exp, int min) {
         int[] buckets = new int[radix];
+
         for (int i = 0; i < radix; i++) {
             buckets[i] = 0;
         }
 
         int bucket;
+
         for (int i = 0; i < arr.length; i++) {
             bucket = (int) (((arr[i] - min) / exp) % radix);
             buckets[bucket]++;
@@ -711,6 +702,7 @@ public final class ArraySorts {
         }
 
         int[] out = new int[arr.length];
+
         for (int i = arr.length - 1; i >= 0; i--) {
             bucket = (int) (((arr[i] - min) / exp) % radix);
             out[--buckets[bucket]] = arr[i];
@@ -719,7 +711,7 @@ public final class ArraySorts {
         System.arraycopy(out, 0, arr, 0, arr.length);
     }
 
-    // Helper methods used by different sorting algorithms from above */
+    // 앞 여러 가지 정렬 알고리즘에서 사용하는 헬퍼 메서드
     private static void swap(int[] arr, int x, int y) {
         int temp = arr[x];
         arr[x] = arr[y];
@@ -731,5 +723,4 @@ public final class ArraySorts {
         arr[x] = arr[y];
         arr[y] = temp;
     }
-
 }

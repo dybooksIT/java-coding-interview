@@ -1,7 +1,6 @@
 package coding.challenge;
 
 public class Melon {
-
     private final String type;
     private final int weight;
 

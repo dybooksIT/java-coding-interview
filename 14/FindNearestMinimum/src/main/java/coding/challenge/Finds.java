@@ -1,33 +1,30 @@
 package coding.challenge;
- 
+
 import java.util.Stack;
 
 public final class Finds {
-
     private Finds() {
         throw new AssertionError("Cannot be instantiated");
     }
 
     public static void leftSmaller(int arr[]) {
-
         Stack<Integer> stack = new Stack<>();
 
-        // While the top element of the stack is greater than 
-        // equal to arr[i] remove it from the stack        
+        // 스택의 톱 요소가 arr[i]보다 크면 스택에서 제거합니다.
         for (int i = 0; i < arr.length; i++) {
             while (!stack.empty() && stack.peek() >= arr[i]) {
                 stack.pop();
             }
 
-            // if stack is empty there is no left smaller element
+            // 스택이 비어 있으면 arr[i]의 왼쪽에 작은 요소가 없습니다.
             if (stack.empty()) {
                 System.out.print("_, ");
             } else {
-                // the top of the stack is the left smaller element
+                // 스택의 톱은 arr[i]의 왼쪽에서 가장 가까운 작은 요소입니다.
                 System.out.print(stack.peek() + ", ");
             }
-            
-            // push arr[i] into the stack
+
+            // arr[i]를 스택에 푸시합니다.
             stack.push(arr[i]);
         }
     }

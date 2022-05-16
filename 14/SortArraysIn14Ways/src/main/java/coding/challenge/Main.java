@@ -7,27 +7,25 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
-
     private static final int ARRAY_SIZE = 10_000;
     private static final String[] MELON_TYPES
-            = {"Watermelon", "Cantaloupe", "Horned", "Crenshaw", "Honeydew",
-                "Gac", "Bitter", "Winter", "Sprite", "Korean", "Canary", "Charentais",
-                "Bailan", "Hami", "Santa Claus", "Sky Rocket", "Golden Langkawi", "Apollo",
-                "Honey Globe", "Autumn Sweet", "Jade Dew", "Golden Prize", "Ten Me", "New Century"};
+      = {"Watermelon", "Cantaloupe", "Horned", "Crenshaw", "Honeydew",
+         "Gac", "Bitter", "Winter", "Sprite", "Korean", "Canary", "Charentais",
+         "Bailan", "Hami", "Santa Claus", "Sky Rocket", "Golden Langkawi", "Apollo",
+         "Honey Globe", "Autumn Sweet", "Jade Dew", "Golden Prize", "Ten Me", "New Century"};
 
     public static void main(String[] args) {
-
         Clock clock = Clock.systemUTC();
         Random rnd = new Random();
         Comparator<Melon> byType = Comparator.comparing(Melon::getType);
 
-        // initialize an array integers        
+        // 배열 integers를 초기화합니다.
         int[] integers = new int[ARRAY_SIZE];
         for (int i = 0; i < ARRAY_SIZE; i++) {
             integers[i] = rnd.nextInt(ARRAY_SIZE);
         }
 
-        // initialize an array of Melons
+        // Melons의 배열을 초기화합니다.
         Melon[] melons = new Melon[ARRAY_SIZE];
         for (int i = 0; i < ARRAY_SIZE; i++) {
             melons[i] = new Melon(MELON_TYPES[rnd.nextInt(5)], 2000 + rnd.nextInt(2000000));
@@ -46,24 +44,28 @@ public class Main {
         System.out.println("\nArrays.sort(): sorting 'melons', array size: " + melons.length);
         Melon[] cloneMelons = melons.clone();
         long startTimeV2 = clock.millis();
+
         Arrays.sort(cloneMelons, new Comparator<Melon>() {
             @Override
             public int compare(Melon melon1, Melon melon2) {
                 return Integer.compare(melon1.getWeight(), melon2.getWeight());
             }
         });
+
         displayExecutionTime(clock.millis() - startTimeV2);
         displayMelonsSortedArray(cloneMelons);
 
         System.out.println("\nArrays.parallelSort(): sorting 'melons', array size: " + melons.length);
         Melon[] cloneMelonsParallel = melons.clone();
         long startTimeV3 = clock.millis();
+
         Arrays.parallelSort(cloneMelonsParallel, new Comparator<Melon>() {
             @Override
             public int compare(Melon melon1, Melon melon2) {
                 return Integer.compare(melon1.getWeight(), melon2.getWeight());
             }
         });
+
         displayExecutionTime(clock.millis() - startTimeV3);
         displayMelonsSortedArray(cloneMelonsParallel);
 
@@ -151,7 +153,7 @@ public class Main {
         System.out.println("\nSorting numbers (SG) ...");
         int[] cloneIntegersBks = integers.clone();
         long startTimeV13 = clock.millis();
-        ArraySorts.bucketSortSG(cloneIntegersBks); // or use bucketSortSSG()
+        ArraySorts.bucketSortSG(cloneIntegersBks); // 또는 bucketSortSSG 메서드 사용
         displayExecutionTime(clock.millis() - startTimeV13);
         displayIntSortedArray(cloneIntegersBks);
 
@@ -255,12 +257,11 @@ public class Main {
 
     private static void displayExecutionTime(long time) {
         System.out.println("Execution time: " + time + " ms" + " ("
-                + TimeUnit.SECONDS.convert(time, TimeUnit.MILLISECONDS) + " s)");
+          + TimeUnit.SECONDS.convert(time, TimeUnit.MILLISECONDS) + " s)");
     }
 
-    // dummy display method
+    // 더미 displayIntSortedArray method
     private static void displayIntSortedArray(int[] arr) {
-
         for (int i = 0; i < 30; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -268,11 +269,11 @@ public class Main {
         System.out.print(" ...\n");
     }
 
-    // dummy display method
+    // 더미 displayMelonsSortedArray 메서드
     private static void displayMelonsSortedArray(Melon[] arr) {
-
         for (int i = 0; i < 30; i++) {
             System.out.print(arr[i] + " ");
+
             if (i % 5 == 0) {
                 System.out.println();
             }

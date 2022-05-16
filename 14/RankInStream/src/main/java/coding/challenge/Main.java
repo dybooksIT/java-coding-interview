@@ -1,18 +1,16 @@
 package coding.challenge;
 
 public class Main {
-
     public static void main(String[] args) {
-
-      /*        
-              40
-            /    \
-          30      45
-         /  \    /  \
-        15  33  42  56
-       / \       \    \    
-      5  17       43  67        
-      */
+        /*
+                40
+              /    \
+            30      45
+           /  \    /  \
+          15  33  42  56
+         / \       \    \
+        5  17       43  67
+        */
         Stream stream = new Stream();
 
         stream.generate(40);

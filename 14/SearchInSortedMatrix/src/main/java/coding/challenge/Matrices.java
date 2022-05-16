@@ -1,14 +1,12 @@
 package coding.challenge;
- 
-public final class Matrices {
 
+public final class Matrices {
     private Matrices() {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* Iterative approach (searchRecursive() listed below is the recursive code) */
+    // 반복 기반 풀이(아래 나열된 searchRecursive 메서드는 재귀 기반 풀이법)
     public static boolean search(int[][] matrix, int element) {
-
         if (matrix == null || matrix.length == 0) {
             return false;
         }
@@ -17,7 +15,6 @@ public final class Matrices {
         int col = matrix[0].length - 1;
 
         while (row < matrix.length && col >= 0) {
-            
             if (matrix[row][col] == element) {
                 return true;
             } else if (matrix[row][col] > element) {
@@ -30,9 +27,8 @@ public final class Matrices {
         return false;
     }
 
-    /* Search via recursion - this is the recursive approach of the above search() method */
+    // 재귀 기반 검색(앞 search 메서드의 재귀 기반 풀이법)
     public static boolean searchRecursive(int[][] matrix, int element) {
-
         if (matrix == null || matrix.length == 0) {
             return false;
         }
@@ -40,9 +36,7 @@ public final class Matrices {
         return searchRecursive(matrix, matrix.length - 1, 0, matrix[0].length - 1, element);
     }
 
-    private static boolean searchRecursive(int[][] matrix, int row, int col,
-            int cols, int element) {
-
+    private static boolean searchRecursive(int[][] matrix, int row, int col, int cols, int element) {
         if (row < 0 || col > cols) {
             return false;
         }
