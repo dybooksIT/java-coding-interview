@@ -1,5 +1,5 @@
 package coding.challenge.test;
- 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,19 +13,17 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 public class ExampleOfDynamicTest {
-
     @TestFactory
     Stream<DynamicTest> dynamicTestsExample() {
-
         List<Integer> items = Arrays.asList(1, 2, 3, 4, 5);
 
         List<DynamicTest> dynamicTests = new ArrayList<>();
 
         for (int item : items) {
             DynamicTest dynamicTest = dynamicTest(
-                    "pow(" + item + ", 2):", () -> {
-                        assertEquals(item * item, Math.pow(item, 2));
-                    });
+              "pow(" + item + ", 2):", () -> {
+                assertEquals(item * item, Math.pow(item, 2));
+            });
 
             dynamicTests.add(dynamicTest);
         }

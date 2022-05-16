@@ -1,5 +1,5 @@
 package coding.challenge.test;
- 
+
 import java.util.logging.Logger;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 public class NestedTest {
-
     private static final Logger log = Logger.getLogger(NestedTest.class.getName());
 
     @BeforeAll
@@ -45,7 +44,6 @@ public class NestedTest {
     @Nested
     @DisplayName("Running tests nested in class A")
     class A {
-
         @BeforeEach
         void beforeEach() {
             System.out.println("Before each test method of the A class");
@@ -65,7 +63,6 @@ public class NestedTest {
         @Nested
         @DisplayName("Running tests nested in class B")
         class B {
-
             @BeforeEach
             void beforeEach() {
                 System.out.println("Before each test method of the B class");
