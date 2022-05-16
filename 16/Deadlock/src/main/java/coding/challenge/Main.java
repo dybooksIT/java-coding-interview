@@ -1,13 +1,9 @@
 package coding.challenge;
 
 public class Main {
-    
-    /*
-      Pay attention that this code leads to a deadlock !!!
-    */
+    // 이 코드는 교착 상태로 이어진다는 점에 주의하세요!!!
 
     static class FirstThread implements Runnable {
-
         @Override
         public void run() {
             synchronized (Double.class) {
@@ -20,7 +16,6 @@ public class Main {
     }
 
     static class SecondThread implements Runnable {
-
         @Override
         public void run() {
             synchronized (Float.class) {
@@ -30,7 +25,6 @@ public class Main {
                 }
             }
         }
-
     }
 
     public static void main(String[] args) {

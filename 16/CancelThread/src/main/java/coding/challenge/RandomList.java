@@ -5,11 +5,10 @@ import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class RandomList implements Runnable {
-
     private volatile boolean cancelled;
 
     private final List<Integer> randoms = new CopyOnWriteArrayList<>();
-    private final Random rnd = new Random();    
+    private final Random rnd = new Random();
 
     @Override
     public void run() {
@@ -18,7 +17,7 @@ public class RandomList implements Runnable {
         }
     }
 
-    public void cancel() {        
+    public void cancel() {
         cancelled = true;
     }
 

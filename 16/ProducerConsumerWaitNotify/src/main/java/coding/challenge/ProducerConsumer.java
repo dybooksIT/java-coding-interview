@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 public final class ProducerConsumer {
-
     private ProducerConsumer() {
         throw new AssertionError("Cannot be instantiated!");
     }
@@ -32,15 +31,12 @@ public final class ProducerConsumer {
     private static ExecutorService consumerService;
 
     private static class Producer implements Runnable {
-
         @Override
         public void run() {
             while (runningProducer) {
                 synchronized (queue) {
-
-                    // if the queue is not empty then wait until the consumer finishes
+                    // 큐가 비어 있지 않으면 소비자의 실행이 완료될 때까지 기다립니다.
                     while (!queue.isEmpty()) {
-
                         logger.info("Queue is not empty ...");
 
                         try {
@@ -53,11 +49,13 @@ public final class ProducerConsumer {
                     }
                 }
 
-                //produce (by adding in the queue) and notify the consumer thread
+                // (큐에 추가하여 제품을) 생성하고 소비자 스레드에 알립니다.
                 synchronized (queue) {
                     try {
                         String product = "product-" + rnd.nextInt(1000);
-                        Thread.sleep(rnd.nextInt(MAX_PROD_TIME_MS)); // simulate the production time
+
+                        // 생산 시간을 임의로 설정합니다.
+                        Thread.sleep(rnd.nextInt(MAX_PROD_TIME_MS));
 
                         queue.add(product);
                         logger.info(() -> "Produced: " + product);
@@ -74,15 +72,12 @@ public final class ProducerConsumer {
     }
 
     private static class Consumer implements Runnable {
-
         @Override
         public void run() {
             while (runningConsumer) {
                 synchronized (queue) {
-
-                    // if the queue is empty then wait until the producer produces
+                    // 큐가 비어 있으면 생산자가 완료될 때까지 기다립니다.
                     while (queue.isEmpty()) {
-
                         logger.info("Queue is empty ...");
 
                         try {
@@ -95,15 +90,15 @@ public final class ProducerConsumer {
                     }
                 }
 
-                // if the queue is not empty then the consumer will consume
-                // (by removing from the queue) and notify the producer thread      
+                // 큐가 비어 있지 않으면 소비자는 제품 하나를 큐에서 제거(소비)한 후
+                // 생산자 스레드에게 제품을 사용했음을 알립니다.
                 synchronized (queue) {
                     try {
-
                         String product = queue.remove(0);
 
                         if (product != null) {
-                            Thread.sleep(rnd.nextInt(MAX_CONS_TIME_MS)); // simulate consuming time
+                            // 소비 시간을 임의로 설정합니다.
+                            Thread.sleep(rnd.nextInt(MAX_CONS_TIME_MS));
                             logger.info(() -> "Consumed: " + product);
 
                             queue.notify();
@@ -116,12 +111,10 @@ public final class ProducerConsumer {
                     }
                 }
             }
-
         }
     }
 
     public static void startProducerConsumer() {
-
         if (runningProducer || runningConsumer) {
             logger.info("Producer-Consumer already running ...");
             return;
@@ -140,7 +133,6 @@ public final class ProducerConsumer {
     }
 
     public static void stopProducerConsumer() {
-
         logger.info("Stopping Producer-Consumer ...");
 
         boolean isProducerDown = shutdownProducer();
@@ -155,19 +147,18 @@ public final class ProducerConsumer {
     }
 
     private static boolean shutdownProducer() {
-
         runningProducer = false;
         return shutdownExecutor(producerService);
     }
 
     private static boolean shutdownConsumer() {
-
         runningConsumer = false;
         return shutdownExecutor(consumerService);
     }
 
     private static boolean shutdownExecutor(ExecutorService executor) {
         executor.shutdown();
+
         try {
             if (!executor.awaitTermination(TIMEOUT_MS, TimeUnit.MILLISECONDS)) {
                 executor.shutdownNow();
@@ -181,6 +172,7 @@ public final class ProducerConsumer {
             Thread.currentThread().interrupt();
             logger.severe(() -> "Exception: " + ex);
         }
+
         return false;
     }
 }

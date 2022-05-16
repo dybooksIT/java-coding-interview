@@ -9,7 +9,6 @@ import java.util.concurrent.TransferQueue;
 import java.util.logging.Logger;
 
 public final class ProducerConsumer {
-
     private ProducerConsumer() {
         throw new AssertionError("Cannot be instantiated!");
     }
@@ -32,15 +31,15 @@ public final class ProducerConsumer {
     private static ExecutorService consumerService;
 
     private static class Producer implements Runnable {
-
         @Override
         public void run() {
             while (runningProducer) {
                 try {
                     while (queue.hasWaitingConsumer()) {
-
                         String product = "product-" + rnd.nextInt(1000);
-                        Thread.sleep(rnd.nextInt(MAX_PROD_TIME_MS)); // simulate the production time
+
+                        // 생산 시간을 임의로 설정합니다.
+                        Thread.sleep(rnd.nextInt(MAX_PROD_TIME_MS));
 
                         queue.add(product);
                         logger.info(() -> "Produced: " + product);
@@ -52,20 +51,20 @@ public final class ProducerConsumer {
                 }
             }
         }
-
     }
 
     private static class Consumer implements Runnable {
-
         @Override
         public void run() {
             while (runningConsumer) {
                 try {
-                    // MAX_PROD_TIME_MS * 2 - just give enough time to the producer
+                    // MAX_PROD_TIME_MS * 2: 생산자에게 충분한 시간을 줍니다.
                     String product = queue.poll(MAX_PROD_TIME_MS * 2, TimeUnit.MILLISECONDS);
 
                     if (product != null) {
-                        Thread.sleep(rnd.nextInt(MAX_CONS_TIME_MS)); // simulate consuming time
+                        // 소비 시간을 임의로 설정합니다.
+                        Thread.sleep(rnd.nextInt(MAX_CONS_TIME_MS));
+
                         logger.info(() -> "Consumed: " + product);
                     }
                 } catch (InterruptedException ex) {
@@ -79,7 +78,6 @@ public final class ProducerConsumer {
     }
 
     public static void startProducerConsumer() {
-
         if (runningProducer || runningConsumer) {
             logger.info("Producer-Consumer already running ...");
             return;
@@ -98,7 +96,6 @@ public final class ProducerConsumer {
     }
 
     public static void stopProducerConsumer() {
-
         logger.info("Stopping Producer-Consumer ...");
 
         boolean isProducerDown = shutdownProducer();
@@ -113,19 +110,18 @@ public final class ProducerConsumer {
     }
 
     private static boolean shutdownProducer() {
-
         runningProducer = false;
         return shutdownExecutor(producerService);
     }
 
     private static boolean shutdownConsumer() {
-
         runningConsumer = false;
         return shutdownExecutor(consumerService);
     }
 
     private static boolean shutdownExecutor(ExecutorService executor) {
         executor.shutdown();
+
         try {
             if (!executor.awaitTermination(TIMEOUT_MS, TimeUnit.MILLISECONDS)) {
                 executor.shutdownNow();

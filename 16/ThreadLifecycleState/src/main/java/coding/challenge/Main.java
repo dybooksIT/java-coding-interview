@@ -1,48 +1,44 @@
 package coding.challenge;
 
 public class Main {
-
-    // Run all the examples
-    
+    // 모든 예제를 실행합니다.
     public static void main(String[] args) throws InterruptedException {
-
-        // Run scenario for the NEW state
+        // NEW 상태에 대한 시나리오를 실행합니다.
         System.out.println("Run scenario for the NEW state");
         NewThread nt = new NewThread();
         nt.newThread();
-        
+
         Thread.sleep(5000);
-        
-        // Run scenario for the RUNNABLE state
-        System.out.println("Run scenario for the RUNNABLE state");        
+
+        // RUNNABLE 상태에 대한 시나리오를 실행합니다.
+        System.out.println("Run scenario for the RUNNABLE state");
         RunnableThread rt = new RunnableThread();
         rt.runnableThread();
-        
+
         Thread.sleep(5000);
-        
-        // Run scenario for the WAITING state
-        System.out.println("Run scenario for the WAITING state");        
+
+        // WAITING 상태에 대한 시나리오를 실행합니다.
+        System.out.println("Run scenario for the WAITING state");
         WaitingThread wt = new WaitingThread();
         wt.waitingThread();
-        
+
         Thread.sleep(5000);
-        
-        // Run scenario for the TIME_WAITING state
-        System.out.println("Run scenario for the TIME_WAITING state");        
+
+        // TIME_WAITING 상태에 대한 시나리오를 실행합니다.
+        System.out.println("Run scenario for the TIME_WAITING state");
         TimedWaitingThread twt = new TimedWaitingThread();
         twt.timedWaitingThread();
-        
+
         Thread.sleep(5000);
-        
-        // Run scenario for the TERMINATED state
-        System.out.println("Run scenario for the TERMINATED state");        
+
+        // TERMINATED 상태에 대한 시나리오를 실행합니다.
+        System.out.println("Run scenario for the TERMINATED state");
         TerminatedThread tt = new TerminatedThread();
         tt.terminatedThread();
         
-        // Run scenario for the BLOCKED state
-        System.out.println("Run scenario for the BLOCKED state");        
+        // BLOCKED 상태에 대한 시나리오를 실행합니다.
+        System.out.println("Run scenario for the BLOCKED state");
         BlockedThread bt = new BlockedThread();
-        bt.blockedThread();               
+        bt.blockedThread();
     }
-    
 }
