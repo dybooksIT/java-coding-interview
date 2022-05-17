@@ -39,7 +39,7 @@ public final class SinglyLinkedList {
  
             // (p, q)는 한 쌍의 연결 리스트를 형성합니다.
             while (p < q) {
-                // 리스트 p를 리스트 q와 병합하고 병합된 연결 리스트를 리스트 p에 저장합니다.
+                // 리스트 p를 리스트 q와 병합하고 병합된 연결 리스트를 p에 저장합니다.
                 linkedlists[p].head = merge(linkedlists[p].head, linkedlists[q].head);
 
                 // 다음 쌍으로 이동합니다.

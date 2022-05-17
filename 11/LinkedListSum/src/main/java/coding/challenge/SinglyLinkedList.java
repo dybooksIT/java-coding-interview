@@ -52,8 +52,8 @@ public final class SinglyLinkedList {
 
         if (node1 != null || node2 != null) {
             Node more = sum(node1 == null
-                    ? null : node1.next, node2 == null
-                            ? null : node2.next, value >= 10 ? 1 : 0);
+              ? null : node1.next, node2 == null
+              ? null : node2.next, value >= 10 ? 1 : 0);
 
             resultNode.next = more;
         }

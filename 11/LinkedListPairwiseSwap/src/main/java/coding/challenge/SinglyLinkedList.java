@@ -62,10 +62,10 @@ public final class SinglyLinkedList {
                 tail = currentNode;
             }
 
-            // 현재 쌍의 이전 노드 prevPair를 준비합니다.
+            // 현재 쌍의 이전 노드를 prevPair에 설정합니다.
             prevPair = node2;
 
-            // 다음 쌍으로 진행합니다.
+            // 다음 쌍을 설정해 링크를 복구합니다.
             currentNode = node3;
         }
     }

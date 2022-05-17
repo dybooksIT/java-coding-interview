@@ -31,10 +31,10 @@ public final class SinglyLinkedList {
         // 교차점이 있는 임의의 연결 리스트 2개를 생성하려고 호출합니다.
         PairNode pair = generateTwoLinkedListWithInterection();
 
-        // 첫 번째 리스트의 머리 노드
+        // 첫 번째 연결 리스트의 머리 노드
         Node currentNode1 = pair.head;
 
-        // 두 번째 리스트의 머리 노드
+        // 두 번째 연결 리스트의 머리 노드
         Node currentNode2 = pair.tail;
 
         // 두 연결 리스트의 길이를 계산합니다.
@@ -54,7 +54,7 @@ public final class SinglyLinkedList {
             }
         }
 
-        // 끝 또는 교차 노드를 만날 때까지 두 리스트를 순회합니다.
+        // 끝 또는 교차 노드를 만날 때까지 두 연결 리스트를 순회합니다.
         while (currentNode1 != null && currentNode2 != null) {
             // 값이 아닌 참조를 비교합니다!
             if (currentNode1 == currentNode2) {
