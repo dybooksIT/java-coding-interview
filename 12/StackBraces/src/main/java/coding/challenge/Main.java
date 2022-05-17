@@ -6,9 +6,9 @@ public class Main {
         String wrongBracesStr = "{}{{{}}}{{}{{}";
 
         System.out.println("Good (should return true): " 
-                + StackBraces.bracesMatching(goodBracesStr));
+          + StackBraces.bracesMatching(goodBracesStr));
 
         System.out.println("Wrong (should return false): " 
-                + StackBraces.bracesMatching(wrongBracesStr));
+          + StackBraces.bracesMatching(wrongBracesStr));
     }
 }

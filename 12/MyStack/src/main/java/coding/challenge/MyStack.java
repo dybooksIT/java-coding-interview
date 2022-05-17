@@ -14,7 +14,7 @@ public final class MyStack<E> {
     MyStack() {
         // 자바의 일반 배열은 인스턴스화할 수 없기 때문에 자바 리플렉션(Reflection)을 사용합니다.
         stack = (E[]) Array.newInstance(
-                Object[].class.getComponentType(), DEFAULT_CAPACITY);
+          Object[].class.getComponentType(), DEFAULT_CAPACITY);
 
         top = 0; // 스택을 초기화했을 때의 크기(스택의 요소 개수)는 0입니다.
     }
@@ -46,7 +46,7 @@ public final class MyStack<E> {
         return e;
     }
 
-    // 스택의 톱 요소를 제거하지 않고 반환합니다.
+    // 스택의 톱 요소를 제거하지 않은 상태로 반환합니다.
     public E peek() {
         // 스택이 비어 있으면 의미가 있는 예외를 던집니다.
         if (isEmpty()) {

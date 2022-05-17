@@ -27,7 +27,7 @@ public final class MyQueue<E> {
         // 자바의 일반 배열은 인스턴스화할 수 없기 때문에
         // 자바 리플렉션(Reflection)을 사용합니다.
         queue = (E[]) Array.newInstance(
-                Object[].class.getComponentType(), DEFAULT_CAPACITY);
+          Object[].class.getComponentType(), DEFAULT_CAPACITY);
 
         // 큐를 초기화했을 때의 크기(스택의 요소 개수)는 0입니다.
         count = 0;
