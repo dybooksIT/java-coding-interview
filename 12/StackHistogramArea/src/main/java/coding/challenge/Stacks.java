@@ -14,7 +14,8 @@ public final class Stacks {
         for (int bar = 0; bar <= histogram.length; bar++) {
             int barHeight;
             if (bar == histogram.length) {
-                barHeight = 0; // 마지막 막대의 높이까지 고려하도록 0으로 초기화합니다.
+                // 마지막 막대의 높이까지 고려하도록 0으로 초기화합니다.
+                barHeight = 0;
             } else {
                 barHeight = histogram[bar];
             }

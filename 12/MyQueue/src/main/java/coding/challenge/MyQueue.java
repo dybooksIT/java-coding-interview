@@ -49,7 +49,7 @@ public final class MyQueue<E> {
             ensureCapacity();
         }
 
-        // 큐의 맨 뒤(rear)에 요소를 추가합니다.
+        // 큐의 리어(rear)에 요소를 추가합니다.
         rear = (rear + 1) % capacity;
         queue[rear] = e;
 
@@ -57,7 +57,7 @@ public final class MyQueue<E> {
         count++;
     }
 
-    // 큐에서 맨 앞에 있는 요소(front)를 제거하고 반환합니다.
+    // 큐에서 프런트(front) 요소를 제거하고 반환합니다.
     public E dequeue() {
         // 큐가 비어 있으면 의미가 있는 예외를 던집니다.
         if (isEmpty()) {
@@ -68,7 +68,7 @@ public final class MyQueue<E> {
         E e = queue[front];
         queue[front] = null;
 
-        // 새로운 맨 앞 요소(front)를 지정합니다.
+        // 새로운 프런트(front)를 지정합니다.
         front = (front + 1) % capacity;
 
         // 큐의 크기를 줄입니다.
@@ -77,7 +77,7 @@ public final class MyQueue<E> {
         return e;
     }
 
-    // 큐의 맨 앞 요소(front)를 제거하지 않고 반환합니다.
+    // 큐의 프런트(front) 요소를 제거하지 않고 반환합니다.
     public E peek() {
         // 큐가 비어 있으면 의미가 있는 예외를 던집니다.
         if (isEmpty()) {

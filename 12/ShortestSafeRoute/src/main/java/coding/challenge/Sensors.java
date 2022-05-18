@@ -79,7 +79,7 @@ public class Sensors {
         }
 
         while (!queue.isEmpty()) {
-            // 큐에서 맨 앞 노드를 팝하여 처리합니다.
+            // 큐에서 프런트 노드를 팝하여 처리합니다.
             int rIdx = queue.peek().r;
             int cIdx = queue.peek().c;
             int dist = queue.peek().distance;
