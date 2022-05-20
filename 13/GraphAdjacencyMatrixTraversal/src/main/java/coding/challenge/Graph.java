@@ -47,8 +47,8 @@ public class Graph<T> {
             List<T> adjacents = findAdjacents(adjacencyMatrix, element);
             if (adjacents != null) {
                 // 5단계: 인접한 노드를 순회합니다. null이 아니고 방문한 적이 없는 노드에 대해 다음을 수행합니다.
-                // a. 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
-                // b. 노드를 큐에 추가합니다.
+                // 5-a단계: 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
+                // 5-b단계: 노드를 큐에 추가합니다.
                 for (T t : adjacents) {
                     if (t != null && !visited.contains(t)) {
                         visited.add(t);
@@ -69,18 +69,18 @@ public class Graph<T> {
 
         // 2단계: Stack이 빌 때까지 다음을 수행합니다.
         while (!stack.isEmpty()) {
-            // 2(a)단계: Stack에서 현재 노드를 팝합니다.
+            // 2-a단계: Stack에서 현재 노드를 팝합니다.
             T element = stack.pop();
 
             if (!visited.contains(element)) {
-                // 2(b)단계: 현재 노드를 방문합니다.
+                // 2-b단계: 현재 노드를 방문합니다.
                 System.out.print(element + " ");
 
-                // 2(c)단계: 현재 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
+                // 2-c단계: 현재 노드를 방문한 노드로 저장하여 방문했다고 표시합니다.
                 visited.add(element);
             }
 
-            // 2(d)단계: 방문한 적이 없는 인접 정점을 Stack에 푸시합니다.
+            // 2-d단계: 방문한 적이 없는 인접 정점을 Stack에 푸시합니다.
             List<T> adjacents = findAdjacents(adjacencyMatrix, element);
             if (adjacents != null) {
                 for (T t : adjacents) {

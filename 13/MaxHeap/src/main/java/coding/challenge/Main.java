@@ -3,13 +3,6 @@ package coding.challenge;
 public class Main {
 
     public static void main(String[] args) {
-        /*
-              40
-            /    \
-          47      45
-         /  \    /
-        11   3  44
-        */
         MaxHeap<Integer> maxHeap = new MaxHeap();
 
         maxHeap.add(3);
