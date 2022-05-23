@@ -18,7 +18,7 @@ public class MyQueueViaStack<E> {
 
     public void enqueue(E e) {
         stackEnqueue.push(e);
-        System.out.println("enqueued: "+e);
+        System.out.println("enqueued: " + e);
         showQueuesStatus();
     }
 
@@ -31,7 +31,7 @@ public class MyQueueViaStack<E> {
     public E dequeue() {
         reverseStackEnqueue();
         E r = stackDequeue.pop();
-        System.out.println("dequeued: "+r);
+        System.out.println("dequeued: " + r);
         showQueuesStatus();
         return r;
     }
@@ -40,8 +40,10 @@ public class MyQueueViaStack<E> {
         System.out.println("====================");
         System.out.println("Enqueue stack Status");
         System.out.println(stackEnqueue);
+        System.out.println("Size: " + stackEnqueue.size());
         System.out.println("Dequeue stack Status");
         System.out.println(stackDequeue);
+        System.out.println("Size: " + stackDequeue.size());
         System.out.println("--------------------");
         System.out.println("");
     }
