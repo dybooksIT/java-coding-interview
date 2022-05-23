@@ -11,13 +11,39 @@ public class MyQueueViaStack<E> {
         stackDequeue = new Stack<>();
     }
 
+    /* 원서 예제 코드를 실행하려면 주석 처리를 풀고 아래 enqueue를 주석처리 하세요.
     public void enqueue(E e) {
         stackEnqueue.push(e);
+    } */
+
+    public void enqueue(E e) {
+        stackEnqueue.push(e);
+        System.out.println("[Debug] enqueued: "+e);
+        showQueuesStatus();
     }
 
+    /* 원서 예제 코드를 실행하려면 주석 처리를 풀고 아래 dequeue를 주석처리 하세요.
     public E dequeue() {
         reverseStackEnqueue();
         return stackDequeue.pop();
+    } */
+
+    public E dequeue() {
+        reverseStackEnqueue();
+        E r = stackDequeue.pop();
+        System.out.println("[Debug] dequeued: "+r);
+        showQueuesStatus();
+        return r;
+    }
+
+    public void showQueuesStatus() {
+        System.out.println("[Debug] ====================");
+        System.out.println("[Debug] Enqueue stack Status");
+        System.out.println(stackEnqueue);
+        System.out.println("[Debug] Dequeue stack Status");
+        System.out.println(stackDequeue);
+        System.out.println("[Debug] --------------------");
+        System.out.println("");
     }
 
     public E peek() {
