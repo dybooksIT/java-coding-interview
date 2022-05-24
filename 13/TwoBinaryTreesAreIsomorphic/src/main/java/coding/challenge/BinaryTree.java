@@ -52,6 +52,7 @@ public class BinaryTree {
         nOne4.left = nOne6;
         nOne5.left = nOne7;
 
+        // 이진 트리 1(T2)
         rootTwo = new Node("A");
         Node nTwo1 = new Node("C");
         Node nTwo2 = new Node("B");
