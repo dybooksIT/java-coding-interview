@@ -4,6 +4,14 @@ public class Main {
     public static void main(String[] args) {
         MyStackViaQueue<Integer> stack = new MyStackViaQueue();
 
+        stack.push(2);
+        stack.push(5);
+        stack.push(3);
+        stack.push(1);
+        stack.push(6);
+        stack.pop();
+
+        /*
         stack.push(25);
         stack.push(35);
         stack.push(15);
@@ -39,6 +47,6 @@ public class Main {
         System.out.println("Size: " + stack.size());
         System.out.println("Peek: " + stack.peek());
         System.out.println("Pop: " + stack.pop());
-        System.out.println("Size: " + stack.size());
+        System.out.println("Size: " + stack.size()); */
     }
 }

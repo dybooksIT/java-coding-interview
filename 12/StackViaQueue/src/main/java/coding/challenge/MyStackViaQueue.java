@@ -21,6 +21,28 @@ public class MyStackViaQueue<E> {
                 queue1.add(peek);
             }
             queue1.add(e);
+            System.out.println("queue1 push: " + e);
+            showQueuesStatus();
+        } else {
+            if (peek != null) {
+                queue2.add(peek);
+            }
+            queue2.add(e);
+            System.out.println("queue2 push: " + e);
+            showQueuesStatus();
+        }
+
+        size++;
+        peek = null;
+    }
+
+    /*
+    public void push(E e) {
+        if (!queue1.isEmpty()) {
+            if (peek != null) {
+                queue1.add(peek);
+            }
+            queue1.add(e);
         } else {
             if (peek != null) {
                 queue2.add(peek);
@@ -30,8 +52,39 @@ public class MyStackViaQueue<E> {
 
         size++;
         peek = null;
+    } */
+
+    public E pop() {
+        if (size() == 0) {
+            throw new EmptyStackException();
+        }
+
+        if (peek != null) {
+            E e = peek;
+            peek = null;
+
+            size--;
+
+            return e;
+        }
+
+        E e;
+        if (!queue1.isEmpty()) {
+            e = switchQueue(queue1, queue2);
+            System.out.println("queue1 pop: " + e);
+            showQueuesStatus();
+        } else {
+            e = switchQueue(queue2, queue1);
+            System.out.println("queue2 pop: " + e);
+            showQueuesStatus();
+        }
+
+        size--;
+
+        return e;
     }
 
+    /*
     public E pop() {
         if (size() == 0) {
             throw new EmptyStackException();
@@ -56,6 +109,18 @@ public class MyStackViaQueue<E> {
         size--;
 
         return e;
+    } */
+
+    public void showQueuesStatus() {
+        System.out.println("====================");
+        System.out.println("queue1 Status");
+        System.out.println(queue1);
+        System.out.println("Size: " + queue1.size());
+        System.out.println("queue2 Status");
+        System.out.println(queue2);
+        System.out.println("Size: " + queue2.size());
+        System.out.println("--------------------");
+        System.out.println("");
     }
 
     public E peek() {
