@@ -38,21 +38,21 @@ public final class SinglyLinkedList {
             return head;
         }
 
-        // 머리 노드를 2개의 하위 리스트로 분할합니다.
+        // 머리 노드를 하위 리스트 2개로 분할합니다.
         Node[] headsOfSublists = divide(head);
 
-        Node head1 = headsOfSublists[0];  // head of the first sublist
-        Node head2 = headsOfSublists[1];  // head of the second sublist
+        Node head1 = headsOfSublists[0];  // 첫 번째 하위 리스트의 머리 노드
+        Node head2 = headsOfSublists[1];  // 두 번째 하위 리스트의 머리 노드
 
         // 재귀적으로 하위 리스트를 정렬합니다.
         head1 = sort(head1);
         head2 = sort(head2);
 
-        // 2개의 정렬된 리스트를 병합합니다.
+        // 정렬된 리스트 2개를 병합합니다.
         return merge(head1, head2);
     }
 
-    // 주어진 연결 리스트를 2개의 동일한 하위 리스트로 나눕니다.
+    // 주어진 연결 리스트를 동일한 하위 리스트 2개로 나눕니다.
     // 주어진 연결 리스트의 길이가 홀수면,
     // 남은 노드는 첫 번째 하위 리스트에 포함합니다.
     private Node[] divide(Node sourceNode) {
@@ -61,8 +61,8 @@ public final class SinglyLinkedList {
             return new Node[]{sourceNode, null};
         }
 
-        Node fastRunner = sourceNode.next;  // 빠른 순회 노드입니다.
-        Node slowRunner = sourceNode;       // 느린 순회 노드입니다.
+        Node fastRunner = sourceNode.next;  // 빠른 러너입니다.
+        Node slowRunner = sourceNode;       // 느린 러너입니다.
 
         // 'firstRunner'는 두 노드씩 이동하고 'secondRunner'는 한 노드씩 이동합니다.
         while (fastRunner != null) {
@@ -81,7 +81,7 @@ public final class SinglyLinkedList {
         return headsOfSublists;
     }
 
-    // 오름차순으로 정렬된 2개의 리스트를 가져와서
+    // 오름차순으로 정렬된 리스트 2개를 가져와서
     // 반환된 노드를 함께 병합합니다.
     private Node merge(Node head1, Node head2) {
         if (head1 == null) {

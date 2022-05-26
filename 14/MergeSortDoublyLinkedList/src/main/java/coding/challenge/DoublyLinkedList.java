@@ -55,18 +55,18 @@ public final class DoublyLinkedList {
         head1 = sort(head1);
         head2 = sort(head2);
 
-        // 2개의 정렬된 리스트를 병합합니다.
+        // 정렬된 리스트 2개를 병합합니다.
         head = merge(head1, head2);
 
         return head;
     }
 
-    // 주어진 연결 리스트를 2개의 동일한 하위 리스트로 나눕니다.
+    // 주어진 연결 리스트를 동일한 하위 리스트 2개로 나눕니다.
     // 주어진 연결 리스트의 길이가 홀수면,
     // 남은 노드는 첫 번째 하위 리스트에 포함합니다.
     private Node divide(Node sourceNode) {
-        Node fastRunner = sourceNode.next;  // 빠른 순회 노드입니다.
-        Node slowRunner = sourceNode;       // 느린 순회 노드입니다.
+        Node fastRunner = sourceNode.next;  // 빠른 러너입니다.
+        Node slowRunner = sourceNode;       // 느린 러너입니다.
 
         // 'firstRunner'는 두 노드씩 이동하고 'secondRunner'는 한 노드씩 이동합니다.
         while (fastRunner != null) {
@@ -80,7 +80,7 @@ public final class DoublyLinkedList {
         return slowRunner;
     }
 
-    // 오름차순으로 정렬된 2개의 리스트를 가져와서
+    // 오름차순으로 정렬된 리스트 2개를 가져와서
     // 반환된 노드를 함께 병합합니다.
     private Node merge(Node head1, Node head2) {
         if (head1 == null) {

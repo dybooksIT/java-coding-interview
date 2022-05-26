@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Anagrams implements Comparator<String> {
-    // this can be increased for supporting more characters
+    // 적절한 문자 개수를 저장하도록 설정 값(26)을 바꿀 수 있습니다.
     private final static int RANGE_a_z = 26;
 
     // Comparator를 이용한 그룹 애너그램

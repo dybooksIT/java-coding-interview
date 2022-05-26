@@ -2,6 +2,12 @@ package coding.challenge;
 
 public class Main {
     public static void main(String[] args) {
+        String[] stringsArr = {"cat", "", "", "", "", "", "", "rear", ""};
+
+        System.out.println("Search 'cat':" + Strings.search(stringsArr, "cat"));
+        System.out.println("Search 'rear':" + Strings.search(stringsArr, "rear"));
+
+        /* 원서 예제 코드의 배열 예
         String[] stringsArr = {
             "cat", "", "", "house", "", "", "", "", "laptop",
             "pen", "", "", "", "", "rear", "", "tower", "", ""
@@ -12,6 +18,6 @@ public class Main {
         System.out.println("Search 'tower':" + Strings.search(stringsArr, "tower"));
         System.out.println("Search 'cat':" + Strings.search(stringsArr, "cat"));
         System.out.println("Search 'laptop':" + Strings.search(stringsArr, "laptop"));
-        System.out.println("Search '':" + Strings.search(stringsArr, ""));
+        System.out.println("Search '':" + Strings.search(stringsArr, "")); */
     }
 }
