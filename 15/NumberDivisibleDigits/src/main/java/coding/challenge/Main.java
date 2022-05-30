@@ -3,6 +3,8 @@ package coding.challenge;
 public class Main {
     public static void main(String[] args) {
         System.out.println("1: " + Numbers.isDivisible(1));
+        System.out.println("412: " + Numbers.isDivisible(412));
+        System.out.println("143: " + Numbers.isDivisible(143));
         System.out.println("6242: " + Numbers.isDivisible(6242));
         System.out.println("123: " + Numbers.isDivisible(123));
         System.out.println("46: " + Numbers.isDivisible(46));
