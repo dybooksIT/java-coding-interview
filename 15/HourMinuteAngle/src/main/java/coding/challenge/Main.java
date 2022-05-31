@@ -5,7 +5,6 @@ public class Main {
         float clock1 = Clock.findAngle(10, 10);
         float clock2 = Clock.findAngle(9, 40);
         float clock3 = Clock.findAngle(4, 40);
-
         float clock4 = Clock.findAngle(12, 1);
         float clock5 = Clock.findAngle(4, 19);
 
