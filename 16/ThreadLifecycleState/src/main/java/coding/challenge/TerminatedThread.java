@@ -1,6 +1,6 @@
 package coding.challenge;
 
-/* TERMINATED 상태의 시나리오:
+/* TERMINATED(종료) 상태의 시나리오:
    애플리케이션의 메인 스레드는 스레드의 상태 t를 출력합니다.
    상태 t를 출력하면 스레드 t가 작업을 완료한 것입니다.
 */

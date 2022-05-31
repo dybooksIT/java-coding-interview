@@ -76,7 +76,7 @@ public final class ProducerConsumer {
         public void run() {
             while (runningConsumer) {
                 synchronized (queue) {
-                    // 큐가 비어 있으면 생산자가 완료될 때까지 기다립니다.
+                    // 큐가 비어 있으면 생산자의 실행이 완료될 때까지 기다립니다.
                     while (queue.isEmpty()) {
                         logger.info("Queue is empty ...");
 

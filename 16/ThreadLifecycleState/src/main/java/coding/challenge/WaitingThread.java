@@ -1,6 +1,6 @@
 package coding.challenge;
 
-/* WAITING 상태의 예:
+/* WAITING(일시 정지) 상태의 예:
    1. t1 스레드를 생성합니다.
    2. start 메서드를 통해 t1 실행을 시작합니다.
    3. t1의 run 메서드에서 다음을 수행합니다.

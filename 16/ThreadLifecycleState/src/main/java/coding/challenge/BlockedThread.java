@@ -1,6 +1,6 @@
 package coding.challenge;
 
-/* BLOCKED 상태의 시나리오:
+/* BLOCKED(블록) 상태의 시나리오:
    1) t1과 t2라는 스레드 2개를 생성합니다.
    2) start 메서드를 통해 t1 실행을 시작합니다:
       1) t1은 run 메서드를 실행하고 동기화 메서드 syncMethod에 대한 잠금 권한을 얻습니다.

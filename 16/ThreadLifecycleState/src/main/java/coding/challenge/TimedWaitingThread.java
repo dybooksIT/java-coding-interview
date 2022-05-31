@@ -1,6 +1,6 @@
 package coding.challenge;
 
-/* TIME_WAITING 상태의 시나리오:
+/* TIME_WAITING(일시 정지) 상태의 시나리오:
    1. t1 스레드를 생성합니다.
    2. start 메서드를 통해 t1 실행을 시작합니다.
    3. t1의 run 메서드에 2초(임의 시간)의 휴면 시간을 추가합니다.
