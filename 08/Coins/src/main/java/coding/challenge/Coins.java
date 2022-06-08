@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class Coins {
     private Coins() {
         throw new AssertionError("Cannot be instantiated");

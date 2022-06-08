@@ -3,7 +3,7 @@ package coding.challenge;
 import java.util.Set;
 
 public final class FiveTower {
-    protected static final int GRID_SIZE = 5; // (5x5)
+    protected static final int GRID_SIZE = 5; // (5×5)
 
     private FiveTower() {
         throw new AssertionError("Cannot be instantiated");

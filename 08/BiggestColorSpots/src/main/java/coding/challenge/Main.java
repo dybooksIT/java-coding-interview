@@ -1,13 +1,13 @@
 package coding.challenge;
 
 import java.util.Random;
- 
+
 public class Main {
     public static void main(String[] args) {
         int cols = 5;
         int rows = 5;
         int colors = 3; // 각 영역은 1, 2, 3번 색을 가질 수 있습니다.
-        
+
         Random rnd = new Random();
 
         int[][] a = new int[rows][cols];
@@ -27,6 +27,6 @@ public class Main {
             System.out.println();
         }
         BiggestColorSpots spots = new BiggestColorSpots();
-        spots.determineBiggestColorSpot(cols, rows, a);                
+        spots.determineBiggestColorSpot(cols, rows, a);
     }
 }
