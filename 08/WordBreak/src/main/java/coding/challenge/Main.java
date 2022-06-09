@@ -41,7 +41,7 @@ public class Main {
         trie.insertTrie("o");
         trie.insertTrie("u");
         trie.insertTrie("s");
-        trie.insertTrie("problem");        
+        trie.insertTrie("problem");
         System.out.println("str1 can be segmented (trie)? " + trie.breakIt(str1));
         System.out.println("str2 can be segmented (trie)? " + trie.breakIt(str2));
 

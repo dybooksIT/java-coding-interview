@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 // 시간 복잡도: O(nz), z는 사전에서 가장 긴 단어
 // 공간 복잡도 : O(트라이 자료구조의 공간 + str.length)
 public class Trie {
