@@ -3,7 +3,7 @@ package coding.challenge;
 public class Main {
     public static void main(String[] args) {
         int number = 124344;
-        
+
         int resultNext = Bits.next(number);
         int resultPrev = Bits.previous(number);
 

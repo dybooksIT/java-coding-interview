@@ -7,24 +7,24 @@ public final class Bits {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    public static int leftRotate(int n, int bits) {
+    public static int leftRotate(int n, int k) {
         if (n < 0) {
             return -1;
         }
 
-        int fallBits = n << bits;
-        int fallBitsShiftToRight = n >> (MAX_INT_BITS - bits);
+        int fallBits = n << k;
+        int fallBitsShiftToRight = n >> (MAX_INT_BITS - k);
 
         return fallBits | fallBitsShiftToRight;
     }
 
-    public static int rightRotate(int n, int bits) {
+    public static int rightRotate(int n, int k) {
         if (n < 0) {
             return -1;
         }
 
-        int fallBits = n >> bits;
-        int fallBitsShiftToLeft = n << (MAX_INT_BITS - bits);
+        int fallBits = n >> k;
+        int fallBitsShiftToLeft = n << (MAX_INT_BITS - k);
 
         return fallBits | fallBitsShiftToLeft;
     }

@@ -1,20 +1,20 @@
 package coding.challenge;
- 
+
 public class Main {
-    private static final int Q = 4914;
-    private static final int P = 63;
-    private static final int I = 4;
-    private static final int J = 9;
+    private static final int q = 4914;
+    private static final int p = 63;
+    private static final int i = 4;
+    private static final int j = 9;
 
     public static void main(String[] args) {
-        System.out.println("Q (in Q, we replace the bits between positions " + I + " to " + J + "): "
-                + Integer.toString(Q, 2) + "(" + Q + ")");
-        System.out.println("P (new bits that will be inserted in positions " + I + " to " + J + "): "
-                + Integer.toString(P, 2) + "(" + P + ")");
+        System.out.println("q (in q, we replace the bits between positions " + i + " to " + j + "): "
+          + Integer.toString(q, 2) + "(" + q + ")");
+        System.out.println("p (new bits that will be inserted in positions " + i + " to " + j + "): "
+          + Integer.toString(p, 2) + "(" + p + ")");
 
         System.out.println();
 
-        int result = Bits.replace(Q, P, I, J);
+        int result = Bits.replace(q, p, i, j);
 
         System.out.println("Result: " + Integer.toString(result, 2));
     }

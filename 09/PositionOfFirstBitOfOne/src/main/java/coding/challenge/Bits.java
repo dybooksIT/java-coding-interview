@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class Bits {
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
@@ -13,7 +13,7 @@ public final class Bits {
         }
                 
         while (n != 0) {
-            n = n >> 1;          
+            n = n >> 1;
             ++count;
         }
 

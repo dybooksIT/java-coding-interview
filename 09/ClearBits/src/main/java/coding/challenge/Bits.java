@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class Bits {
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
@@ -11,6 +11,7 @@ public final class Bits {
         }
 
         return n & ((1 << k) - 1);
+        // return n & (-1 << (k + 1));
     }
     
     public static int clearFromPosition(int n, int k) {
@@ -19,5 +20,6 @@ public final class Bits {
         }
 
         return n & ~((1 << k) - 1);
-    }    
+        // return n & (-1 << (k + 1));
+    }
 }

@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class Bits {
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
@@ -20,8 +20,8 @@ public final class Bits {
                 flag = false;
             } else if ((n & 1) == 0) {
                 currentSequence = ((n & 0b10) == 0) // 0b10 = 2
-                        ? 0 : flag 
-                        ? 0 : ++currentSequence;
+                  ? 0 : flag
+                  ? 0 : ++currentSequence;
                 flag = true;
             }
             

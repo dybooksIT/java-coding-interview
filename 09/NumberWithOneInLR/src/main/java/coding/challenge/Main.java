@@ -7,6 +7,6 @@ public class Main {
 
         int result = Bits.setBetween(left, right);
         System.out.println("Result: " + result
-                + "(" + Integer.toBinaryString(result) + ")");
+          + "(" + Integer.toBinaryString(result) + ")");
     }
 }

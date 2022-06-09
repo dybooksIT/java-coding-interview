@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import java.util.BitSet;
 
 public final class Bits {
@@ -14,10 +14,10 @@ public final class Bits {
 
         for (int i = 0; i < arr.length; i++) {
             int nr = arr[i];
-            if (bitArr.get(nr)) {                
+            if (bitArr.get(nr)) {
                 System.out.println("Duplicate: " + nr);
             } else {
-                bitArr.set(nr);                
+                bitArr.set(nr);
             }
         }
     }

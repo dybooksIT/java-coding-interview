@@ -53,7 +53,7 @@ public final class Bits {
         if (copyn == 0) {
             return -1;
         }
-        
+
         // 조건에 맞는 첫 번째 1을 찾을 때까지 모든 0의 개수를 셉니다.
         while ((copyn != 0) && ((copyn & 1) == 0)) {
             zeros++;
@@ -61,7 +61,7 @@ public final class Bits {
         }
 
         int marker = zeros + ones;
-        
+
         n = n & (-1 << (marker + 1));
         int mask = (1 << (ones + 1)) - 1; 
         n = n | mask << (zeros - 1);

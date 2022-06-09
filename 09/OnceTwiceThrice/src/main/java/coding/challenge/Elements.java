@@ -16,21 +16,21 @@ public final class Elements {
         int result = 0;
 
         int nr;
-        int sumBits;
+        int sum;
 
         // 모든 비트를 순회합니다.
         for (int i = 0; i < INT_SIZE; i++) {
             // 배열의 모든 요소에 대해 i번째에 설정된 비트의 합을 계산합니다.
-            sumBits = 0;
+            sum = 0;
             nr = (1 << i);
             for (int j = 0; j < n; j++) {
                 if ((arr[j] & nr) == 0) {
-                    sumBits++;
+                    sum++;
                 }
             }
 
             // 합이 3의 배수가 아니라면 해당 비트는 고유한 요소의 비트입니다.
-            if ((sumBits % 3) == 0) {
+            if ((sum % 3) == 0) {
                 result = result | nr;
             }
         }
