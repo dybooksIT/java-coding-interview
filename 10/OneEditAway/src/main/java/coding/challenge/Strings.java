@@ -6,8 +6,7 @@ public final class Strings {
     }
 
     public static boolean isOneEditAway(String q, String p) {
-        if (q == null || p == null
-                || q.isBlank() || p.isBlank()) {
+        if (q == null || p == null  || q.isBlank() || p.isBlank()) {
             return false;
         }
 

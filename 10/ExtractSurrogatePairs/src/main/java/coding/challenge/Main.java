@@ -10,12 +10,12 @@ public class Main {
         char[] cyrillicZhe = new char[]{'\u04DC'};            // 코드 포인트: 1244
 
         String str = "is" + String.valueOf(cyrillicZhe) + "zhe"
-                + String.valueOf(twoHearts) + "two hearts"
-                + String.valueOf(smileyFace) + "smiley face and, "
-                + String.valueOf(musicalScore) + "musical score";
+          + String.valueOf(twoHearts) + "two hearts"
+          + String.valueOf(smileyFace) + "smiley face and, "
+          + String.valueOf(musicalScore) + "musical score";
 
         List<Integer> result = Strings.extract(str);
-        
+
         System.out.println("The extracted surrogate pairs have the following code points:");
         System.out.println(result);
     }
