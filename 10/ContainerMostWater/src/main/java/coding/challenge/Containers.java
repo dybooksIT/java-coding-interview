@@ -5,7 +5,7 @@ public final class Containers {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    /* O(n^2) */
+    // O(n^2)
     public static int maxArea(int[] heights) {
         if (heights == null) {
             throw new IllegalArgumentException("The given array cannot be null");
@@ -23,7 +23,7 @@ public final class Containers {
         return maxArea;
     }
 
-    /* O(n) */
+    // O(n)
     public static int maxAreaOptimized(int[] heights) {
         if (heights == null) {
             throw new IllegalArgumentException("The given array cannot be null");

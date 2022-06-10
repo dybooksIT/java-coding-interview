@@ -22,7 +22,7 @@ public final class Sequences {
         int longestSequence = 1;
 
         for (int elem : sequence) {
-            // 'elem-1'이 집합에 없으면 새로운 시퀀스로 간주합니다.
+            // 'elem - 1'이 집합에 없으면 새로운 시퀀스로 간주합니다.
             if (!sequenceSet.contains(elem - 1)) {
                 int sequenceLength = 1;
 

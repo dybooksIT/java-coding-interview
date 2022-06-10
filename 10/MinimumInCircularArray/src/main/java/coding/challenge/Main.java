@@ -2,7 +2,8 @@ package coding.challenge;
 
 public class Main {
     public static void main(String[] args) {
-        int[] m = {7, 11, 12, 13, 15, -4, -3, -2, 0, 1, 1, 3, 4, 7, 7};
+        int [] m = {11, 14, 23, 24, -1, 3, 5, 6, 8, 9, 10};
+        // int[] m = {7, 11, 12, 13, 15, -4, -3, -2, 0, 1, 1, 3, 4, 7, 7};
 
         int min = Arrays.findMin(m);
 
