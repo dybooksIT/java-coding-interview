@@ -12,7 +12,7 @@ public class Main {
         sll.insertFirst(1);
         sll.insertFirst(2);
 
-        /*
+        /* 원서 예제 코드
         sll.insertFirst(11);
         sll.insertFirst(10);
         sll.insertFirst(9);
@@ -22,7 +22,6 @@ public class Main {
         sll.insertFirst(11); */
 
         sll.print();
-
         boolean result = sll.isPalindrome();
 
         System.out.println("\nIs it palindrome? " + result);
