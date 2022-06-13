@@ -1,7 +1,6 @@
 package coding.challenge.exception;
- 
-public class UnderflowException extends Exception {
 
+public class UnderflowException extends Exception {
     private static final long serialVersionUID = 7718828512143293558L;
 
     public UnderflowException(String message) {

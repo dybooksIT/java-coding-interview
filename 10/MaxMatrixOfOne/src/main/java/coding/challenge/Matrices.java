@@ -70,7 +70,7 @@ public final class Matrices {
             for (int j = 1; j < cols; j++) {
                 if (matrix[i][j] == 1) {
                     subMatrix[i][j] = Math.min(subMatrix[i - 1][j - 1],
-                            Math.min(subMatrix[i][j - 1], subMatrix[i - 1][j])) + 1;
+                      Math.min(subMatrix[i][j - 1], subMatrix[i - 1][j])) + 1;
 
                     // 현재 subMatrix의 최댓값을 계산합니다.
                     maxSubMatrixSize = Math.max(maxSubMatrixSize, subMatrix[i][j]);

@@ -6,7 +6,7 @@ public class Main {
         int x = 14;
 
         int foundIndex = Arrays.find(m, x);
-        
+
         System.out.println("Array: " + java.util.Arrays.toString(m));
         System.out.println("The value " + x + " was found at index " + foundIndex);
     }

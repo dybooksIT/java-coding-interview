@@ -24,6 +24,7 @@ public class Main {
             for (int j = 0; j < s; j++) {
                 System.out.format("%4s", m1[i][j]);
             }
+
             System.out.println();
         }
 
@@ -34,6 +35,7 @@ public class Main {
             for (int j = 0; j < s; j++) {
                 System.out.format("%4s", result[i][j]);
             }
+
             System.out.println();
         }
 
@@ -44,6 +46,7 @@ public class Main {
             for (int j = 0; j < s; j++) {
                 System.out.format("%4s", m2[i][j]);
             }
+
             System.out.println();
         }
 
@@ -54,6 +57,7 @@ public class Main {
             for (int j = 0; j < s; j++) {
                 System.out.format("%4s", m3[i][j]);
             }
+
             System.out.println();
         }
     }

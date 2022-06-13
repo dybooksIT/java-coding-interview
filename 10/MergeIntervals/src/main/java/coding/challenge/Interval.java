@@ -12,4 +12,4 @@ public class Interval {
     public String toString() {
         return "[" + start + ", " + end + "]";
     }
-};
+}

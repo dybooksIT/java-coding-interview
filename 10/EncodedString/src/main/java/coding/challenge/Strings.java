@@ -17,7 +17,7 @@ public final class Strings {
                 countWhitespaces++;
             }
         }
-        
+
         if (countWhitespaces > 0) {
             // 2단계: 결과 char[]를 생성합니다.
             char[] encodedStr = new char[str.length + countWhitespaces * 2];

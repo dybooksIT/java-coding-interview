@@ -20,8 +20,7 @@ public final class Strings {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
-            if (Character.isDigit(ch)) {
-            // 또는 if (((int) ch) >= 48 && ((int) ch) <= 57)
+            if (Character.isDigit(ch)) {  // 또는 if (((int) ch) >= 48 && ((int) ch) <= 57)
                 temp.append(ch);
             } else {
                 if (temp.length() > 0) {

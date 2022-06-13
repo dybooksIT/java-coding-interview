@@ -63,8 +63,7 @@ public final class Arrays {
             // 현재 구간과 이전 구간을 병합합니다. 모든 이전 구간에 대해서 이를 수행합니다.
             if (index != 0 && intervals[index - 1].start <= intervals[i].end) {
                 while (index != 0 && intervals[index - 1].start <= intervals[i].end) {
-
-                    // merge the previous interval with the current interval
+                    // 이전 구간과 현재 구간을 병합합니다.
                     intervals[index - 1].end = Math.max(intervals[index - 1].end, intervals[i].end);
                     intervals[index - 1].start = Math.min(intervals[index - 1].start, intervals[i].start);
                     index--;
