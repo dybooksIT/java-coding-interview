@@ -1,11 +1,11 @@
 package coding.challenge.jukebox;
- 
+
 public class Jukebox implements Selector {
     private final CDPlayer cdPlayer;
 
     public Jukebox(CDPlayer cdPlayer) {
         this.cdPlayer = cdPlayer;        
-    }            
+    }
 
     @Override
     public void nextSongBtn() {        
@@ -18,11 +18,11 @@ public class Jukebox implements Selector {
     }
 
     @Override
-    public void addSongToPlaylistBtn(Song song) {}
+    public void addSongToPlaylistBtn(Song song) { }
 
     @Override
-    public void removeSongFromPlaylistBtn(Song song) {}
+    public void removeSongFromPlaylistBtn(Song song) { }
 
     @Override
-    public void shuffleBtn() {}
+    public void shuffleBtn() { }
 }

@@ -24,16 +24,16 @@ public class MovieTicketingMachine implements MovieTicketing {
         // cinema.getCartridges(); cartridge.getMovie();의 영화 목록 표시
     }
 
-    // step 1
+    // 1단계
     @Override
     public boolean selectMovieBtn(Movie movie) { 
         // this.cartridge = cartridge
         // this.movie = movie; 
 
-        return true; 
+        return true;
     }
 
-    // Step 2
+    // 2단계
     @Override
     public boolean selectStartTimeBtn() { 
         // this.cartridge.fetchUniqueStartTimes();
@@ -43,7 +43,7 @@ public class MovieTicketingMachine implements MovieTicketing {
         return true; 
     }
 
-    // Step 3
+    // 3단계
     @Override
     public boolean selectCinemaRoom() {
         // this.cartridge.fetchRooms();
@@ -53,7 +53,7 @@ public class MovieTicketingMachine implements MovieTicketing {
         return true;
     }
 
-    // Step 4
+    // 4단계
     @Override
     public boolean selectSeats() {
         // this.cinema.getFreeSeatsOfRoom(room, movie);
@@ -63,12 +63,12 @@ public class MovieTicketingMachine implements MovieTicketing {
         return true;
     }
 
-    // Step 5
+    // 5단계
     @Override
     public MovieTicket buyTicketBtn() { 
         // 영화, 시작 시간, 영화관, 좌석 정보가 담긴 티켓을 구입할 시간입니다.
         // this.cinema.buyTicket(room, movie, startTime, seats);
 
-        return null; 
+        return null;
     }
 }

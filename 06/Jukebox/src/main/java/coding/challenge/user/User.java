@@ -1,5 +1,5 @@
 package coding.challenge.user;
- 
+
 import coding.challenge.jukebox.Jukebox;
 
 public class User {
@@ -11,5 +11,5 @@ public class User {
 
     public Jukebox getJukebox() {
         return jukebox;
-    }        
+    }
 }

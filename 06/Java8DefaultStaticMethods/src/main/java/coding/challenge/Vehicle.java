@@ -8,7 +8,7 @@ public interface Vehicle {
         // 연비 계산을 가장한 임의의 계산식입니다.
         return Math.random() * 10d;
     }
-    
+
     static void description() {
         System.out.println("This interface control steam, petrol and electric cars");
     }

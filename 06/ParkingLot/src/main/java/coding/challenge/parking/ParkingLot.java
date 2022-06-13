@@ -1,10 +1,10 @@
 package coding.challenge.parking;
- 
+
 import java.util.Map;
 
 public class ParkingLot {
     private String name;
-    private Map<String, ParkingFloor> floors;        
+    private Map<String, ParkingFloor> floors;
 
     public ParkingLot(String name) {
         this.name = name;
@@ -30,8 +30,8 @@ public class ParkingLot {
     }
 
     // 층을 돌며 출차할 차량을 탐색해야 합니다.
-    public boolean unparkVehicle(Vehicle vehicle) {  
-        for (ParkingFloor pf : floors.values()) {            
+    public boolean unparkVehicle(Vehicle vehicle) {
+        for (ParkingFloor pf : floors.values()) {
             boolean success = pf.unparkVehicle(vehicle);
             if(success) {
                 return true;
@@ -44,7 +44,7 @@ public class ParkingLot {
     // 주차증이 있으면 출차를 위해 필요한 정보를 모두 갖춘 상태입니다.
     public boolean unparkVehicle(ParkingTicket parkingTicket) { 
         return floors.get(parkingTicket.getFloorName()).unparkVehicle(parkingTicket);
-    } 
+    }
 
     public boolean isFull() {
         return false;

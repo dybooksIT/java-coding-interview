@@ -9,12 +9,12 @@ public class Main {
 
         // 메인 메서드에서의 두 클래스 간 연관(Association) 관계
         System.out.println(p1.getName() + " lives at address "
-                + a2.getCity() + ", " + a2.getZip()
-                + " but it also has an address at "
-                + a1.getCity() + ", " + a1.getZip());
+          + a2.getCity() + ", " + a2.getZip()
+          + " but it also has an address at "
+          + a1.getCity() + ", " + a1.getZip());
         System.out.println(p2.getName() + " lives at address "
-                + a1.getCity() + ", " + a1.getZip()
-                + " but it also has an address at "
-                + a2.getCity() + ", " + a2.getZip());
+          + a1.getCity() + ", " + a1.getZip()
+          + " but it also has an address at "
+          + a2.getCity() + ", " + a2.getZip());
     }
 }

@@ -15,7 +15,7 @@ public class Rectangle implements Cloneable {
 
     public int getWidth() {
         return width;
-    }        
+    }
 
     @Override
     protected Rectangle clone() throws CloneNotSupportedException {

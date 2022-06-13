@@ -9,5 +9,5 @@ public class Circle implements Shape {
 
     public int getRadius() {
         return radius;
-    }        
+    }
 }

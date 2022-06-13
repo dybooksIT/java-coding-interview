@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class ParkingTicket {
     private final Vehicle vehicle;
-    private final LocalDateTime releaseDate;    
+    private final LocalDateTime releaseDate;
     private final List<String> parkingSpotsLabels;
     private final String floorName;
 
@@ -35,6 +35,6 @@ public final class ParkingTicket {
     @Override
     public String toString() {
         return "ParkingTicket{" + "floor=" + getFloorName() + ", spots=" + getParkingSpotsLabels()
-                + ", vehicle=" + vehicle + ", releaseDate=" + releaseDate + '}';
+          + ", vehicle=" + vehicle + ", releaseDate=" + releaseDate + '}';
     }
 }

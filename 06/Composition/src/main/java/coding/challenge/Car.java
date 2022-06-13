@@ -6,7 +6,7 @@ public class Car {
 
     public Car(String name) {
         this.name = name;
-        
+
         Engine engine = new Engine("petrol", 300);
         this.engine=engine;
     }

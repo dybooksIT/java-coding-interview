@@ -38,7 +38,7 @@ public class Cinema {
                // 1. Cartridge cartridge = room.addMovie(movie); 호출
                // 2. this.cartridges.add(cartridge); 호출
 
-        return false; 
+        return false;
     }
 
     protected boolean addNewMovie(Movie movie) {
@@ -95,7 +95,7 @@ public class Cinema {
 
     public List<Cartridge> getCartridges() {
         return List.copyOf(cartridges);        
-    }        
+    }
 
     protected Map<String, CinemaRoom> getRooms() {        
         return rooms;

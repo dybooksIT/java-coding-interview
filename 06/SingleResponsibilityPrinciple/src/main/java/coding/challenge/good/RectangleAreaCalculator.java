@@ -8,8 +8,8 @@ public class RectangleAreaCalculator {
         this.width = width;
         this.height = height;
     }
-    
+
     public int area() {
         return width * height;
-    }       
+    }
 }

@@ -6,5 +6,5 @@ import coding.challenge.parking.VehicleType;
 public interface Parking {
     public ParkingTicket parkVehicleBtn(String licensePlate, VehicleType type);
     public boolean unparkVehicleBtn(String licensePlate, VehicleType type);
-    public boolean unparkVehicleBtn(ParkingTicket parkingTicket);        
+    public boolean unparkVehicleBtn(ParkingTicket parkingTicket);
 }

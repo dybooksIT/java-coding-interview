@@ -7,23 +7,23 @@ import java.util.Map;
 public class VendingMachine implements Selector {
     private final Inventory<Coin> coinInventory = new Inventory<>();
     private final Inventory<Item> itemInventory = new Inventory<>();
-    
-    private int totalSales;    
+
+    private int totalSales;
     private int currentBalance;
-    
+
     private Item currentItem;
 
     public VendingMachine() {
         initMachine();
-    }   
-    
+    }
+
     @Override
     public int checkPriceBtn(Item item) {
         return 0;
     }
 
     @Override
-    public void insertCoinBtn(Coin coin) {}
+    public void insertCoinBtn(Coin coin) { }
 
     @Override
     public Map<Item, List<Coin>> buyBtn() { 
@@ -66,8 +66,8 @@ public class VendingMachine implements Selector {
         return false;
     }
 
-    private void updateCoinInventory(List<Coin> coins) {}
-    private void updateItemInventory(List<Item> item) {}  
+    private void updateCoinInventory(List<Coin> coins) { }
+    private void updateItemInventory(List<Item> item) { }
 
     protected long getTotalSales() {
         return totalSales;

@@ -6,7 +6,7 @@ public class WwwPingConnection implements HttpConnection {
     public WwwPingConnection(String www) {
         this.www = www;
     }
-        
+
     @Override
     public void http() {
         System.out.println("Setup an HTTP connection to " + www);

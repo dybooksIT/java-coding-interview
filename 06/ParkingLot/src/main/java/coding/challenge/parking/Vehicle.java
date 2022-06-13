@@ -1,5 +1,5 @@
 package coding.challenge.parking;
- 
+
 import java.util.Objects;
 
 public class Vehicle {
@@ -28,7 +28,7 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{" + "licensePlate=" + licensePlate 
-                + ", spotsNeeded=" + spotsNeeded + ", type=" + type + '}';
+          + ", spotsNeeded=" + spotsNeeded + ", type=" + type + '}';
     }
 
     @Override

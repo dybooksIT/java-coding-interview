@@ -1,5 +1,5 @@
 package coding.challenge.card;
- 
+
 public abstract class Card {
     private final Enum suit;
     private final int value;
@@ -34,5 +34,5 @@ public abstract class Card {
     @Override
     public String toString() {
         return "Card{" + "suit=" + suit + ", value=" + value + '}';
-    }   
+    }
 }

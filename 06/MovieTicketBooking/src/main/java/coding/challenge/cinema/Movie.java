@@ -6,7 +6,7 @@ public class Movie {
     private final int id;
     private final String title;
     private final String category;
-    private final int minutes;    
+    private final int minutes;
 
     protected Movie(int id, String title, String category, int minutes) {
         this.id = id;

@@ -7,7 +7,7 @@ public class PetrolCar implements Vehicle {
     public PetrolCar(String name, int horsePower) {
         this.name = name;
         this.horsePower = horsePower;
-    }       
+    }
 
     public String getName() {
         return name;
@@ -15,8 +15,8 @@ public class PetrolCar implements Vehicle {
 
     public int getHorsePower() {
         return horsePower;
-    }        
-    
+    }
+
     @Override
     public void speedUp() {
         System.out.println("Speed up the petrol car ...");
@@ -25,5 +25,5 @@ public class PetrolCar implements Vehicle {
     @Override
     public void slowDown() {
         System.out.println("Slow down the petrol car ...");
-    }    
+    }
 }

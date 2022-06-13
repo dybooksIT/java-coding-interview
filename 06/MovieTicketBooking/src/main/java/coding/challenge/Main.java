@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("This is the main design (!not implementation!) of a cinema with the following coordinates:");

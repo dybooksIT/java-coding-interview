@@ -1,9 +1,9 @@
 package coding.challenge.parking;
- 
+
 public class ParkingSpot {
     private boolean free = true;
     private Vehicle vehicle;
-    
+
     private final String label;
     private final ParkingFloor parkingFloor;
 
@@ -14,7 +14,7 @@ public class ParkingSpot {
 
     protected boolean assignVehicle(Vehicle vehicle) {
         System.out.println("Assign " + label + " at floor "
-                + parkingFloor.getName() +  " to " + vehicle);
+          + parkingFloor.getName() +  " to " + vehicle);
 
         this.free = false;
         this.vehicle = vehicle;
@@ -24,12 +24,12 @@ public class ParkingSpot {
 
     protected boolean removeVehicle() {
         System.out.println("Free " + label
-                + " at floor " + parkingFloor.getName() +" of " + vehicle);
+          + " at floor " + parkingFloor.getName() +" of " + vehicle);
 
         this.free = true;
         this.vehicle = null;
 
-        return true; 
+        return true;
     }
 
     protected String getLabel() {

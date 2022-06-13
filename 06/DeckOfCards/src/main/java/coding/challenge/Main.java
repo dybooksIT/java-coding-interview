@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import coding.challenge.card.Card;
 import coding.challenge.card.Pack;
 import coding.challenge.card.StandardCard;
@@ -13,7 +13,7 @@ public class Main {
         Card sevenHeart = new StandardCard(StandardSuit.HEARTS, 7);
 
         // 표준 트럼프 카드 한 벌을 생성합니다.
-        Pack cp = new StandardPack();                   
+        Pack cp = new StandardPack();
         Deck deck = new Deck(cp);
 
         System.out.println("Remaining cards: " + deck.remainingCards());

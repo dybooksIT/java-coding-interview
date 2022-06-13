@@ -17,7 +17,7 @@ public class ParkingFloor {
     // 주차권을 특정 순서대로 관리해도 좋습니다.
     private final Set<ParkingTicket> parkingTickets = new HashSet<>();
 
-    private int totalFreeSpots;    
+    private int totalFreeSpots;
 
     public ParkingFloor(String name, int totalSpots) {
         this.name = name;
@@ -165,7 +165,7 @@ public class ParkingFloor {
 
     private void initialize() {
         for(int i = 1; i <= totalSpots; i++) {
-            parkingSpots.put("#" + i, new ParkingSpot(this, "#" + i));                
+            parkingSpots.put("#" + i, new ParkingSpot(this, "#" + i));
         }
     }
 }

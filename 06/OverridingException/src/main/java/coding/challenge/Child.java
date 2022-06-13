@@ -9,11 +9,11 @@ public class Child extends Parent {
     public void foo() throws BatchUpdateException { 
         System.out.println("Executing Child#foo() that throws BatchUpdateException");
         throw new BatchUpdateException("Child#foo() did this!", new int[0]);
-    }        
+    }
 
     // RuntimeException을 발생시킬 수 있습니다.
     @Override
     public void buzz() {
         throw new RuntimeException("Child#buzz() did this!");
-    }        
+    }
 }

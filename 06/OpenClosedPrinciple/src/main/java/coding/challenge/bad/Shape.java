@@ -1,5 +1,3 @@
 package coding.challenge.bad;
 
-public interface Shape {    
-
-}
+public interface Shape { }

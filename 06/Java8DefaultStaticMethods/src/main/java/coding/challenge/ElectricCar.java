@@ -30,6 +30,5 @@ public class ElectricCar implements Vehicle {
     @Override
     public double computeConsumption(int fuel, int distance, int horsePower) {
         return Math.random() * 60d / Math.pow(Math.random(), 3);
-    }     
-
+    }
 }
