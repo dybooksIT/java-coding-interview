@@ -46,7 +46,7 @@ public final class SinglyLinkedList {
                 list1.next = list2;
                 list2 = auxNode;
             }
-        
+
             // 병합된 연결 리스트의 마지막 노드로 이동합니다.
             list1 = list1.next;
         }
