@@ -5,7 +5,7 @@ public final class Hanoi {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    public static void moveDisks(int n, char origin, char target, char intermediate) {       
+    public static void moveDisks(int n, char origin, char target, char intermediate) {
         if (n <= 0) {
             return;
         }

@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class Main {
         Box b7 = new Box(2, 8, 1);
 
         List<Box> boxes = Arrays.asList(b1, b2, b3, b4, b5, b6, b7);
-        
+
         int highest1 = Tower.build(boxes);
         int highest2 = Tower.buildViaMemoization(boxes);
 

@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class SimplePermutation {
     private SimplePermutation() {
         throw new AssertionError("Cannot be instantiated");

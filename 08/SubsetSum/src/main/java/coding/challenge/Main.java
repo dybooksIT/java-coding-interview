@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public class Main {
     public static void main(String[] args) {
         int[] arr1 = {3, 2, 7, 4, 5, 1, 6, 7, 9};

@@ -21,7 +21,7 @@ public final class Braces {
     }
 
     private static void embrace(int leftHand, int rightHand,
-          char[] str, int index, List<String> results) {
+      char[] str, int index, List<String> results) {
         if (rightHand < leftHand || leftHand < 0) {
             return;
         }

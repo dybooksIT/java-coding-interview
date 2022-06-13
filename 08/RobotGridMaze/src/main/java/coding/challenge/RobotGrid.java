@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 import java.awt.Point;
 import java.util.Set;
 
@@ -34,6 +34,7 @@ public final class RobotGrid {
 
             return true;
         }
+
         return false;
     }
 
@@ -43,7 +44,7 @@ public final class RobotGrid {
         if (path == null || maze ==null || visitFailed == null) {
             throw new IllegalArgumentException("Path, maze and visitFailed cannot be null");
         }
-        
+
         // 격자 지도에서 벗어났기 때문에 반환합니다.
         if (m < 0 || n < 0) {
             return false;
@@ -70,7 +71,9 @@ public final class RobotGrid {
 
             return true;
         }
+
         visitFailed.add(cell);
+
         return false;
     }
 }

@@ -35,7 +35,7 @@ public final class Coins {
         if (n <= 0) {
             return -1;
         }
-        
+
         int[] coins = {25, 10, 5, 1};
         int[][] cache = new int[n + 1][coins.length];
 

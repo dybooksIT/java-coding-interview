@@ -1,5 +1,5 @@
 package coding.challenge;
- 
+
 public final class Subsets {
     private Subsets() {
         throw new AssertionError("Cannot be instantiated");
@@ -7,10 +7,10 @@ public final class Subsets {
 
     // 재귀 알고리즘 접근법
     public static void findSumRecursive(int[] arr, int index,
-          int currentSum, int givenSum, int[] subset) {
+      int currentSum, int givenSum, int[] subset) {
         if (arr == null || arr.length == 0
-                || index < 0 || currentSum < 0 || givenSum < 0
-                || subset == null || subset.length != arr.length) {
+          || index < 0 || currentSum < 0 || givenSum < 0
+          || subset == null || subset.length != arr.length) {
             throw new IllegalArgumentException("The given argument(s) are wrong");
         }
 

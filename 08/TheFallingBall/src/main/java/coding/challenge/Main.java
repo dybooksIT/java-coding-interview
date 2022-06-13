@@ -27,9 +27,10 @@ public class Main {
             for (int j = 0; j < cols; j++) {
                 System.out.format("%2s", elevations[i][j]);
             }
+
             System.out.println();
         }
-        
+
         System.out.println("Middle cell has elevation: " + elevations[rows / 2][cols / 2]);
         FallingBall.computePath(elevations[rows / 2][cols / 2], rows / 2, cols / 2, rows, cols, elevations);
 
@@ -38,6 +39,7 @@ public class Main {
             for (int j = 0; j < cols; j++) {
                 System.out.format("%2s", elevations[i][j]);
             }
+
             System.out.println();
         }
     }

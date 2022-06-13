@@ -26,6 +26,7 @@ public class Main {
             }
             System.out.println();
         }
+
         BiggestColorSpots spots = new BiggestColorSpots();
         spots.determineBiggestColorSpot(cols, rows, a);
     }

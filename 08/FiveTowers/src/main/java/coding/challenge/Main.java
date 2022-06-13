@@ -7,7 +7,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
         Set<Integer[]> solutions = new HashSet<>();
-       
+
         FiveTower.buildTowers(0, new Integer[FiveTower.GRID_SIZE], solutions);
         System.out.println("Solutions:");
 

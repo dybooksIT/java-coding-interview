@@ -43,6 +43,7 @@ public final class Josephus {
                 circle.add(eliminated);
             }
         }
+
         System.out.println("Using queue! Survivor: " + circle.peek());
     }
 }
