@@ -10,7 +10,7 @@ public class Main {
 
         System.out.println("Initial:\t\t\t\t" + Integer.toBinaryString(number));
         System.out.println("Result (clearFromMsb()):\t\t" + Integer.toBinaryString(result1));
-        
+
         System.out.println("Initial:\t\t\t\t" + Integer.toBinaryString(number));
         System.out.println("Result (clearFromPosition()):\t\t" + Integer.toBinaryString(result2));
     }

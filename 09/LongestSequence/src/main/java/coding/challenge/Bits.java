@@ -24,7 +24,7 @@ public final class Bits {
                   ? 0 : ++currentSequence;
                 flag = true;
             }
-            
+
             longestSequence = Math.max(currentSequence, longestSequence);
 
             n >>>= 1;

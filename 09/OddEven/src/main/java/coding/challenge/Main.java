@@ -10,7 +10,7 @@ public class Main {
         System.out.println("7 -> " + Bits.isOdd(7));
         System.out.println("8 -> " + Bits.isOdd(8));
         System.out.println("9 -> " + Bits.isOdd(9));
-        System.out.println("10 -> " + Bits.isOdd(10));        
+        System.out.println("10 -> " + Bits.isOdd(10));
         System.out.println("12453 -> " + Bits.isOdd(12453));
         System.out.println("12988 -> " + Bits.isOdd(12988));
     }

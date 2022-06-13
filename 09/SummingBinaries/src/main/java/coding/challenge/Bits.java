@@ -10,7 +10,7 @@ public final class Bits {
         int xor;
         int and;
         int t;
-        
+
         and = q & p;
         xor = q ^ p;
 

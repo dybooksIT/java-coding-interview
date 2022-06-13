@@ -63,7 +63,7 @@ public final class Bits {
         int marker = zeros + ones;
 
         n = n & (-1 << (marker + 1));
-        int mask = (1 << (ones + 1)) - 1; 
+        int mask = (1 << (ones + 1)) - 1;
         n = n | mask << (zeros - 1);
 
         return n;

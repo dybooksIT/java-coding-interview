@@ -7,7 +7,7 @@ public final class Bits {
     private static final int TWO_AT_22_MINUS_1 = 4194303; // (2 ^ 22) - 1 = 4194303
     private static final int EXPONENT_BIAS = 127;
     private static final int MAX_EXPONENT = 255;
-   
+
     private Bits() {
         throw new AssertionError("Cannot be instantiated");
     }

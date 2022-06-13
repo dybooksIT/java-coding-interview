@@ -12,7 +12,7 @@ public final class Bits {
 
             // 비트 중 하나 이상이 0인 경우 q에서 p를 뺍니다.
             q = q ^ p;
-            
+
             // borrow를 한 자리만큼 왼쪽으로 시프트합니다.
             p = borrow << 1;
         }

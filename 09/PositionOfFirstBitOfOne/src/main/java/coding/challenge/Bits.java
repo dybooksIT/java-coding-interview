@@ -11,7 +11,7 @@ public final class Bits {
         if(!isPowerOfTwo(n)) {
             return -1;
         }
-                
+
         while (n != 0) {
             n = n >> 1;
             ++count;

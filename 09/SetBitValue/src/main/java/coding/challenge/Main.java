@@ -10,7 +10,7 @@ public class Main {
         System.out.println("\nSetting bit on position " + position + " to 0:");
         System.out.println("Number: " + number + "(" + Integer.toBinaryString(number) + ")");
         System.out.println("Result: " + result0 + "(" + Integer.toBinaryString(result0) + ")");
-        
+
         int result1 = Bits.setValueTo1(result0, position);
 
         System.out.println("\nSetting bit  on position " + position + " to 1:");

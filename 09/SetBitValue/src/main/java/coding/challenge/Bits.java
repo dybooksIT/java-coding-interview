@@ -12,7 +12,7 @@ public final class Bits {
 
         return n | (1 << k);
     }
-    
+
     public static int setValueTo0(int n, int k) {
         if (k < 0 || k > 31) {
             throw new IllegalArgumentException("The position must be between 0 and 31");

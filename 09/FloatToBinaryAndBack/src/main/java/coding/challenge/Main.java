@@ -6,7 +6,7 @@ public class Main {
 
         int tobinary = Bits.toBinary(n);
         float tofloat = Bits.toFloat(tobinary);
-        
+
         System.out.println("N:      " + n);
         System.out.println();
         
