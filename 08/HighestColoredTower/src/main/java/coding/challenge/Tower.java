@@ -26,9 +26,9 @@ public final class Tower {
         // 폭 기준으로 상자를 내림차순으로 정렬합니다.
         boxes.forEach(System.out::println);
 
-        // 각 상자를 기본 상자(가장 아래에 위치한 상자)로
-        // 놓고 나머지 상자를 배치합니다.
+        // 각 상자를 기본 상자(가장 아래에 위치한 상자)로 놓고 나머지 상자를 배치합니다.
         int highest = 0;
+
         for (int i = 0; i < boxes.size(); i++) {
             int height = build(boxes, i);
             highest = Math.max(highest, height);
@@ -42,6 +42,7 @@ public final class Tower {
         Box current = boxes.get(base);
 
         int highest = 0;
+
         // 상자가 정렬되어 있기 때문에 [0, base + 1) 범위는 고려히지 않습니다.
         for (int i = base + 1; i < boxes.size(); i++) {
             if (boxes.get(i).canBeNext(current)) {
@@ -55,7 +56,7 @@ public final class Tower {
         return highest;
     }
 
-    // Memoization
+    // 메모이제이션
     public static int buildViaMemoization(List<Box> boxes) {
         if (boxes == null) {
             return -1;
@@ -72,8 +73,7 @@ public final class Tower {
         // 폭 기준으로 상자를 내림차순으로 정렬합니다.
         boxes.forEach(System.out::println);
 
-        // 각 상자를 기본 상자(가장 아래에 위치한 상자)로
-        // 놓고 나머지 상자를 배치합니다.
+        // 각 상자를 기본 상자(가장 아래에 위치한 상자)로 놓고 나머지 상자를 배치합니다.
         int highest = 0;
         int[] cache = new int[boxes.size()];
         for (int i = 0; i < boxes.size(); i++) {
@@ -93,6 +93,7 @@ public final class Tower {
         Box current = boxes.get(base);
 
         int highest = 0;
+
         // 상자가 정렬되어 있기 때문에 [0, base]의 범위는 고려하지 않습니다.
         for (int i = base + 1; i < boxes.size(); i++) {
             if (boxes.get(i).canBeNext(current)) {
