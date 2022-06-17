@@ -42,7 +42,7 @@ public class ParkingLot {
     }
 
     // 주차증이 있으면 출차를 위해 필요한 정보를 모두 갖춘 상태입니다.
-    public boolean unparkVehicle(ParkingTicket parkingTicket) { 
+    public boolean unparkVehicle(ParkingTicket parkingTicket) {
         return floors.get(parkingTicket.getFloorName()).unparkVehicle(parkingTicket);
     }
 

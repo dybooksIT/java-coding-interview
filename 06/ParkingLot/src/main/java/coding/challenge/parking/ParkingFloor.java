@@ -26,7 +26,7 @@ public class ParkingFloor {
         initialize(); // 주차 자리를 생성합니다.
     }
 
-    protected ParkingTicket parkVehicle(Vehicle vehicle) { 
+    protected ParkingTicket parkVehicle(Vehicle vehicle) {
         List<ParkingSpot> spots = findSpotsToFitVehicle(vehicle);
         if(spots.isEmpty()) {
             return null;
@@ -41,7 +41,7 @@ public class ParkingFloor {
     }
 
     // 주차 자리를 돌며 출차할 차량을 탐색해야 합니다.
-    protected boolean unparkVehicle(Vehicle vehicle) { 
+    protected boolean unparkVehicle(Vehicle vehicle) {
         ParkingTicket parkingTicket = findParkingTicket(vehicle);
 
         if(!parkingTickets.contains(parkingTicket)) {
@@ -139,8 +139,8 @@ public class ParkingFloor {
 
     private ParkingTicket releaseParkingTicket(Vehicle vehicle, List<ParkingSpot> spots) {
         List<String> spotsLabels = spots.stream()
-                .map(ParkingSpot::getLabel)
-                .collect(toList());
+          .map(ParkingSpot::getLabel)
+          .collect(toList());
 
         return new ParkingTicket(vehicle, spotsLabels, name);
     }

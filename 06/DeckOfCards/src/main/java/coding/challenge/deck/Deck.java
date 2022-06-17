@@ -18,12 +18,12 @@ public class Deck<T extends Card> implements Iterable<T> {
     }
 
     public List<T> dealHand(int numberOfCards) {
-        // 손을 다루는 코드
+        // 손을 다루는 코드 구현
         return null;
     }
 
     public T dealCard() {
-        // 카드 1장을 다루는 코드
+        // 카드 1장을 다루는 코드 구현
         return null;
     }
 
@@ -32,7 +32,7 @@ public class Deck<T extends Card> implements Iterable<T> {
     }
 
     public void removeCards(List<T> cards) {
-        // 카드를 제거하는 코드
+        // 카드를 제거하는 코드 구현
     }
 
     @Override
