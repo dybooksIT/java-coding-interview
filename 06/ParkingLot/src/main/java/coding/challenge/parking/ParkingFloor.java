@@ -28,6 +28,7 @@ public class ParkingFloor {
 
     protected ParkingTicket parkVehicle(Vehicle vehicle) {
         List<ParkingSpot> spots = findSpotsToFitVehicle(vehicle);
+
         if(spots.isEmpty()) {
             return null;
         } // null을 반환하는 것은 좋은 습관이 아닙니다.
@@ -49,6 +50,7 @@ public class ParkingFloor {
         }
 
         int countSpots = 0;
+
         for(ParkingSpot pl: parkingSpots.values()) {
             if(pl.getVehicle()!= null && pl.getVehicle().equals(vehicle)) {
                 boolean success = pl.removeVehicle();
@@ -74,6 +76,7 @@ public class ParkingFloor {
         }
 
         List<String> spots = parkingTicket.getParkingSpotsLabels();
+
         for(String spot: spots) {
             boolean success = parkingSpots.get(spot).removeVehicle();
             if(!success) {

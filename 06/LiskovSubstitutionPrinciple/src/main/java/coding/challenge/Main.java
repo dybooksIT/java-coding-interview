@@ -10,9 +10,9 @@ public class Main {
         System.out.println("\nApproach that doesn't follow LSP:\n");
 
         List<Member> members1 = List.of(
-                new coding.challenge.bad.PremiumMember("Jack Hores"),
-                new coding.challenge.bad.VipMember("Tom Johns"),
-                new coding.challenge.bad.FreeMember("Martin Vilop")
+          new coding.challenge.bad.PremiumMember("Jack Hores"),
+          new coding.challenge.bad.VipMember("Tom Johns"),
+          new coding.challenge.bad.FreeMember("Martin Vilop")
         );
 
         // 이 코드는 리스코프 치환 원칙을 준수합니다.
@@ -30,14 +30,14 @@ public class Main {
         System.out.println("\nApproach that follow LSP:\n");
 
         List<TournamentJoiner> members2 = List.of(
-                new coding.challenge.good.PremiumMember("Jack Hores"),
-                new coding.challenge.good.VipMember("Tom Johns"),
-                new coding.challenge.good.FreeMember("Martin Vilop")
-        );               
+          new coding.challenge.good.PremiumMember("Jack Hores"),
+          new coding.challenge.good.VipMember("Tom Johns"),
+          new coding.challenge.good.FreeMember("Martin Vilop")
+        );
         
         List<TournamentOrganizer> members3 = List.of(
-                new coding.challenge.good.PremiumMember("Jack Hores"),
-                new coding.challenge.good.VipMember("Tom Johns")
+          new coding.challenge.good.PremiumMember("Jack Hores"),
+          new coding.challenge.good.VipMember("Tom Johns")
         );
 
         // 이 코드는 리스코프 치환 원칙을 준수합니다.

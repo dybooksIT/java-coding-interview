@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Deck<T extends Card> implements Iterable<T> {
-    private final List<T> cards; // 모든 카드
+    private final List<T> cards; // 모든 카드 저장
 
     public Deck(Pack pack) {
         this.cards = pack.getCards();
