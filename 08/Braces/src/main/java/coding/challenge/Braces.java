@@ -9,13 +9,13 @@ public final class Braces {
         throw new AssertionError("Cannot be instantiated");
     }
 
-    public static List<String> embrace(int nr) {
-        if (nr <= 0) {
+    public static List<String> embrace(int n) {
+        if (n <= 0) {
             return Collections.emptyList();
         }
 
         List<String> results = new ArrayList<>();
-        embrace(nr, nr, new char[nr * 2], 0, results);
+        embrace(n, n, new char[n * 2], 0, results);
 
         return results;
     }

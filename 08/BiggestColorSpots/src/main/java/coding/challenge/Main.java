@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         int cols = 5;
         int rows = 5;
-        int colors = 3; // 각 영역은 1, 2, 3번 색을 가질 수 있습니다.
+        int color = 3; // 각 영역은 1, 2, 3번 색을 가질 수 있습니다.
 
         Random rnd = new Random();
 
@@ -15,7 +15,7 @@ public class Main {
         // 랜덤으로 색 추가
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                a[i][j] = 1 + rnd.nextInt(colors);
+                a[i][j] = 1 + rnd.nextInt(color);
             }
         }
 
