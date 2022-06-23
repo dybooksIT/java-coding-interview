@@ -35,7 +35,7 @@ public final class Arrays {
             } else if (qPointer > 0 && q[qPointer - 1] > p[pPointer]) {
                 // qPointer를 감소시켜야 합니다.
                 qPointerMax = qPointer - 1;
-            } else { // we found the poper qPointer    
+            } else { //  적합한 qPointer를 찾았습니다.
                 int maxLeft = 0;
 
                 if (qPointer == 0) { // 배열 q의 첫 번째 요소인가?

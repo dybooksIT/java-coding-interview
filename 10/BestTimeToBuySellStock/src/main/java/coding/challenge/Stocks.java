@@ -83,8 +83,7 @@ public final class Stocks {
         for (int q = 0; q < prices.length - 1; q++) {
             int diff = prices[q + 1] - prices[q];
             for (int p = k; p >= 1; p--) {
-                temp[p] = Math.max(result[p - 1]
-                        + Math.max(diff, 0), temp[p] + diff);
+                temp[p] = Math.max(result[p - 1] + Math.max(diff, 0), temp[p] + diff);
                 result[p] = Math.max(temp[p], result[p]);
             }
         }
