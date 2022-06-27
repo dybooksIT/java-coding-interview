@@ -36,6 +36,7 @@ public class MyQueueViaStack<E> {
         return r;
     }
 
+    // 원서 예제 코드를 실행하려면 showQueuesStatus 메서드 전체를 주석 처리하세요.
     public void showQueuesStatus() {
         System.out.println("====================");
         System.out.println("Enqueue stack Status");

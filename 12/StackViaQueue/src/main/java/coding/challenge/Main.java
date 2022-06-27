@@ -11,7 +11,7 @@ public class Main {
         stack.push(6);
         stack.pop();
 
-        /*
+        /* 원서 예제 코드를 실행하려면 이 주석 처리를 해제하고 위 stack.push와 pop 메서드를 주석 처리하세요.
         stack.push(25);
         stack.push(35);
         stack.push(15);

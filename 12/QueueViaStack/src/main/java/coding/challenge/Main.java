@@ -11,7 +11,7 @@ public class Main {
         stack.enqueue(6);
         stack.dequeue();
 
-        /* 원서 예제 코드를 실행하려면 이 주석 처리를 해제하고 위 stack.enqueue를 주석 처리하세요.
+        /* 원서 예제 코드를 실행하려면 이 주석 처리를 해제하고 위 stack.enqueue와 dequeue 메서드를 주석 처리하세요.
         stack.enqueue(25);
         stack.enqueue(35);
         stack.enqueue(15);

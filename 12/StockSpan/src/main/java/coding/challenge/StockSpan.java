@@ -15,7 +15,7 @@ public class StockSpan {
         Stack<Integer> dayStack = new Stack();
         int[] spanResult = new int[stockPrices.length];
 
-        spanResult[0] = 1; // 첫 번째 날의 주가 스팬은 1입니다.
+        spanResult[0] = 1;  // 첫 번째 날의 주가 스팬은 1입니다.
         dayStack.push(0);
 
         for (int i = 1; i < stockPrices.length; i++) {
@@ -28,8 +28,7 @@ public class StockSpan {
             if (dayStack.empty()) {
                 spanResult[i] = i + 1;
             } else {
-                // 현재 날짜의 가격보다 큰 가격이 있는 경우
-                // 주가 스팬은 해당 날짜와 현재 날짜의 차이입니다.
+                // 현재 날짜의 가격보다 큰 가격이 있는 경우 주가 스팬은 해당 날짜와 현재 날짜의 차이입니다.
                 spanResult[i] = i - dayStack.peek();
             }
 
