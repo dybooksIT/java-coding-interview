@@ -77,13 +77,11 @@ public class BinaryTree<T extends Comparable<T>> {
             return true;
         }
 
-        if ((minElement != null && node.element.compareTo(minElement) <= 0)
-          || (maxElement != null && node.element.compareTo(maxElement) > 0)) {
+        if ((minElement != null && node.element.compareTo(minElement) <= 0) || (maxElement != null && node.element.compareTo(maxElement) > 0)) {
             return false;
         }
 
-        if (!isBinarySearchTree(node.left, minElement, node.element)
-          || !isBinarySearchTree(node.right, node.element, maxElement)) {
+        if (!isBinarySearchTree(node.left, minElement, node.element) || !isBinarySearchTree(node.right, node.element, maxElement)) {
             return false;
         }
 

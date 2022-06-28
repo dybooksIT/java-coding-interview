@@ -45,8 +45,7 @@ public class BinarySearchTree<Temporal> {
         long t2 = Duration.between(current.element, element.plusMinutes(time)).toMinutes();
 
         if (t1 <= 0 && t2 >= 0) {
-            System.out.println("Cannot reserve the runway at "
-              + element + " for " + time + " minutes !");
+            System.out.println("Cannot reserve the runway at " + element + " for " + time + " minutes !");
 
             return current;
         }
