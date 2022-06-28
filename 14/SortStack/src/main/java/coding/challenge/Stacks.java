@@ -19,6 +19,8 @@ public final class Stacks {
             auxStack.push(t);
         }
 
+        System.out.println("Sorting: " + auxStack);
+
         // 2단계: 'auxStack'에서 요소를 다시 'stack'으로 복사
         while (!auxStack.isEmpty()) {
             stack.push(auxStack.pop());
