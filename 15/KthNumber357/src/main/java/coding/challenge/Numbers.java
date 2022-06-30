@@ -55,7 +55,7 @@ public final class Numbers {
         Queue<Integer> queue7 = new ArrayDeque<>();
 
         // 배열의 예
-        // 1, 3, 5, 7, 3 * 3, 3 * 5, 3 *7, 5 * 5, 3 * 3 * 3, 5 * 7, 3 * 3 * 5, 7 * 7 ...
+        // 1, 3, 5, 7, 3 * 3, 3 * 5, 3 * 7, 5 * 5, 3 * 3 * 3, 5 * 7, 3 * 3 * 5, 7 * 7 ...
         for (int i = 1; i < k; i++) {
             queue3.add(minElem * 3);
             queue5.add(minElem * 5);
