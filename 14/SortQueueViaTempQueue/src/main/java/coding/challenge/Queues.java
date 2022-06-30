@@ -20,18 +20,16 @@ public final class Queues {
         boolean sorted = false;   // 정렬 완료 여부를 기록합니다.
 
         int queueSize = queue.size();   // 주어진 큐의 크기
-        int lastElement = queue.peek(); // 주어진 큐의 프런트에서부터 시작합니다.
+        int lastElement = queue.peek(); // 주어진 큐의 프런트(front)에서부터 시작합니다.
 
         while (!sorted) {
-            // 1단계: 추가 큐에 추가된 마지막 요소가
-            // 주어진 큐의 앞 요소보다 작거나 같으면 지정된 큐에서
-            // 앞 요소를 폴링하고 추가 큐에 푸시합니다.
+            // 1단계: 추가 큐에 추가된 마지막 요소가 주어진 큐의 앞 요소보다 작거나 같으면
+            // 지정된 큐에서 앞 요소를 폴링하고 추가 큐에 푸시합니다.
             if (lastElement <= queue.peek()) {
                 lastElement = queue.poll();
                 extraQueue.add(lastElement);
-            } // 2단계: 추가 큐에 추가된 마지막 요소가
-              // 주어진 큐의 앞 요소보다 크면 지정된 큐에서
-              // 앞 요소를 폴링하여 지정된 큐의 뒤쪽에 다시 넣습니다(나중에 처리됨).
+            } // 2단계: 추가 큐에 추가된 마지막 요소가 주어진 큐의 앞 요소보다 크면
+              // 지정된 큐에서 앞 요소를 폴링하여 지정된 큐의 뒤쪽에 다시 넣습니다(나중에 처리됨).
             else {
                 queue.add(queue.poll());
             }
