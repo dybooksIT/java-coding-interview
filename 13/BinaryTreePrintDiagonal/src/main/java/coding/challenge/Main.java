@@ -8,7 +8,7 @@ public class Main {
              /    \         /    \
             11     31     44      52
            /  \   /  \   /  \    /  \
-          12   9 5   45 2   `1  7    9
+          12   9 5   45 2    1  7    9
         */
         BinaryTree<Integer> bt = new BinaryTree<>();
 
