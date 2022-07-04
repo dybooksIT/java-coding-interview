@@ -78,17 +78,17 @@ public class BinaryTree {
     }
 
     private boolean isIsomorphic(Node treeOne, Node treeTwo) {
-        // 1단계: T1과 T2가 null이면 동형이므로 true를 반환합니다.
+        // 1단계: treeOne(T1)과 treeTwo(T2)가 null이면 동형이므로 true를 반환합니다.
         if (treeOne == null && treeTwo == null) {
             return true;
         }
 
-        // 2단계: T1 또는 T2가 null이면 동형이 아니므로 false를 반환합니다.
+        // 2단계: trewOne 또는 treeTwo가 null이면 동형이 아니므로 false를 반환합니다.
         if ((treeOne == null || treeTwo == null)) {
             return false;
         }
 
-        // 3단계: T1.data가 T2.data와 다르면 동형이 아니므로 false를 반환합니다.
+        // 3단계: treeOne.element가 treeTwo.element와 다르면 동형이 아니므로 false를 반환합니다.
         if (!treeOne.element.equals(treeTwo.element)) {
             return false;
         }

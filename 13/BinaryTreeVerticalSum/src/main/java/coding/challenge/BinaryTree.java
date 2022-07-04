@@ -80,12 +80,10 @@ public class BinaryTree<T> {
 
         map.put(dist, map.get(dist) + root.element);
 
-        // 함수형 스타일로 구현하려면
-        /*
+        /* 함수형 스타일로 구현하려면
         BiFunction<Integer, Integer, Integer> distFunction
           = (distOld, distNew) -> distOld + distNew;
-        map.merge(dist, root.element, distFunction);
-        */
+        map.merge(dist, root.element, distFunction);  */
 
         // 수평 거리를 1 감소시키고 왼쪽으로 이동합니다.
         verticalSum(root.left, map, dist - 1);
