@@ -24,8 +24,7 @@ public class Graph<T> {
 
         List<T> adjacents = adjacencyList.get(from);
 
-        // 지금까지 간선이 없었던 요소를 추가하므로
-        // 요소를 추가한 후 인접 요소의 빈 리스트를 만들어야 합니다.
+        // 지금까지 간선이 없었던 요소를 추가하므로 요소를 추가한 후 인접 요소의 빈 리스트를 만들어야 합니다.
         if (adjacents == null) {
             List list = new ArrayList<>();
             list.add(to);

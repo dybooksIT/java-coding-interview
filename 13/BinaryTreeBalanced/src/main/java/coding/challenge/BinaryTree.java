@@ -93,7 +93,6 @@ public class BinaryTree<T extends Comparable<T>> {
 
         return Math.max(height(root.left), height(root.right)) + 1;
     }
-
     // O(n log n)의 첫 번째 재귀적 접근 방식 - 종료
 
     // O(n) 시간 복잡도 및 O(h) 공간 복잡도에서의 두 번째 재귀적 접근 방식 - 시작(h는 트리 높이)
