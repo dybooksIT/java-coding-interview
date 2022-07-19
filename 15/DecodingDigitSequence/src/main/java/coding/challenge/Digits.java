@@ -20,7 +20,7 @@ public final class Digits {
         int count = 0;
 
         // 마지막 숫자가 0이 아니면 마지막 숫자를 단어 수에 더해야 합니다.
-        if (digits[n - 1] > '0') {
+        if (digits[n - 1] != '0') {
             count = decoding(digits, n - 1);
         }
 
@@ -52,7 +52,7 @@ public final class Digits {
             count[i] = 0;
 
             // 마지막 숫자가 0이 아니면 마지막 숫자를 단어 수에 더해야 합니다.
-            if (digits[i - 1] > '0') {
+            if (digits[i - 1] != '0') {
                 count[i] = count[i - 1];
             }
 
