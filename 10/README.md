@@ -1,2 +1,2 @@
-# Arrays and strings
-This chapter covers 29 popular problems involving strings and arrays. 
+# 배열과 문자열(Arrays and strings)
+이 장에서는 배열 및 문자열과 관련된 29가지 인기 있는 코딩 테스트를 다룹니다.

@@ -1,2 +1,2 @@
-# Concurrency
-This chapter covers the most popular questions about Java concurrency (multithreading) that occur in general interviews involving the Java language.
+# 동시성(Concurrency)
+이 장에서는 자바와 관련된 일반적인 기술 인터뷰에서 발생하는 동시성(멀티스레딩)에 대한 가장 인기 있는 질문을 다룹니다.

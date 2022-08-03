@@ -1,2 +1,2 @@
-# Recursion and Dynamic Programming
-This chapter covers one of the favorite topics of interviewers – recursion and Dynamic Programming. Both of these topics work hand in hand with each other, so you have to be able to cover both.
+# 재귀 및 동적 프로그래밍(Recursion and Dynamic Programming)
+이 장에서는 면접관이 가장 좋아하는 주제 중 하나인 재귀와 동적 프로그래밍을 다룹니다. 두 가지 주제는 서로 밀접하게 연관되어 있으므로 모두 다룰 수 있어야 합니다.

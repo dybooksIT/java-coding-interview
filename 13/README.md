@@ -1,2 +1,2 @@
-# Trees and graphs
-This chapter covers one of the most tricky topics in interviews – trees and graphs. While there are tons of problems related to these two topics, only a handful of them are actually encountered in interviews. It is therefore very important to give a high priority to the most popular problems concerning trees and graphs.
+# 트리와 그래프(Trees and graphs)
+이 장에서는 기술 인터뷰에서 가장 까다로운 주제 중 하나인 트리와 그래프를 다룹니다. 이 두 가지 주제와 관련된 수많은 문제가 있지만 인터뷰에서 실제로 접하는 것은는 소수입니다. 따라서 트리 및 그래프와 관련된 가장 인기 있는 코딩 테스트에 높은 우선순위를 부여하는 것이 매우 중요합니다.

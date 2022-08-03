@@ -1,2 +1,2 @@
-# Linked lists and maps
-This chapter teaches you the 17 most famous coding challenges that involve maps and linked lists encountered in interviews. 
+# 연결 리스트와 맵(Linked lists and maps)
+이 장에서는 기술 인터뷰에서 접하는 연결 리스트 및 맵과 관련된 17가지 가장 유명한 코딩 테스트를 설명합니다.

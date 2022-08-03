@@ -1,2 +1,2 @@
-# Linked lists and maps
-This chapter explains the 11 most popular interview coding challenges involving stacks and queues. Mainly, you have to learn how to provide a stack/queue implementation from scratch and how to tackle coding challenges via the Java built-in implementations.
+# 스택과 큐(Stacks and Queues)
+이 장에서는 스택 및 큐와 관련된 가장 인기 있는 11가지 코딩 테스트를 설명합니다. 처음부터 스택/큐 구현을 제공하는 방법과 자바에 내장된 기능을 통해 코딩 테스트를 해결하는 방법을 배웁니다.

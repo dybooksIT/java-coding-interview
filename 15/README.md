@@ -1,3 +1,2 @@
-# Math and logical puzzles
-This chapter talks about a controversial topic in interviews: mathematics and puzzle problems. A significant number of companies consider that these
-kinds of problems should not be part of a technical interview, while other companies still regard this topic as relevant for interviews.
+# 수학과 퍼즐(Math and logical puzzles)
+이 장에서는 기술 인터뷰에서 논란이 되는 주제인 수학 및 퍼즐 문제를 설명합니다. 상당수의 회사는 이러한 종류의 문제가 기술 인터뷰의 일부가 되어서는 안 된다고 생각합니다. 하지만 다른 회사는 여전히 이 주제를 기술 인터뷰과 관련이 있다고 여깁니다.

@@ -1,3 +1,2 @@
-# Math and logical puzzles
-This chapter talks about a controversial topic in interviews: mathematics and puzzle problems. A significant number of companies consider that these
-kinds of problems should not be part of a technical interview, while other companies still regard this topic as relevant for interviews.
+# 함수형 프로그래밍(Functional-Style Programming)
+함수형 프로그래밍으로 작성한 코드는 이해하기 쉽고, 유지보수 및 테스트도 쉽다는 장점이 있습니다. 그러나 함수형으로 자바 코드를 작성하려면 람다, 스트림 API, Optional, 함수형 인터페이스 등 깊이 있는 함수형 프로그래밍 지식이 필요합니다. 이러한 모든 함수형 프로그래밍 주제는 기술 인터뷰에 나올 수 있습니다. 17장에서는 자바 기술 인터뷰를 통과하려면 반드시 알아야 하는 몇 가지 유명한 질문을 다룹니다.

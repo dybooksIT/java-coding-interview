@@ -1,2 +1,2 @@
-# Unit testing
-This chapter talks about unit-testing interview problems that you may encounter if you apply for a position such as a developer or software engineer. Of course, if you are looking for a tester (manual/automation) position, then this chapter may represent just another perspective on testing. Therefore, do not expect to see questions here specific to manual/automation tester positions.
+# 단위 테스트(Unit testing)
+이 장에서는 개발자나 소프트웨어 엔지니어와 같은 직책에 지원할 때 질문할 수 있는 단위 테스트 인터뷰 문제를 설명합니다. 다만 (수동 혹은 자동) 테스트 직군에 지원하고자 한다면, 이 장은 테스트에 대한 어떤 한 관점에 불과합니다. 테스트 직군에 특화한 질문을 다루지는 않는다는 점을 참고해주세요.

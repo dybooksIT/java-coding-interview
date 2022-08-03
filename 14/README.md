@@ -1,3 +1,2 @@
-# Sorting and searching 
-This chapter covers the most popular sorting and searching algorithms encountered in technical interviews. We will cover sorting algorithms such
-as Merge Sort, Quick Sort, Radix Sort, Heap Sort, and Bucket Sort, and searching algorithms such as Binary Search. By the end of this chapter, you should be able to tackle a wide range of problems that involve sorting and searching algorithms.
+# 정렬과 검색(Sorting and searching) 
+이 장에서는 기술 인터뷰에서 가장 많이 사용되는 정렬과 검색 알고리즘을 다룹니다. 병합 정렬, 빠른 정렬, 기수 정렬, 힙 정렬, 버킷 정렬과 같은 정렬 알고리즘과 이진 검색과 같은 검색 알고리즘을 다룹니다. 이 장이 끝나면 정렬 및 검색 알고리즘과 관련된 광범위한 문제를 해결할 수 있을 것입니다.
