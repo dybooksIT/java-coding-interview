@@ -8,7 +8,7 @@
 저장소를 클론하지 않을 분은 [이곳](https://bit.ly/3OPfRhi)을 눌러서 예제 파일을 다운로드하세요.
 
 ## 구매하기
-[교보문고](https://bit.ly/3wqgUxd) | [YES24](https://bit.ly/3P3kuWf) | [알라딘](https://bit.ly/3vLYwQ2) | [인터파크](https://bit.ly/3OZJEoQ)
+[교보문고](https://bit.ly/3ddzVNj) | [알라딘](https://bit.ly/3A3Konm) | [YES24](https://bit.ly/3A3FXsB) | [인터파크](https://bit.ly/3bG7N51)
 
 ## 책 소개
 
